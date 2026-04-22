@@ -1,54 +1,48 @@
-﻿# Postman - Projet RouteWatch
+# Postman Documentation - Projet RouteWatch
 
-## Fichiers a importer (directement)
+## Files to import
+- `documentation/postman/ProjetRoute.postman_collection.new.json`
+- `documentation/postman/ProjetRoute.local.postman_environment.json`
 
-- Collection: `documentation/postman/ProjetRoute.postman_collection.json`
-- Environnement local: `documentation/postman/ProjetRoute.local.postman_environment.json`
+A standard alias is also provided:
+- `documentation/postman/ProjetRoute.postman_collection.json`
 
-Ces deux fichiers sont preconfigures pour fonctionner sans edition manuelle apres import.
+## Direct import (no manual setup)
+1. Open Postman
+2. Click `Import`
+3. Import the collection and environment files above
+4. Select environment `ProjetRoute Local`
+5. Run `01 - Auth > POST /api/auth/login (manager)` first
 
-## Couverture fonctionnelle
+The login request stores `authToken` automatically for protected endpoints.
 
-La collection couvre toutes les routes backend exposees par les controllers Spring Boot:
+## Default values (already prefilled)
+- `baseUrl`: `http://localhost:8082`
+- `managerEmail`: `adminfirebase@gmail.com`
+- `managerPassword`: `admin1234`
+- IDs (`signalementId`, `travauxId`, etc.) are auto-filled by test scripts
 
-- Health & docs (`/`, `/api/auth/test`, Swagger, OpenAPI)
-- Auth (login/register, mobile, firebase, users, params, lock, logout)
-- Entreprises (CRUD)
-- Lieux (CRUD + recherche par ville)
-- Signalements (CRUD + sync + stats + notifications)
-- Travaux (CRUD + historique + stats)
-- Historiques travaux (CRUD)
-- Sync (`/api/sync/full`, `/firebase-to-local`, `/local-to-firebase`)
-- Analytics (`criticality`, `audit`, `impact`, `blocked-users`)
-- Presence sync (`heartbeat`, `pending-sync`, `ack-sync`, `web/mobile-active`)
-- Discovery & visitor (`/api/discovery/ping`, `/api/visitors/signalements`)
+## Functional coverage
+The collection includes all backend REST functionalities from controllers:
+- Health + docs
+- Auth + users + params + lock management
+- Entreprises
+- Lieux
+- Signalements
+- Travaux
+- Historiques travaux
+- Sync
+- Analytics
+- Presence sync
+- Discovery + visitor endpoints
+- Cleanup
 
-## Variables deja configurees
-
-Exemples:
-
-- `baseUrl = http://localhost:8082`
-- `managerEmail = rojo.rabenanahary@gmail.com`
-- `managerPassword = admin1234`
-- IDs de travail (`signalementId`, `travauxId`, `entrepriseId`, etc.)
-
-Les IDs et le token sont remplis automatiquement par les scripts Postman sur les requetes de creation/login.
-
-## Import dans Postman
-
-1. Ouvrir Postman.
-2. `Import` -> selectionner les 2 fichiers JSON ci-dessus.
-3. Choisir l'environnement `ProjetRoute Local`.
-4. Executer `01 - Auth / POST /api/auth/login (manager)` pour initialiser `authToken`.
-
-## Execution Newman (CI/CLI)
-
+## Newman (CLI)
 ```bash
-newman run documentation/postman/ProjetRoute.postman_collection.json -e documentation/postman/ProjetRoute.local.postman_environment.json
+newman run documentation/postman/ProjetRoute.postman_collection.new.json -e documentation/postman/ProjetRoute.local.postman_environment.json --bail
 ```
 
-## URL utiles
-
-- API backend: `http://localhost:8082`
-- Swagger UI: `http://localhost:8082/swagger-ui/index.html`
-- OpenAPI JSON: `http://localhost:8082/v3/api-docs`
+## Quick troubleshooting
+- `401`: run login request again to refresh `authToken`
+- `404`: verify backend is running on `http://localhost:8082`
+- `500`: check backend logs and database connectivity

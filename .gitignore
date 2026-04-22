@@ -114,3 +114,6 @@ docker-compose.override.yml
 # Screenshots (IDE artifacts)
 Capture d'écran*.png
 Screenshot*.png
+
+# Private files not meant for version control
+lettre_et _demande_d_excuse/
