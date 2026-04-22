@@ -5,6 +5,7 @@ import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Info;
 import io.swagger.v3.oas.models.security.SecurityRequirement;
 import io.swagger.v3.oas.models.security.SecurityScheme;
+import io.swagger.v3.oas.models.servers.Server;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -16,10 +17,12 @@ public class OpenApiConfig {
         final String bearerScheme = "bearerAuth";
 
         return new OpenAPI()
+                // Relative server URL keeps Swagger usable on any host/IP without manual edits.
+                .addServersItem(new Server().url("/").description("Current server"))
                 .info(new Info()
-                        .title("Route API")
-                        .version("1.0")
-                        .description("API pour la gestion des signalements de routes"))
+                        .title("RouteWatch API")
+                        .version("1.1")
+                        .description("API de gestion des signalements, travaux, synchronisation et analytics"))
                 .components(new Components()
                         .addSecuritySchemes(
                                 bearerScheme,

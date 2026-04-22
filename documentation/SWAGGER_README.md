@@ -1,35 +1,24 @@
-﻿# Swagger - Projet RouteWatch
+# Swagger Documentation - Projet RouteWatch
 
-## Acces direct
-Apres demarrage du backend, Swagger est accessible sans configuration manuelle:
-
+## Direct access
 - UI: `http://localhost:8082/swagger-ui/index.html`
 - OpenAPI JSON: `http://localhost:8082/v3/api-docs`
-- OpenAPI YAML: `http://localhost:8082/v3/api-docs.yaml`
 
-## Prerequis
+Swagger is configured to work directly on the current host (`/` server URL), so it opens correctly on any machine/IP without manual server override.
 
-1. Demarrer le projet (`docker compose up -d`) ou lancer le backend Spring Boot localement.
-2. Verifier que le backend ecoute sur `8082`.
+## Authentication
+Swagger provides `Authorize` with JWT Bearer.
 
-## Utilisation rapide
+1. Run `POST /api/auth/login`
+2. Copy `token` from the response
+3. Click `Authorize`
+4. Paste: `Bearer <token>`
 
-1. Ouvrir `http://localhost:8082/swagger-ui/index.html`.
-2. Cliquer sur `Authorize`.
-3. Coller le token JWT (format: `Bearer <token>`).
-4. Tester les endpoints via `Try it out`.
+## Requirements
+- Backend started (Docker or local)
+- Default backend port: `8082`
 
-## Notes techniques
-
-- Swagger est expose par `springdoc-openapi`.
-- Les routes de documentation sont publiques dans la securite Spring:
-  - `/swagger-ui/**`
-  - `/v3/api-docs/**`
-- Le schema JWT Bearer est declare dans la configuration OpenAPI pour un usage direct du bouton `Authorize`.
-
-## Lien Postman
-
-Collection et environnement prets a importer:
-
-- `documentation/postman/ProjetRoute.postman_collection.json`
-- `documentation/postman/ProjetRoute.local.postman_environment.json`
+## Notes
+- Swagger endpoint is public in security config.
+- All controllers are auto-documented by Springdoc (`springdoc-openapi-starter-webmvc-ui`).
+- Postman files are in `documentation/postman/`.
