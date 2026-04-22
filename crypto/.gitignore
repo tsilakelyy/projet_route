@@ -1,0 +1,51 @@
+# Dependencies
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Build outputs
+dist/
+build/
+*.log
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+.DS_Store
+
+# OS
+Thumbs.db
+$RECYCLE.BIN/
+ehthumbs.db
+*.swp
+*.swo
+*~
+
+# Logs
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+hs_err_pid*.log
+replay_pid*.log
+
+# Misc
+.cache/
+.temp/
+tmp/
+temp/
+
+# Config files (if sensitive)
+.npmrc
+
+# Firebase
+google-services.json
+firebase-service-account*.json

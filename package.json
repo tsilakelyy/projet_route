@@ -1,0 +1,31 @@
+{
+  "name": "projet-route-root",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "sync:db:initsql": "node documentation/scripts/scripts/sync-init-sql.mjs",
+    "install:carte": "npm --prefix crypto ci --no-audit --no-fund",
+    "install:web": "npm --prefix front-crypto ci --no-audit --no-fund",
+    "install:mobile": "npm --prefix mobile ci --legacy-peer-deps --no-audit --no-fund",
+    "install:all:local": "npm run install:carte && npm run install:web && npm run install:mobile",
+    "install:all": "echo Dependencies are managed by Docker images. Use npm run docker:up",
+    "build:web:local": "npm --prefix front-crypto run build",
+    "build:mobile:local": "npm --prefix mobile run build:ci",
+    "build:backend": "docker compose build backend",
+    "build:web": "docker compose build web",
+    "build:mobile": "docker compose build mobile",
+    "build:all": "npm run build:backend && npm run build:web && npm run build:mobile",
+    "docker:build": "docker compose build",
+    "docker:build:stable": "node ./scripts/docker-build-stable.mjs",
+    "docker:build:stable:nocache": "node ./scripts/docker-build-stable.mjs --no-cache --retries=2 --delay=20",
+    "docker:build:stable:carte": "node ./scripts/docker-build-stable.mjs --services=carte",
+    "docker:build:stable:web": "node ./scripts/docker-build-stable.mjs --services=web",
+    "docker:build:stable:mobile:nocache": "node ./scripts/docker-build-stable.mjs --services=mobile --no-cache --retries=2 --delay=15",
+    "docker:up": "docker compose up -d --build",
+    "docker:down": "docker compose down",
+    "clean:generated": "node documentation/scripts/scripts/prepare-submission.mjs --clean-only",
+    "prepare:submission": "node documentation/scripts/scripts/prepare-submission.mjs",
+    "port-assistant": "node documentation/scripts/scripts/port-assistant.mjs",
+    "seed:firebase-demo": "node documentation/scripts/scripts/seed-firebase-demo-users.mjs"
+  }
+}

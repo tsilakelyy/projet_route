@@ -1,0 +1,22 @@
+{
+  "options": {
+    "paths": {
+      "root": "",
+      "styles": "styles",
+      "mbtiles" ""
+    }
+  },
+  "styles": {
+    "bright": {
+      "style": "bright/style.json",
+      "tilejson": {
+        "bounds": [47.37, -19.025, 47.679, -18.772]
+      }
+    }
+  },
+  "data": {
+    "antananarivo": {
+      "mbtiles": "osm-2020-02-10-v3.11_madagascar_antananarivo.mbtiles"
+    }
+  }
+}

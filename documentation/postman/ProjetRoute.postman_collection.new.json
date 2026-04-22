@@ -1,0 +1,1406 @@
+{
+  "info": {
+    "name": "Projet RouteWatch API",
+    "description": "Collection Postman complete alignee sur les endpoints backend Spring Boot (auth, CRUD, sync, analytics, presence, discovery).",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8082"
+    },
+    {
+      "key": "authToken",
+      "value": ""
+    },
+    {
+      "key": "managerEmail",
+      "value": "rojo.rabenanahary@gmail.com"
+    },
+    {
+      "key": "managerPassword",
+      "value": "admin1234"
+    },
+    {
+      "key": "mobileEmail",
+      "value": "mobile.user@example.com"
+    },
+    {
+      "key": "mobilePassword",
+      "value": "mobile123"
+    },
+    {
+      "key": "mobileFirebaseUserId",
+      "value": "mobile-user-1"
+    },
+    {
+      "key": "targetUserId",
+      "value": "1"
+    },
+    {
+      "key": "entrepriseId",
+      "value": "1"
+    },
+    {
+      "key": "lieuId",
+      "value": "1"
+    },
+    {
+      "key": "signalementId",
+      "value": "1"
+    },
+    {
+      "key": "travauxId",
+      "value": "1"
+    },
+    {
+      "key": "historiqueId",
+      "value": "1"
+    },
+    {
+      "key": "syncRequestId",
+      "value": "1"
+    },
+    {
+      "key": "sinceIso",
+      "value": "2026-01-01T00:00:00"
+    },
+    {
+      "key": "webClientId",
+      "value": "manager-dashboard"
+    },
+    {
+      "key": "mobileClientId",
+      "value": "mobile-app"
+    },
+    {
+      "key": "paramKey",
+      "value": "limite_tentatives"
+    },
+    {
+      "key": "ville",
+      "value": "Antananarivo"
+    }
+  ],
+  "item": [
+    {
+      "name": "00 - Health & Docs",
+      "item": [
+        {
+          "name": "GET /",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/"
+          }
+        },
+        {
+          "name": "GET /api/auth/test",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/api/auth/test"
+          }
+        },
+        {
+          "name": "GET /swagger-ui/index.html",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/swagger-ui/index.html"
+          }
+        },
+        {
+          "name": "GET /v3/api-docs",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/v3/api-docs"
+          }
+        }
+      ]
+    },
+    {
+      "name": "01 - Auth",
+      "item": [
+        {
+          "name": "POST /api/auth/login (manager)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/auth/login",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"{{managerEmail}}\",\n  \"password\": \"{{managerPassword}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('status 200', function () { pm.response.to.have.status(200); });",
+                  "var data = {}; try { data = pm.response.json(); } catch (e) {}",
+                  "if (data && data.token) pm.collectionVariables.set('authToken', data.token);",
+                  "if (data && data.user && data.user.idUtilisateur) pm.collectionVariables.set('targetUserId', String(data.user.idUtilisateur));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "POST /api/auth/register",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/auth/register",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nomUtilisateur\": \"visitor.postman\",\n  \"email\": \"visitor.postman@example.com\",\n  \"password\": \"visitor123\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "POST /api/auth/firebase-login",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/auth/firebase-login",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"token\": \"FIREBASE_ID_TOKEN\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "POST /api/auth/firebase-register",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/auth/firebase-register",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"token\": \"FIREBASE_ID_TOKEN\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "POST /api/auth/mobile-login",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/auth/mobile-login",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"{{mobileEmail}}\",\n  \"nomUtilisateur\": \"mobile.postman\",\n  \"sourceAuth\": \"mobile\",\n  \"firebaseUid\": \"{{mobileFirebaseUserId}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "POST /api/auth/mobile-bootstrap",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": "{{baseUrl}}/api/auth/mobile-bootstrap"
+          }
+        },
+        {
+          "name": "POST /api/auth/report-failed-login",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/auth/report-failed-login",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"{{mobileEmail}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "POST /api/auth/check-blocked",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/auth/check-blocked",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"{{mobileEmail}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "GET /api/auth/params",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/api/auth/params"
+          }
+        },
+        {
+          "name": "PUT /api/auth/params/{{paramKey}}",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{authToken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/auth/params/{{paramKey}}",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"valeur\": \"3\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "GET /api/auth/users",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{authToken}}"
+              }
+            ],
+            "url": "{{baseUrl}}/api/auth/users"
+          }
+        },
+        {
+          "name": "POST /api/auth/users",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{authToken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/auth/users",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nomUtilisateur\": \"api.user.postman\",\n  \"email\": \"{{mobileEmail}}\",\n  \"password\": \"{{mobilePassword}}\",\n  \"role\": \"UTILISATEUR\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "PUT /api/auth/users/{{targetUserId}}",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{authToken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/auth/users/{{targetUserId}}",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nomUtilisateur\": \"manager.updated\",\n  \"email\": \"{{managerEmail}}\",\n  \"password\": \"{{managerPassword}}\",\n  \"role\": \"MANAGER\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "DELETE /api/auth/users/{{targetUserId}}",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{authToken}}"
+              }
+            ],
+            "url": "{{baseUrl}}/api/auth/users/{{targetUserId}}"
+          }
+        },
+        {
+          "name": "POST /api/auth/reset-lock/{{targetUserId}}",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{authToken}}"
+              }
+            ],
+            "url": "{{baseUrl}}/api/auth/reset-lock/{{targetUserId}}"
+          }
+        },
+        {
+          "name": "POST /api/auth/logout",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{authToken}}"
+              }
+            ],
+            "url": "{{baseUrl}}/api/auth/logout"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.collectionVariables.set('authToken', '');"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "02 - Entreprises",
+      "item": [
+        {
+          "name": "GET /api/entreprises",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/api/entreprises"
+          }
+        },
+        {
+          "name": "GET /api/entreprises/{{entrepriseId}}",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/api/entreprises/{{entrepriseId}}"
+          }
+        },
+        {
+          "name": "POST /api/entreprises",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{authToken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/entreprises",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nom\": \"Entreprise Postman\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "var data = {}; try { data = pm.response.json(); } catch (e) {}",
+                  "var id = data && (data.idEntreprise || data.id);",
+                  "if (id !== undefined && id !== null) pm.collectionVariables.set('entrepriseId', String(id));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "PUT /api/entreprises/{{entrepriseId}}",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{authToken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/entreprises/{{entrepriseId}}",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nom\": \"Entreprise Postman Updated\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "DELETE /api/entreprises/{{entrepriseId}}",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{authToken}}"
+              }
+            ],
+            "url": "{{baseUrl}}/api/entreprises/{{entrepriseId}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "03 - Lieux",
+      "item": [
+        {
+          "name": "GET /api/lieux",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/api/lieux"
+          }
+        },
+        {
+          "name": "GET /api/lieux/{{lieuId}}",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/api/lieux/{{lieuId}}"
+          }
+        },
+        {
+          "name": "GET /api/lieux/ville/{{ville}}",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/api/lieux/ville/{{ville}}"
+          }
+        },
+        {
+          "name": "POST /api/lieux",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{authToken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/lieux",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"libelle\": \"Ankorondrano\",\n  \"ville\": \"Antananarivo\",\n  \"description\": \"Zone de test Postman\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "var data = {}; try { data = pm.response.json(); } catch (e) {}",
+                  "var id = data && (data.idLieux || data.idLieu || data.id);",
+                  "if (id !== undefined && id !== null) pm.collectionVariables.set('lieuId', String(id));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "PUT /api/lieux/{{lieuId}}",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{authToken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/lieux/{{lieuId}}",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"libelle\": \"Ankorondrano Updated\",\n  \"ville\": \"Antananarivo\",\n  \"description\": \"MAJ lieu via Postman\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "DELETE /api/lieux/{{lieuId}}",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{authToken}}"
+              }
+            ],
+            "url": "{{baseUrl}}/api/lieux/{{lieuId}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "04 - Signalements",
+      "item": [
+        {
+          "name": "GET /api/signalements",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/api/signalements"
+          }
+        },
+        {
+          "name": "GET /api/signalements/{{signalementId}}",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/api/signalements/{{signalementId}}"
+          }
+        },
+        {
+          "name": "GET /api/signalements/user/{{mobileFirebaseUserId}}",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/api/signalements/user/{{mobileFirebaseUserId}}"
+          }
+        },
+        {
+          "name": "GET /api/signalements/notifications/{{mobileFirebaseUserId}}?since={{sinceIso}}",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/api/signalements/notifications/{{mobileFirebaseUserId}}?since={{sinceIso}}"
+          }
+        },
+        {
+          "name": "GET /api/signalements/stats",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/api/signalements/stats"
+          }
+        },
+        {
+          "name": "GET /api/signalements/sync",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{authToken}}"
+              }
+            ],
+            "url": "{{baseUrl}}/api/signalements/sync"
+          }
+        },
+        {
+          "name": "POST /api/signalements/sync",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{authToken}}"
+              }
+            ],
+            "url": "{{baseUrl}}/api/signalements/sync"
+          }
+        },
+        {
+          "name": "POST /api/signalements",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/signalements",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"surface\": 12.5,\n  \"latitude\": -18.8792,\n  \"longitude\": 47.5079,\n  \"idUser\": \"{{mobileFirebaseUserId}}\",\n  \"typeProbleme\": \"nid-de-poule\",\n  \"description\": \"Signalement cree via Postman\",\n  \"statut\": \"nouveau\",\n  \"niveau\": 4,\n  \"photos\": [\n    {\n      \"url\": \"https://example.com/photo1.jpg\",\n      \"addedBy\": \"postman\",\n      \"addedAt\": \"2026-01-20T10:00:00\"\n    }\n  ],\n  \"lieu\": {\n    \"idLieux\": \"{{lieuId}}\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "var data = {}; try { data = pm.response.json(); } catch (e) {}",
+                  "var id = data && (data.idSignalement || data.id);",
+                  "if (id !== undefined && id !== null) pm.collectionVariables.set('signalementId', String(id));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "PUT /api/signalements/{{signalementId}}",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{authToken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/signalements/{{signalementId}}",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"description\": \"Mise a jour signalement via Postman\",\n  \"statut\": \"en cours\",\n  \"niveau\": 5\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "PUT /api/signalements/{{signalementId}}/statut",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{authToken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/signalements/{{signalementId}}/statut",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"statut\": \"termine\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "DELETE /api/signalements/{{signalementId}}",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{authToken}}"
+              }
+            ],
+            "url": "{{baseUrl}}/api/signalements/{{signalementId}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "05 - Travaux",
+      "item": [
+        {
+          "name": "GET /api/travaux",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/api/travaux"
+          }
+        },
+        {
+          "name": "GET /api/travaux/{{travauxId}}",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/api/travaux/{{travauxId}}"
+          }
+        },
+        {
+          "name": "GET /api/travaux/stats",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/api/travaux/stats"
+          }
+        },
+        {
+          "name": "GET /api/travaux/stats/delais",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/api/travaux/stats/delais"
+          }
+        },
+        {
+          "name": "POST /api/travaux",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{authToken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/travaux",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"signalement\": {\n    \"idSignalement\": \"{{signalementId}}\"\n  },\n  \"entreprise\": {\n    \"idEntreprise\": \"{{entrepriseId}}\"\n  },\n  \"budget\": 500000,\n  \"avancement\": 0,\n  \"dateDebutTravaux\": \"2026-01-20\",\n  \"dateFinTravaux\": \"2026-01-25\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "var data = {}; try { data = pm.response.json(); } catch (e) {}",
+                  "var id = data && (data.idTravaux || data.id);",
+                  "if (id !== undefined && id !== null) pm.collectionVariables.set('travauxId', String(id));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "PUT /api/travaux/{{travauxId}}",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{authToken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/travaux/{{travauxId}}",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"budget\": 650000,\n  \"avancement\": 35,\n  \"dateDebutTravaux\": \"2026-01-20\",\n  \"dateFinTravaux\": \"2026-01-28\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "POST /api/travaux/{{travauxId}}/historique",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{authToken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/travaux/{{travauxId}}/historique",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"avancement\": 45,\n  \"commentaire\": \"Progression renseignee depuis Postman\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "var data = {}; try { data = pm.response.json(); } catch (e) {}",
+                  "var id = data && (data.idHistoriquesTravaux || data.id);",
+                  "if (id !== undefined && id !== null) pm.collectionVariables.set('historiqueId', String(id));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "DELETE /api/travaux/{{travauxId}}",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{authToken}}"
+              }
+            ],
+            "url": "{{baseUrl}}/api/travaux/{{travauxId}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "06 - Historiques Travaux",
+      "item": [
+        {
+          "name": "GET /api/historiques-travaux",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/api/historiques-travaux"
+          }
+        },
+        {
+          "name": "GET /api/historiques-travaux/{{historiqueId}}",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/api/historiques-travaux/{{historiqueId}}"
+          }
+        },
+        {
+          "name": "POST /api/historiques-travaux",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{authToken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/historiques-travaux",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"travaux\": {\n    \"id\": \"{{travauxId}}\"\n  },\n  \"avancement\": 55,\n  \"commentaire\": \"Ajout direct historique\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "var data = {}; try { data = pm.response.json(); } catch (e) {}",
+                  "var id = data && (data.idHistoriquesTravaux || data.id);",
+                  "if (id !== undefined && id !== null) pm.collectionVariables.set('historiqueId', String(id));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "PUT /api/historiques-travaux/{{historiqueId}}",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{authToken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/historiques-travaux/{{historiqueId}}",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"avancement\": 65,\n  \"commentaire\": \"Mise a jour historique\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "DELETE /api/historiques-travaux/{{historiqueId}}",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{authToken}}"
+              }
+            ],
+            "url": "{{baseUrl}}/api/historiques-travaux/{{historiqueId}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "07 - Sync",
+      "item": [
+        {
+          "name": "POST /api/sync/full",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{authToken}}"
+              }
+            ],
+            "url": "{{baseUrl}}/api/sync/full"
+          }
+        },
+        {
+          "name": "POST /api/sync/firebase-to-local",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{authToken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/sync/firebase-to-local",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"signalements\": [],\n  \"travaux\": [],\n  \"utilisateurs\": []\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "GET /api/sync/local-to-firebase",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{authToken}}"
+              }
+            ],
+            "url": "{{baseUrl}}/api/sync/local-to-firebase"
+          }
+        }
+      ]
+    },
+    {
+      "name": "08 - Analytics",
+      "item": [
+        {
+          "name": "GET /api/analytics/criticality",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/api/analytics/criticality"
+          }
+        },
+        {
+          "name": "GET /api/analytics/audit?limit=60",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/api/analytics/audit?limit=60"
+          }
+        },
+        {
+          "name": "GET /api/analytics/impact",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/api/analytics/impact"
+          }
+        },
+        {
+          "name": "GET /api/analytics/blocked-users",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/api/analytics/blocked-users"
+          }
+        }
+      ]
+    },
+    {
+      "name": "09 - Presence Sync",
+      "item": [
+        {
+          "name": "POST /api/presence/heartbeat (web)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/presence/heartbeat",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"clientType\": \"web\",\n  \"clientId\": \"{{webClientId}}\",\n  \"timestamp\": 1760000000000\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "POST /api/presence/heartbeat (mobile)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/presence/heartbeat",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"clientType\": \"mobile\",\n  \"clientId\": \"{{mobileClientId}}\",\n  \"timestamp\": 1760000000000\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "GET /api/presence/web-active?maxAgeSeconds=60",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/api/presence/web-active?maxAgeSeconds=60"
+          }
+        },
+        {
+          "name": "GET /api/presence/mobile-active?maxAgeSeconds=180",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/api/presence/mobile-active?maxAgeSeconds=180"
+          }
+        },
+        {
+          "name": "POST /api/presence/request-sync",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/presence/request-sync",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"source\": \"web\",\n  \"requestedBy\": \"{{webClientId}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "var data = {}; try { data = pm.response.json(); } catch (e) {}",
+                  "if (data && data.requestId) pm.collectionVariables.set('syncRequestId', String(data.requestId));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "GET /api/presence/pending-sync?target=web",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/api/presence/pending-sync?target=web"
+          }
+        },
+        {
+          "name": "GET /api/presence/pending-sync?target=mobile",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/api/presence/pending-sync?target=mobile"
+          }
+        },
+        {
+          "name": "POST /api/presence/ack-sync",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/presence/ack-sync",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"target\": \"web\",\n  \"requestId\": \"{{syncRequestId}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "10 - Discovery & Visitor",
+      "item": [
+        {
+          "name": "GET /api/discovery/ping",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/api/discovery/ping"
+          }
+        },
+        {
+          "name": "GET /api/visitors/signalements",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/api/visitors/signalements"
+          }
+        }
+      ]
+    },
+    {
+      "name": "99 - Cleanup",
+      "item": [
+        {
+          "name": "DELETE /api/historiques-travaux/{{historiqueId}}",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{authToken}}"
+              }
+            ],
+            "url": "{{baseUrl}}/api/historiques-travaux/{{historiqueId}}"
+          }
+        },
+        {
+          "name": "DELETE /api/travaux/{{travauxId}}",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{authToken}}"
+              }
+            ],
+            "url": "{{baseUrl}}/api/travaux/{{travauxId}}"
+          }
+        },
+        {
+          "name": "DELETE /api/signalements/{{signalementId}}",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{authToken}}"
+              }
+            ],
+            "url": "{{baseUrl}}/api/signalements/{{signalementId}}"
+          }
+        },
+        {
+          "name": "DELETE /api/entreprises/{{entrepriseId}}",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{authToken}}"
+              }
+            ],
+            "url": "{{baseUrl}}/api/entreprises/{{entrepriseId}}"
+          }
+        },
+        {
+          "name": "DELETE /api/lieux/{{lieuId}}",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{authToken}}"
+              }
+            ],
+            "url": "{{baseUrl}}/api/lieux/{{lieuId}}"
+          }
+        }
+      ]
+    }
+  ]
+}

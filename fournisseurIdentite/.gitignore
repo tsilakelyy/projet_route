@@ -1,0 +1,74 @@
+# Maven
+HELP.md
+target/
+.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+.m2/
+.maven/
+
+# Spring
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+*.sts4-cache
+
+# IntelliJ IDEA
+.idea
+*.iws
+*.iml
+*.ipr
+*.iml.iml
+
+# NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+# VS Code
+.vscode/
+!.vscode/extensions.json
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+hs_err_pid*.log
+replay_pid*.log
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Firebase
+src/main/resources/firebase-service-account*.json
+!src/main/resources/firebase-service-account.example.json
+google-services.json
+
+# OS
+.DS_Store
+Thumbs.db
+$RECYCLE.BIN/
+
+# IDE files
+*.sw[mnpcod]
+*~
+.sublime-project
+.sublime-workspace
+
+# Misc
+.cache/
+.temp/
+tmp/
+temp/
+

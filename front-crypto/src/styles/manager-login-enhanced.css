@@ -1,0 +1,857 @@
+/* ==========================================
+   ENHANCED MANAGER LOGIN - ULTRA MODERN
+   Combines existing styles with new effects
+   ========================================== */
+
+/* Note: modern-effects.css is imported in App.tsx - no need to import here */
+
+:root {
+  /* Existing variables preserved */
+  --route-violet-900: #190a3d;
+  --route-violet-800: #2a1360;
+  --route-violet-700: #3a1783;
+  --route-violet-600: #5b28b8;
+  --route-violet-500: #7a45dd;
+  --route-ink: #f7f1ff;
+  --route-muted: #d9c8ff;
+  --route-line: rgba(218, 189, 255, 0.28);
+  
+  /* Enhanced animation variables */
+  --transition-smooth: 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  --glow-color: rgba(122, 69, 221, 0.4);
+}
+
+/* ==========================================
+   ENHANCED LOGIN CONTAINER
+   ========================================== */
+
+.route-login {
+  --cursor-x: 50%;
+  --cursor-y: 50%;
+  position: relative;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: minmax(290px, 34vw) 1fr;
+  color: var(--route-ink);
+  background: linear-gradient(
+    130deg, 
+    var(--route-violet-900) 0%, 
+    var(--route-violet-700) 47%, 
+    var(--route-violet-500) 100%
+  );
+  overflow: hidden;
+  will-change: background;
+}
+
+/* Enhanced background glow */
+.route-login::before {
+  content: '';
+  position: absolute;
+  inset: -25%;
+  pointer-events: none;
+  background: 
+    radial-gradient(
+      900px circle at var(--cursor-x) var(--cursor-y),
+      rgba(244, 229, 255, 0.3),
+      rgba(244, 229, 255, 0) 48%
+    ),
+    radial-gradient(
+      600px circle at calc(var(--cursor-x) + 100px) calc(var(--cursor-y) - 100px),
+      rgba(185, 120, 255, 0.15),
+      rgba(185, 120, 255, 0) 50%
+    );
+  transition: background 100ms linear;
+  will-change: background;
+}
+
+/* Animated lane effect */
+.route-login::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.18;
+  background:
+    linear-gradient(110deg, rgba(255, 255, 255, 0.14) 0%, rgba(255, 255, 255, 0) 32%),
+    repeating-linear-gradient(
+      -58deg,
+      rgba(255, 255, 255, 0.08) 0 2px,
+      rgba(255, 255, 255, 0) 2px 16px
+    );
+  animation: laneFlow 15s linear infinite;
+  will-change: transform;
+}
+
+/* Dynamic texture overlay */
+.route-login__texture {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: 
+    radial-gradient(ellipse at 18% 22%, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0) 56%),
+    radial-gradient(ellipse at 85% 80%, rgba(122, 69, 221, 0.15), rgba(122, 69, 221, 0) 50%);
+  mix-blend-mode: soft-light;
+  animation: texture-shift 20s ease-in-out infinite;
+}
+
+@keyframes texture-shift {
+  0%, 100% {
+    opacity: 0.15;
+  }
+  50% {
+    opacity: 0.25;
+  }
+}
+
+/* ==========================================
+   ENHANCED SIDEBAR
+   ========================================== */
+
+.route-login__sidebar {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  padding: clamp(1.6rem, 2.3vw, 2.4rem);
+  border-right: 1px solid rgba(255, 255, 255, 0.18);
+  background: linear-gradient(180deg, rgba(17, 7, 44, 0.58) 0%, rgba(27, 11, 66, 0.44) 100%);
+  backdrop-filter: blur(8px) saturate(1.3);
+  -webkit-backdrop-filter: blur(8px) saturate(1.3);
+  will-change: backdrop-filter;
+  animation: sidebar-float 16s ease-in-out infinite;
+}
+
+@keyframes sidebar-float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+.route-login__sidebar::before {
+  content: '';
+  position: absolute;
+  top: -10%;
+  right: -2px;
+  width: 5px;
+  height: 120%;
+  background: linear-gradient(
+    180deg, 
+    rgba(211, 177, 255, 0), 
+    rgba(211, 177, 255, 0.95), 
+    rgba(211, 177, 255, 0)
+  );
+  filter: blur(0.4px);
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+.route-login__sidebar::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at 0% 50%,
+    rgba(255, 255, 255, 0.08),
+    transparent
+  );
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+/* ==========================================
+   ENHANCED BRAND SECTION
+   ========================================== */
+
+.route-login__brand {
+  display: grid;
+  gap: 0.65rem;
+  animation: stagger-reveal 800ms cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
+  animation-delay: 0.2s;
+}
+
+.route-login__brand-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 15px;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.36);
+  background: linear-gradient(145deg, rgba(179, 119, 255, 0.48), rgba(90, 40, 186, 0.72));
+  box-shadow: 
+    0 16px 36px rgba(29, 6, 70, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transition: all 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  will-change: transform, box-shadow;
+}
+
+.route-login__brand-icon:hover {
+  transform: scale(1.1) rotateZ(-5deg);
+  box-shadow: 
+    0 24px 48px rgba(122, 69, 221, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.route-login__brand-icon svg {
+  width: 28px;
+  height: 28px;
+  animation: icon-float 3s ease-in-out infinite;
+}
+
+@keyframes icon-float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-4px); }
+}
+
+.route-login__kicker {
+  margin: 0;
+  font-size: 0.74rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #f2ddff;
+  animation: stagger-reveal 800ms cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
+  animation-delay: 0.3s;
+}
+
+.route-login__brand h1 {
+  margin: 0;
+  font-size: clamp(1.6rem, 3.3vw, 2.3rem);
+  line-height: 1;
+  background: linear-gradient(135deg, #f7f1ff 0%, #ebd9ff 50%, #d9c8ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: stagger-reveal 800ms cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
+  animation-delay: 0.4s;
+}
+
+.route-login__sidebar-text {
+  margin: 0;
+  max-width: 28ch;
+  color: #ebd9ff;
+  line-height: 1.6;
+  animation: stagger-reveal 800ms cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
+  animation-delay: 0.5s;
+}
+
+/* ==========================================
+   ENHANCED SIGNAL LIST
+   ========================================== */
+
+.route-login__signal-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.7rem;
+  animation: stagger-reveal 800ms cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
+  animation-delay: 0.6s;
+}
+
+.route-login__signal-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.64rem;
+  color: #f7e8ff;
+  font-size: 0.95rem;
+  transition: transform 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.route-login__signal-list li:hover {
+  transform: translateX(6px);
+}
+
+.route-login__dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  flex: 0 0 11px;
+  box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.08);
+  animation: pulse-dot-enhanced 2s ease-out infinite;
+  will-change: box-shadow, transform;
+}
+
+@keyframes pulse-dot-enhanced {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(255, 255, 255, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+    transform: scale(1);
+  }
+}
+
+.route-login__dot--violet {
+  background: #c785ff;
+  box-shadow: 0 0 0 5px rgba(199, 133, 255, 0.15);
+}
+
+.route-login__dot--indigo {
+  background: #8b78ff;
+  box-shadow: 0 0 0 5px rgba(139, 120, 255, 0.15);
+}
+
+.route-login__dot--lilac {
+  background: #e2a8ff;
+  box-shadow: 0 0 0 5px rgba(226, 168, 255, 0.15);
+}
+
+/* ==========================================
+   ENHANCED STATUS BADGE
+   ========================================== */
+
+.route-login__status {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.9rem;
+  padding: 0.85rem 1rem;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.19);
+  background: rgba(17, 6, 43, 0.56);
+  backdrop-filter: blur(8px);
+  transition: all 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  will-change: background, box-shadow, backdrop-filter;
+  animation: stagger-reveal 800ms cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
+  animation-delay: 0.8s;
+}
+
+.route-login__status:hover {
+  background: rgba(30, 10, 60, 0.8);
+  backdrop-filter: blur(12px);
+  box-shadow: 
+    0 12px 24px rgba(122, 69, 221, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.route-login__status strong {
+  display: block;
+  margin-bottom: 0.15rem;
+  font-size: 0.94rem;
+  color: #fff;
+}
+
+.route-login__status span {
+  color: var(--route-muted);
+  font-size: 0.83rem;
+  transition: color 300ms ease;
+}
+
+.route-login__pulse {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #90ffbd;
+  box-shadow: 0 0 0 0 rgba(144, 255, 189, 0.65);
+  animation: pulseDot-enhanced 1.8s ease-out infinite;
+  will-change: box-shadow;
+}
+
+@keyframes pulseDot-enhanced {
+  0% {
+    box-shadow: 0 0 0 0 rgba(144, 255, 189, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 0 12px rgba(144, 255, 189, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(144, 255, 189, 0);
+  }
+}
+
+/* ==========================================
+   ENHANCED MAIN CONTENT
+   ========================================== */
+
+.route-login__main {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  padding: clamp(1.2rem, 4vw, 3.2rem);
+  perspective: 1200px;
+}
+
+/* ==========================================
+   ENHANCED LOGIN PANEL
+   ========================================== */
+
+.route-login__panel {
+  width: min(590px, 100%);
+  display: grid;
+  gap: 1.3rem;
+  padding: clamp(1.25rem, 2.6vw, 2.15rem);
+  border-radius: 26px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: linear-gradient(170deg, rgba(16, 6, 42, 0.62), rgba(34, 12, 80, 0.5));
+  box-shadow: 
+    0 30px 60px rgba(19, 4, 48, 0.44), 
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    0 0 60px rgba(122, 69, 221, 0.15);
+  backdrop-filter: blur(12px) saturate(1.2);
+  -webkit-backdrop-filter: blur(12px) saturate(1.2);
+  animation: panel-float 8s ease-in-out infinite;
+  will-change: transform, backdrop-filter;
+}
+
+@keyframes panel-float {
+  0%, 100% {
+    transform: translateY(0px) translateZ(0);
+  }
+  50% {
+    transform: translateY(-8px) translateZ(0);
+  }
+}
+
+.route-login__panel:hover {
+  background: linear-gradient(170deg, rgba(20, 8, 50, 0.72), rgba(40, 15, 90, 0.58));
+  box-shadow: 
+    0 40px 80px rgba(19, 4, 48, 0.55), 
+    inset 0 1px 0 rgba(255, 255, 255, 0.25),
+    0 0 80px rgba(122, 69, 221, 0.25);
+  backdrop-filter: blur(16px) saturate(1.4);
+}
+
+/* ==========================================
+   ENHANCED FORM ELEMENTS
+   ========================================== */
+
+.route-login__header {
+  display: grid;
+  gap: 0.45rem;
+  animation: stagger-reveal 600ms cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
+  animation-delay: 0.3s;
+}
+
+.route-login__header-tag {
+  margin: 0;
+  font-size: 0.74rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #ecd9ff;
+  opacity: 0.8;
+}
+
+.route-login__header h2 {
+  margin: 0;
+  font-size: clamp(1.45rem, 2.6vw, 2rem);
+  line-height: 1.12;
+  background: linear-gradient(135deg, #fff, #ecd9ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.route-login__header p {
+  margin: 0;
+  color: #ecd9ff;
+  line-height: 1.58;
+  opacity: 0.9;
+}
+
+.route-login__form {
+  display: grid;
+  gap: 0.92rem;
+  animation: stagger-reveal 600ms cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
+  animation-delay: 0.4s;
+}
+
+.route-login__field {
+  display: grid;
+  gap: 0.36rem;
+}
+
+.route-login__field span {
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
+  color: #f0ddff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.route-login__field input {
+  width: 100%;
+  border: 1px solid var(--route-line);
+  border-radius: 13px;
+  outline: none;
+  padding: 0.82rem 0.92rem;
+  color: #fff;
+  font-size: 0.95rem;
+  background: rgba(10, 4, 27, 0.4);
+  transition: 
+    transform 160ms cubic-bezier(0.34, 1.56, 0.64, 1), 
+    border-color 160ms ease, 
+    box-shadow 160ms ease, 
+    background-color 160ms ease;
+  will-change: transform, border-color, box-shadow, background-color;
+}
+
+.route-login__field input::placeholder {
+  color: rgba(235, 218, 255, 0.55);
+}
+
+.route-login__field input:focus {
+  border-color: rgba(224, 180, 255, 0.9);
+  box-shadow: 
+    0 0 0 4px rgba(193, 132, 255, 0.18),
+    0 0 20px rgba(122, 69, 221, 0.3),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+  background: rgba(23, 8, 55, 0.72);
+}
+
+/* ==========================================
+   ENHANCED SUBMIT BUTTON
+   ========================================== */
+
+.route-login__submit {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  margin-top: 0.45rem;
+  border: 0;
+  border-radius: 14px;
+  padding: 0.92rem 1rem;
+  font-size: 0.96rem;
+  font-weight: 700;
+  color: #fff;
+  cursor: pointer;
+  background: linear-gradient(115deg, #7f3ffc, #a85fff, #6a30d6);
+  background-size: 220% 220%;
+  box-shadow: 
+    0 16px 30px rgba(66, 18, 148, 0.46),
+    0 0 30px rgba(122, 69, 221, 0.2);
+  transition: 
+    transform 170ms cubic-bezier(0.34, 1.56, 0.64, 1), 
+    box-shadow 170ms ease, 
+    filter 170ms ease;
+  animation: gradientShift 5s ease infinite;
+  will-change: transform, box-shadow, filter, background-position;
+}
+
+.route-login__submit::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  z-index: -2;
+  border-radius: inherit;
+  background: radial-gradient(
+    circle at var(--cursor-x) var(--cursor-y), 
+    rgba(255, 255, 255, 0.5), 
+    rgba(255, 255, 255, 0) 48%
+  );
+  opacity: 0;
+  transition: opacity 180ms ease;
+  will-change: opacity;
+}
+
+.route-login__submit::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: linear-gradient(
+    110deg, 
+    rgba(255, 255, 255, 0) 18%, 
+    rgba(255, 255, 255, 0.35) 49%, 
+    rgba(255, 255, 255, 0) 78%
+  );
+  transform: translateX(-160%);
+}
+
+.route-login__submit:hover:not(:disabled) {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 
+    0 24px 40px rgba(66, 18, 148, 0.62),
+    0 0 40px rgba(122, 69, 221, 0.4);
+  filter: saturate(1.2) brightness(1.1);
+}
+
+.route-login__submit:hover:not(:disabled)::after {
+  animation: slideShine 850ms ease;
+}
+
+.route-login__submit:hover:not(:disabled)::before {
+  opacity: 1;
+}
+
+.route-login__submit:active:not(:disabled) {
+  transform: translateY(1px) scale(0.992);
+}
+
+.route-login__submit:disabled {
+  cursor: not-allowed;
+  opacity: 0.72;
+  filter: grayscale(0.25);
+}
+
+/* ==========================================
+   ERROR & SUCCESS STATES
+   ========================================== */
+
+.route-login__error {
+  margin: 0.1rem 0 0;
+  padding: 0.62rem 0.8rem;
+  border-radius: 12px;
+  font-size: 0.86rem;
+  color: #ffe6f5;
+  border: 1px solid rgba(255, 171, 211, 0.36);
+  background: rgba(141, 32, 86, 0.32);
+  backdrop-filter: blur(8px);
+  animation: slider-reveal 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  will-change: transform;
+}
+
+.route-login__error::before {
+  content: '⚠ ';
+  margin-right: 0.3rem;
+  font-weight: 700;
+}
+
+/* ==========================================
+   FOOTER
+   ========================================== */
+
+.route-login__footer {
+  display: flex;
+  justify-content: flex-end;
+  animation: stagger-reveal 600ms cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
+  animation-delay: 0.55s;
+}
+
+.route-login__footer a {
+  color: #f3deff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.92rem;
+  border-bottom: 2px solid transparent;
+  transition: 
+    border-color 160ms ease, 
+    opacity 160ms ease,
+    color 160ms ease;
+  position: relative;
+}
+
+.route-login__footer a::before {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #b182ff, #7a45dd);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.route-login__footer a:hover {
+  opacity: 0.95;
+  color: #fff;
+}
+
+.route-login__footer a:hover::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* ==========================================
+   ANIMATIONS
+   ========================================== */
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes slideShine {
+  100% {
+    transform: translateX(170%);
+  }
+}
+
+@keyframes laneFlow {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 110px, 0);
+  }
+}
+
+@keyframes pulseDot {
+  0% {
+    box-shadow: 0 0 0 0 rgba(144, 255, 189, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 12px rgba(144, 255, 189, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(144, 255, 189, 0);
+  }
+}
+
+@keyframes rippleOut {
+  to {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+
+@keyframes stagger-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slider-reveal {
+  from {
+    transform: scaleX(0);
+    transform-origin: left;
+    opacity: 0;
+  }
+  to {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+/* ==========================================
+   ACCESSIBILITY & PERFORMANCE
+   ========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Capture-safe mode for screenshots */
+html.capture-safe .route-login::after,
+html.capture-safe .route-login__submit,
+html.capture-safe .route-login__submit::after {
+  animation: none;
+}
+
+html.capture-safe .route-login__texture {
+  mix-blend-mode: normal;
+  opacity: 0.38;
+}
+
+html.capture-safe .route-login__sidebar,
+html.capture-safe .route-login__panel {
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+html.capture-safe .fx-item,
+html.capture-safe .fx-item.fx-ready {
+  opacity: 1;
+  transform: none;
+  filter: none;
+  transition: none;
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN
+   ========================================== */
+
+@media (max-width: 1024px) {
+  .route-login {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+  }
+
+  .route-login__sidebar {
+    gap: 0.95rem;
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+    animation: none;
+  }
+
+  .route-login__sidebar::before {
+    top: auto;
+    right: auto;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(
+      90deg, 
+      rgba(211, 177, 255, 0), 
+      rgba(211, 177, 255, 0.95), 
+      rgba(211, 177, 255, 0)
+    );
+  }
+
+  .route-login__status {
+    margin-top: 0.25rem;
+  }
+
+  .route-login__panel {
+    animation: none;
+  }
+}
+
+@media (max-width: 680px) {
+  .route-login__main {
+    padding: 1rem;
+  }
+
+  .route-login__panel {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .route-login__header h2 {
+    font-size: 1.4rem;
+  }
+
+  .route-login__sidebar {
+    padding: 1.2rem 0.8rem;
+  }
+}
+
+/* Optimize animations for mobile */
+@media (max-width: 768px) {
+  .route-login__submit:hover:not(:disabled) {
+    transform: translateY(-2px) scale(1.01);
+  }
+
+  .route-login__brand-icon:hover {
+    transform: scale(1.05) rotateZ(-3deg);
+  }
+}
+
+/* Safety fallback: never hide critical login content if JS-based reveal fails. */
+.fx-item,
+.fx-item.fx-ready {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}

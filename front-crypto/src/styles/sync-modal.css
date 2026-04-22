@@ -1,0 +1,164 @@
+/* Styles pour la modal de synchronisation */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 12px;
+  max-width: 500px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.modal-header h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #1f2937;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #6b7280;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.modal-close:hover {
+  background: #f3f4f6;
+  color: #1f2937;
+}
+
+.modal-body {
+  padding: 20px;
+}
+
+.sync-info {
+  text-align: center;
+}
+
+.sync-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.sync-info p {
+  margin: 8px 0;
+  color: #4b5563;
+  line-height: 1.5;
+}
+
+.modal-footer {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  padding: 16px 20px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.btn {
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+.btn-primary {
+  background: #3b82f6;
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #2563eb;
+}
+
+.btn-secondary {
+  background: #e5e7eb;
+  color: #1f2937;
+}
+
+.btn-secondary:hover {
+  background: #d1d5db;
+}
+
+/* Styles pour l'affichage des autres clients connectés */
+.other-clients-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.client-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 12px;
+  background: #f9fafb;
+  border-radius: 6px;
+  border-left: 3px solid #3b82f6;
+}
+
+.client-icon {
+  font-size: 20px;
+}
+
+.client-type {
+  font-weight: 600;
+  color: #1f2937;
+  min-width: 60px;
+}
+
+.client-id {
+  color: #6b7280;
+  font-size: 0.9em;
+  flex: 1;
+}
+
+.client-last-seen {
+  color: #9ca3af;
+  font-size: 0.85em;
+  margin-left: auto;
+}

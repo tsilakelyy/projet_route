@@ -1,0 +1,1741 @@
+================================================================================
+   STRUCTURE DU PROJET: projet_route
+================================================================================
+
+projet_route/
+crypto/
+├── public/
+│   └── index.html (1KB)
+├── styles/
+│   ├── bright/
+│   │   └── style.json (6KB)
+│   └── fonts/
+│   │   └── Noto Sans Regular/
+│   │       ├── 0-255.pbf (74KB)
+│   │       ├── 256-511.pbf (124KB)
+│   │       ├── 512-767.pbf (93KB)
+│   │       └── 768-1023.pbf (73KB)
+├── .dockerignore (32B)
+├── Capture d'écran 2026-01-20 090622.png (28KB)
+├── config.json (381B)
+├── Dockerfile (700B)
+├── inspect.js (1KB)
+├── osm-2020-02-10-v3.11_madagascar_antananarivo.mbtiles (26MB)
+├── package-lock.json (119KB)
+├── package.json (351B)
+├── planet_47.37,-18.998_47.684,-18.802.osm.pbf (8MB)
+└── server.js (2KB)
+docker-entrypoint-initdb.d/
+├── base.sql (4KB)
+└── script.sql (6B)
+documentation/
+├── docs/
+│   └── README.md (795B)
+├── frontend-react/
+│   ├── DEBUGGING.md (4KB)
+│   └── README.md (495B)
+├── legacy/
+│   ├── docs/
+│   ├── frontend-react/
+│   │   ├── app/
+│   │   │   ├── routes/
+│   │   │   │   └── home.tsx (3KB)
+│   │   │   ├── welcome/
+│   │   │   │   ├── logo-dark.svg (5KB)
+│   │   │   │   ├── logo-light.svg (6KB)
+│   │   │   │   └── welcome.tsx (4KB)
+│   │   │   ├── app.css (315B)
+│   │   │   ├── root.tsx (1KB)
+│   │   │   └── routes.ts (137B)
+│   │   ├── .dockerignore (107B)
+│   │   ├── .env (407B)
+│   │   ├── .env.example (247B)
+│   │   ├── debug-build.js (5KB)
+│   │   ├── DEBUGGING.md (4KB)
+│   │   ├── Dockerfile (486B)
+│   │   ├── nginx.conf (473B)
+│   │   ├── package-lock.json (104KB)
+│   │   ├── package.json (889B)
+│   │   ├── react-router.config.ts (757B)
+│   │   ├── react-router.config.ts.new (112B)
+│   │   ├── README.md (518B)
+│   │   ├── tsconfig.json (593B)
+│   │   ├── vite.config.ts (1KB)
+│   │   └── vite.config.ts.new (309B)
+│   ├── frontend-react-empty/
+│   ├── frontend-react-node-modules/
+│   │   └── prettier/
+│   │   │   └── plugins/
+│   │   │       └── flow.mjs (676KB)
+│   ├── frontend-react-remaining/
+│   │   └── public/
+│   │   │   ├── fonts/
+│   │   │   └── favicon.ico (14KB)
+│   ├── guide_d_utilisation/
+│   │   ├── non-code/
+│   │   │   ├── COHERENCE_CODE_FINALE.md (3KB)
+│   │   │   ├── DEMANDES_NON_CODE.md (1KB)
+│   │   │   ├── DOCUMENTATION_TECHNIQUE_TEMPLATE.md (983B)
+│   │   │   ├── LISTE_MEMBRES_TEMPLATE.md (338B)
+│   │   │   ├── LIVRABLES_CHECKLIST.md (997B)
+│   │   │   ├── SCENARIOS_UTILISATION_TEMPLATE.md (659B)
+│   │   │   └── TODO_ASSIGNATION_TEMPLATE.md (623B)
+│   │   └── releases/
+│   │   │   ├── V1_2026-01-13.md (1KB)
+│   │   │   ├── V2_2026-01-20.md (790B)
+│   │   │   ├── V3_2026-02-03.md (995B)
+│   │   │   └── V4_2026-02-10.md (1KB)
+│   ├── postgres/
+│   │   ├── base.sql (4KB)
+│   │   └── Dockerfile (69B)
+│   └── postman/
+│   │   ├── ProjetRoute.local.postman_environment.json (1KB)
+│   │   ├── ProjetRoute.postman_collection.json (28KB)
+│   │   └── README.md (1KB)
+├── releases/
+│   ├── V1_2026-01-13.md (1KB)
+│   ├── V2_2026-01-20.md (790B)
+│   ├── V3_2026-02-03.md (995B)
+│   └── V4_2026-02-10.md (1KB)
+├── scripts/
+│   └── scripts/
+│   │   ├── build-stable.bat (652B)
+│   │   ├── build-stable.sh (501B)
+│   │   ├── check-ports.mjs (3KB)
+│   │   ├── port-assistant.mjs (12KB)
+│   │   ├── seed-firebase-demo-users.mjs (3KB)
+│   │   └── sync-init-sql.mjs (500B)
+├── todo et docs techniques/
+│   ├── Documentation_Technique_ETU0003525.docx (3MB)
+│   ├── README_RECUPERATION.md (336B)
+│   └── Todo_Cloud_S5_ETU0003525.xlsx (43KB)
+├── web/
+│   └── README.md (431B)
+├── base.sql (4KB)
+├── BUILD_FIXES.md (1KB)
+├── CLEANUP_OLD_SYNC_FILES.md (2KB)
+├── COHERENCE_DESIGN_WEB_MOBILE.md (918B)
+├── CONFIGURATION_ENV.md (5KB)
+├── deploy-android.bat (2KB)
+├── deploy-ios.sh (1KB)
+├── DOCKER_DEPLOYMENT.md (1KB)
+├── FIREBASE_INSTALLATION.md (5KB)
+├── FIREBASE_SETUP_GUIDE.md (3KB)
+├── FIREBASE_SYNC_CHANGES.md (5KB)
+├── FIREBASE_SYNC_GUIDE.md (5KB)
+├── FIREBASE_SYNC_SUMMARY.md (4KB)
+├── GUIDE_MOBILE_INSTALL_LOGIN.md (2KB)
+├── IMPROVEMENTS.md (4KB)
+├── init.bat (2KB)
+├── init.sh (1KB)
+├── PORT_ASSISTANT.md (1015B)
+├── POSTMAN_README.md (24KB)
+├── ProjetRoute.postman_collection.new.json (11KB)
+├── README.md (2KB)
+├── schema_relationnel_routewatch.png (110KB)
+├── SWAGGER_README.md (3KB)
+├── VERIFICATION_FIRESTORE.md (6KB)
+└── VERIFICATION_SYNC_FIREBASE.md (5KB)
+fournisseurIdentite/
+├── src/
+│   ├── main/
+│   │   ├── java/
+│   │   │   └── com/
+│   │   │   │   └── projet/
+│   │   │   │       └── route/
+│   │   │   │           ├── config/
+│   │   │   │               ├── DataBootstrapConfig.java (3KB)
+│   │   │   │               ├── FirebaseConfig.java (1KB)
+│   │   │   │               ├── JwtAuthenticationFilter.java (2KB)
+│   │   │   │               ├── OpenApiConfig.java (584B)
+│   │   │   │               ├── PasswordConfig.java (500B)
+│   │   │   │               └── SecurityConfig.java (5KB)
+│   │   │   │           ├── controller/
+│   │   │   │               ├── AnalyticsController.java (1KB)
+│   │   │   │               ├── AuthController.java (32KB)
+│   │   │   │               ├── EntrepriseController.java (2KB)
+│   │   │   │               ├── FailedLoginRequest.java (370B)
+│   │   │   │               ├── HistoriquesTravauxController.java (2KB)
+│   │   │   │               ├── HomeController.java (327B)
+│   │   │   │               ├── LieuController.java (2KB)
+│   │   │   │               ├── MobileLoginRequest.java (938B)
+│   │   │   │               ├── NetworkDiscoveryController.java (949B)
+│   │   │   │               ├── PresenceSyncController.java (4KB)
+│   │   │   │               ├── SignalementController.java (12KB)
+│   │   │   │               ├── SyncController.java (4KB)
+│   │   │   │               ├── TravauxController.java (4KB)
+│   │   │   │               ├── VisitorController.java (763B)
+│   │   │   │               └── WebActiveController.java.bak (302B)
+│   │   │   │           ├── models/
+│   │   │   │               ├── AuditLog.java (1KB)
+│   │   │   │               ├── Entreprise.java (755B)
+│   │   │   │               ├── HistoriquesTravaux.java (1KB)
+│   │   │   │               ├── Lieu.java (1KB)
+│   │   │   │               ├── ParametreAuth.java (696B)
+│   │   │   │               ├── Role.java (538B)
+│   │   │   │               ├── Session.java (1KB)
+│   │   │   │               ├── Signalement.java (11KB)
+│   │   │   │               ├── Travaux.java (2KB)
+│   │   │   │               └── Utilisateur.java (2KB)
+│   │   │   │           ├── repository/
+│   │   │   │               ├── AuditLogRepository.java (299B)
+│   │   │   │               ├── EntrepriseRepository.java (305B)
+│   │   │   │               ├── HistoriquesTravauxRepository.java (369B)
+│   │   │   │               ├── LieuRepository.java (415B)
+│   │   │   │               ├── LieuxRepository.java (216B)
+│   │   │   │               ├── ParametreAuthRepository.java (324B)
+│   │   │   │               ├── RoleRepository.java (248B)
+│   │   │   │               ├── SessionRepository.java (896B)
+│   │   │   │               ├── SignalementRepository.java (744B)
+│   │   │   │               ├── TravauxRepository.java (771B)
+│   │   │   │               └── UtilisateurRepository.java (410B)
+│   │   │   │           ├── service/
+│   │   │   │               ├── AnalyticsService.java (9KB)
+│   │   │   │               ├── AuditLogService.java (1KB)
+│   │   │   │               ├── AuthService.java (4KB)
+│   │   │   │               ├── FirebaseSyncService.java (22KB)
+│   │   │   │               ├── PresenceSyncService.java (6KB)
+│   │   │   │               ├── TravauxService.java (12KB)
+│   │   │   │               └── UserDetailsServiceImpl.java (1KB)
+│   │   │   │           ├── services/
+│   │   │   │               ├── EntrepriseService.java (1KB)
+│   │   │   │               ├── LieuService.java (1KB)
+│   │   │   │               └── SignalementService.java (4KB)
+│   │   │   │           ├── FirebaseInitializer.java (939B)
+│   │   │   │           └── RouteApplication.java (352B)
+│   │   └── resources/
+│   │   │   ├── docker/
+│   │   │   ├── firebase/
+│   │   │       ├── firebase-service-account.json (2KB)
+│   │   │       └── projet-route-1-firebase-adminsdk-fbsvc-136006eba0.json (2KB)
+│   │   │   ├── application-docker.properties (854B)
+│   │   │   ├── application.properties (838B)
+│   │   │   ├── firebase-service-account.example.json (703B)
+│   │   │   ├── schema.sql (4KB)
+│   │   │   └── script.sql (14KB)
+│   └── test/
+│   │   └── java/
+│   │       └── com/
+│   │           └── projet/
+│   │               └── route/
+│   │                   └── RouteApplicationTests.java (220B)
+├── target/
+│   ├── classes/
+│   │   ├── com/
+│   │   │   └── projet/
+│   │   │   │   └── route/
+│   │   │   │       ├── config/
+│   │   │   │           ├── DataBootstrapConfig.class (6KB)
+│   │   │   │           ├── FirebaseConfig.class (2KB)
+│   │   │   │           ├── JwtAuthenticationFilter.class (3KB)
+│   │   │   │           ├── OpenApiConfig.class (1010B)
+│   │   │   │           ├── PasswordConfig.class (711B)
+│   │   │   │           └── SecurityConfig.class (8KB)
+│   │   │   │       ├── controller/
+│   │   │   │           ├── AnalyticsController.class (2KB)
+│   │   │   │           ├── AuthController$FirebaseLoginRequest.class (765B)
+│   │   │   │           ├── AuthController$FirebaseLoginResponse.class (1KB)
+│   │   │   │           ├── AuthController$LoginRequest.class (942B)
+│   │   │   │           ├── AuthController$LoginResponse.class (1KB)
+│   │   │   │           ├── AuthController$ParamUpdateRequest.class (762B)
+│   │   │   │           ├── AuthController$RegisterRequest.class (1KB)
+│   │   │   │           ├── AuthController$UpdateUserRequest.class (1KB)
+│   │   │   │           ├── AuthController.class (28KB)
+│   │   │   │           ├── EntrepriseController.class (4KB)
+│   │   │   │           ├── FailedLoginRequest.class (713B)
+│   │   │   │           ├── HistoriquesTravauxController.class (4KB)
+│   │   │   │           ├── HomeController.class (635B)
+│   │   │   │           ├── LieuController.class (4KB)
+│   │   │   │           ├── MobileLoginRequest.class (1KB)
+│   │   │   │           ├── NetworkDiscoveryController.class (736B)
+│   │   │   │           ├── PresenceSyncController.class (5KB)
+│   │   │   │           ├── SignalementController.class (16KB)
+│   │   │   │           ├── SyncController.class (1KB)
+│   │   │   │           ├── TravauxController.class (8KB)
+│   │   │   │           └── VisitorController.class (1KB)
+│   │   │   │       ├── models/
+│   │   │   │           ├── AuditLog.class (2KB)
+│   │   │   │           ├── Entreprise.class (1KB)
+│   │   │   │           ├── HistoriquesTravaux.class (2KB)
+│   │   │   │           ├── Lieu.class (2KB)
+│   │   │   │           ├── ParametreAuth.class (1KB)
+│   │   │   │           ├── Role.class (1KB)
+│   │   │   │           ├── Session.class (2KB)
+│   │   │   │           ├── Signalement$1.class (731B)
+│   │   │   │           ├── Signalement$PhotoEntry.class (1KB)
+│   │   │   │           ├── Signalement.class (12KB)
+│   │   │   │           ├── Travaux.class (3KB)
+│   │   │   │           └── Utilisateur.class (3KB)
+│   │   │   │       ├── repository/
+│   │   │   │           ├── AuditLogRepository.class (483B)
+│   │   │   │           ├── EntrepriseRepository.class (548B)
+│   │   │   │           ├── HistoriquesTravauxRepository.class (596B)
+│   │   │   │           ├── LieuRepository.class (679B)
+│   │   │   │           ├── LieuxRepository.class (344B)
+│   │   │   │           ├── ParametreAuthRepository.class (562B)
+│   │   │   │           ├── RoleRepository.class (451B)
+│   │   │   │           ├── SessionRepository.class (1KB)
+│   │   │   │           ├── SignalementRepository.class (1KB)
+│   │   │   │           ├── TravauxRepository.class (1KB)
+│   │   │   │           └── UtilisateurRepository.class (702B)
+│   │   │   │       ├── service/
+│   │   │   │           ├── AnalyticsService.class (14KB)
+│   │   │   │           ├── AuditLogService.class (2KB)
+│   │   │   │           ├── AuthService.class (6KB)
+│   │   │   │           ├── FirebaseSyncService$SyncStats.class (549B)
+│   │   │   │           ├── FirebaseSyncService.class (19KB)
+│   │   │   │           ├── PresenceSyncService$SyncRequest.class (595B)
+│   │   │   │           ├── PresenceSyncService.class (7KB)
+│   │   │   │           ├── TravauxService.class (14KB)
+│   │   │   │           └── UserDetailsServiceImpl.class (3KB)
+│   │   │   │       ├── services/
+│   │   │   │           ├── EntrepriseService.class (2KB)
+│   │   │   │           ├── LieuService.class (3KB)
+│   │   │   │           └── SignalementService.class (6KB)
+│   │   │   │       └── RouteApplication.class (736B)
+│   │   ├── application-docker.properties (854B)
+│   │   ├── application.properties (838B)
+│   │   ├── firebase-service-account.example.json (703B)
+│   │   ├── schema.sql (4KB)
+│   │   └── script.sql (14KB)
+│   ├── generated-sources/
+│   │   └── annotations/
+│   ├── generated-test-sources/
+│   │   └── test-annotations/
+│   ├── maven-archiver/
+│   │   └── pom.properties (62B)
+│   ├── maven-status/
+│   │   └── maven-compiler-plugin/
+│   │   │   ├── compile/
+│   │   │       └── default-compile/
+│   │   │       │   ├── createdFiles.lst (3KB)
+│   │   │       │   └── inputFiles.lst (6KB)
+│   │   │   └── testCompile/
+│   │   │       └── default-testCompile/
+│   │   │           ├── createdFiles.lst (45B)
+│   │   │           └── inputFiles.lst (117B)
+│   ├── surefire-reports/
+│   │   ├── 2026-02-17T20-37-29_222.dumpstream (284B)
+│   │   ├── com.projet.route.RouteApplicationTests.txt (330B)
+│   │   └── TEST-com.projet.route.RouteApplicationTests.xml (49KB)
+│   ├── test-classes/
+│   │   └── com/
+│   │   │   └── projet/
+│   │   │       └── route/
+│   │   │           └── RouteApplicationTests.class (534B)
+│   ├── route-0.0.1-SNAPSHOT.jar (100MB)
+│   └── route-0.0.1-SNAPSHOT.jar.original (120KB)
+├── .dockerignore (61B)
+├── .env (1KB)
+├── .gitattributes (40B)
+├── creationdossier.py (8KB)
+├── Dockerfile (947B)
+├── hs_err_pid20600.log (46KB)
+├── mvnw (11KB)
+├── mvnw.cmd (8KB)
+├── pom.xml (Maven) (3KB)
+└── replay_pid20600.log (417KB)
+front-crypto/
+├── dist/
+│   ├── assets/
+│   │   ├── css/
+│   │   │   ├── index-DEU8EBSG.css (42KB)
+│   │   │   └── leaflet-vendor-CIGW-MKW.css (15KB)
+│   │   └── js/
+│   │   │   ├── index-Cciit8PO.js (66KB)
+│   │   │   ├── leaflet-vendor-B9_zvCN9.js (190KB)
+│   │   │   ├── react-vendor-oZTL2e2r.js (148KB)
+│   │   │   └── vendor-DQuQYLKx.js (26KB)
+│   ├── index.html (811B)
+│   └── vite.svg (1KB)
+├── public/
+│   └── vite.svg (1KB)
+├── src/
+│   ├── assets/
+│   │   └── react.svg (4KB)
+│   ├── components/
+│   │   ├── AutoSyncFirestore.tsx (3KB)
+│   │   ├── BlockedUsersMiniCard.tsx (1KB)
+│   │   ├── FirebaseSyncButton.tsx (4KB)
+│   │   ├── OfflineMaplibreMap.tsx (6KB)
+│   │   ├── OfflinePlaceLabelsLayer.tsx (9KB)
+│   │   ├── OfflineVectorTileLayer.tsx (3KB)
+│   │   └── ScreenshotCapture.tsx (863B)
+│   ├── config/
+│   │   ├── api.ts (990B)
+│   │   └── map.ts (265B)
+│   ├── services/
+│   │   └── firebaseSyncService.ts (14KB)
+│   ├── styles/
+│   │   ├── login.css (24KB)
+│   │   ├── manager-login.css (9KB)
+│   │   ├── route-views.css (21KB)
+│   │   └── sync-modal.css (2KB)
+│   ├── types/
+│   │   └── leaflet.vectorgrid.d.ts (37B)
+│   ├── utils/
+│   │   └── initializeFirebaseUsers.ts (1KB)
+│   ├── App.css (706B)
+│   ├── App.tsx (1KB)
+│   ├── AuditTrailPage.tsx (3KB)
+│   ├── CriticalityPage.tsx (5KB)
+│   ├── firebase.ts (2KB)
+│   ├── ImpactPage.tsx (5KB)
+│   ├── index.css (660B)
+│   ├── main.tsx (240B)
+│   ├── ManagerDashboard.tsx (59KB)
+│   ├── ManagerLogin.tsx (10KB)
+│   ├── ProjectChartsPage.tsx (7KB)
+│   └── VisitorDashboard.tsx (26KB)
+├── .dockerignore (84B)
+├── .env (765B)
+├── .env.example (461B)
+├── .npmrc (195B)
+├── Dockerfile (1KB)
+├── eslint.config.js (639B)
+├── index.html (365B)
+├── nginx.conf (3KB)
+├── package-lock.json (98KB)
+├── package.json (888B)
+├── README.md (525B)
+├── tsconfig.app.json (861B)
+├── tsconfig.json (126B)
+├── tsconfig.node.json (655B)
+└── vite.config.ts (2KB)
+mobile/
+├── android/
+│   ├── app/
+│   │   ├── build/
+│   │   │   ├── generated/
+│   │   │   │   ├── ap_generated_sources/
+│   │   │   │   │   └── debug/
+│   │   │   │   │   │   └── out/
+│   │   │   │   └── res/
+│   │   │   │   │   ├── pngs/
+│   │   │   │   │       └── debug/
+│   │   │   │   │   ├── processDebugGoogleServices/
+│   │   │   │   │       └── values/
+│   │   │   │   │       │   └── values.xml (660B)
+│   │   │   │   │   └── resValues/
+│   │   │   │   │       └── debug/
+│   │   │   ├── gmpAppId/
+│   │   │   │   └── debug.txt (45B)
+│   │   │   ├── intermediates/
+│   │   │   │   ├── aar_metadata_check/
+│   │   │   │   │   └── debug/
+│   │   │   │   │   │   └── checkDebugAarMetadata/
+│   │   │   │   ├── annotation_processor_list/
+│   │   │   │   │   └── debug/
+│   │   │   │   │   │   └── javaPreCompileDebug/
+│   │   │   │   │   │       └── annotationProcessors.json (2B)
+│   │   │   │   ├── apk_ide_redirect_file/
+│   │   │   │   │   └── debug/
+│   │   │   │   │   │   └── createDebugApkListingFileRedirect/
+│   │   │   │   │   │       └── redirect.txt (83B)
+│   │   │   │   ├── app_metadata/
+│   │   │   │   │   └── debug/
+│   │   │   │   │   │   └── writeDebugAppMetadata/
+│   │   │   │   │   │       └── app-metadata.properties (56B)
+│   │   │   │   ├── assets/
+│   │   │   │   │   └── debug/
+│   │   │   │   │   │   └── mergeDebugAssets/
+│   │   │   │   │   │       ├── public/
+│   │   │   │   │   │           ├── assets/
+│   │   │   │   │   │           │   ├── firebaseSyncService-B9Ar_oH_.js (503KB)
+│   │   │   │   │   │           │   ├── focus-visible-supuXXMI.js (994B)
+│   │   │   │   │   │           │   ├── index-CjNSd_ES.css (48KB)
+│   │   │   │   │   │           │   ├── index-CUpaPBD8.js (704KB)
+│   │   │   │   │   │           │   ├── index7-WjzHJSo0.js (1KB)
+│   │   │   │   │   │           │   ├── input-shims-tqqTJh6O.js (5KB)
+│   │   │   │   │   │           │   ├── ios.transition-ftqWeXii.js (10KB)
+│   │   │   │   │   │           │   ├── md.transition-BBSSOuRh.js (1KB)
+│   │   │   │   │   │           │   ├── status-tap-D430YHja.js (485B)
+│   │   │   │   │   │           │   ├── swipe-back-Cn6U8x5W.js (685B)
+│   │   │   │   │   │           │   ├── Tab1Page-_tmX_Pb_.js (15KB)
+│   │   │   │   │   │           │   ├── Tab1Page-Bx4vH5Rj.css (6KB)
+│   │   │   │   │   │           │   ├── Tab2Page-CIkh_V7x.js (179KB)
+│   │   │   │   │   │           │   ├── Tab2Page-CyF6Phdo.css (19KB)
+│   │   │   │   │   │           │   ├── Tab3Page-DHiLvRwm.js (9KB)
+│   │   │   │   │   │           │   ├── Tab3Page-Dq0iBbMi.css (5KB)
+│   │   │   │   │   │           │   ├── web-CIMJyyTs.js (3KB)
+│   │   │   │   │   │           │   └── web-DTinYezL.js (903B)
+│   │   │   │   │   │           ├── cordova.js [VIDE]
+│   │   │   │   │   │           ├── cordova_plugins.js [VIDE]
+│   │   │   │   │   │           ├── favicon.png (930B)
+│   │   │   │   │   │           └── index.html (1KB)
+│   │   │   │   │   │       ├── capacitor.config.json (452B)
+│   │   │   │   │   │       ├── capacitor.plugins.json (969B)
+│   │   │   │   │   │       └── native-bridge.js (51KB)
+│   │   │   │   ├── compatible_screen_manifest/
+│   │   │   │   │   └── debug/
+│   │   │   │   │   │   └── createDebugCompatibleScreenManifests/
+│   │   │   │   │   │       └── output-metadata.json (192B)
+│   │   │   │   ├── compile_and_runtime_not_namespaced_r_class_jar/
+│   │   │   │   │   └── debug/
+│   │   │   │   │   │   └── processDebugResources/
+│   │   │   │   │   │       └── R.jar (847KB)
+│   │   │   │   ├── compressed_assets/
+│   │   │   │   │   └── debug/
+│   │   │   │   │   │   └── compressDebugAssets/
+│   │   │   │   │   │       └── out/
+│   │   │   │   │   │           └── assets/
+│   │   │   │   │   │               ├── public/
+│   │   │   │   │   │                   ├── assets/
+│   │   │   │   │   │                   │   ├── firebaseSyncService-B9Ar_oH_.js.jar (137KB)
+│   │   │   │   │   │                   │   ├── focus-visible-supuXXMI.js.jar (692B)
+│   │   │   │   │   │                   │   ├── index-CjNSd_ES.css.jar (9KB)
+│   │   │   │   │   │                   │   ├── index-CUpaPBD8.js.jar (209KB)
+│   │   │   │   │   │                   │   ├── index7-WjzHJSo0.js.jar (1009B)
+│   │   │   │   │   │                   │   ├── input-shims-tqqTJh6O.js.jar (2KB)
+│   │   │   │   │   │                   │   ├── ios.transition-ftqWeXii.js.jar (3KB)
+│   │   │   │   │   │                   │   ├── md.transition-BBSSOuRh.js.jar (750B)
+│   │   │   │   │   │                   │   ├── status-tap-D430YHja.js.jar (512B)
+│   │   │   │   │   │                   │   ├── swipe-back-Cn6U8x5W.js.jar (643B)
+│   │   │   │   │   │                   │   ├── Tab1Page-_tmX_Pb_.js.jar (5KB)
+│   │   │   │   │   │                   │   ├── Tab1Page-Bx4vH5Rj.css.jar (1KB)
+│   │   │   │   │   │                   │   ├── Tab2Page-CIkh_V7x.js.jar (62KB)
+│   │   │   │   │   │                   │   ├── Tab2Page-CyF6Phdo.css.jar (8KB)
+│   │   │   │   │   │                   │   ├── Tab3Page-DHiLvRwm.js.jar (4KB)
+│   │   │   │   │   │                   │   ├── Tab3Page-Dq0iBbMi.css.jar (1KB)
+│   │   │   │   │   │                   │   ├── web-CIMJyyTs.js.jar (1KB)
+│   │   │   │   │   │                   │   └── web-DTinYezL.js.jar (633B)
+│   │   │   │   │   │                   ├── cordova.js.jar (148B)
+│   │   │   │   │   │                   ├── cordova_plugins.js.jar (164B)
+│   │   │   │   │   │                   ├── favicon.png.jar (1KB)
+│   │   │   │   │   │                   └── index.html.jar (773B)
+│   │   │   │   │   │               ├── capacitor.config.json.jar (420B)
+│   │   │   │   │   │               ├── capacitor.plugins.json.jar (393B)
+│   │   │   │   │   │               └── native-bridge.js.jar (11KB)
+│   │   │   │   ├── data_binding_layout_info_type_merge/
+│   │   │   │   │   └── debug/
+│   │   │   │   │   │   └── mergeDebugResources/
+│   │   │   │   │   │       └── out/
+│   │   │   │   ├── data_binding_layout_info_type_package/
+│   │   │   │   │   └── debug/
+│   │   │   │   │   │   └── packageDebugResources/
+│   │   │   │   │   │       └── out/
+│   │   │   │   ├── desugar_graph/
+│   │   │   │   │   └── debug/
+│   │   │   │   │   │   └── dexBuilderDebug/
+│   │   │   │   │   │       └── out/
+│   │   │   │   │   │           ├── currentProject/
+│   │   │   │   │   │               ├── dirs_bucket_0/
+│   │   │   │   │   │               │   └── graph.bin (235B)
+│   │   │   │   │   │               ├── dirs_bucket_1/
+│   │   │   │   │   │               │   └── graph.bin (235B)
+│   │   │   │   │   │               ├── jar_fd35fb1ac97b516dda045cdeffae3ed3125d4c750e99e38add51bcf4ef930b00_bucket_0/
+│   │   │   │   │   │               │   └── graph.bin (235B)
+│   │   │   │   │   │               └── jar_fd35fb1ac97b516dda045cdeffae3ed3125d4c750e99e38add51bcf4ef930b00_bucket_1/
+│   │   │   │   │   │               │   └── graph.bin (235B)
+│   │   │   │   │   │           ├── externalLibs/
+│   │   │   │   │   │           ├── mixedScopes/
+│   │   │   │   │   │           └── otherProjects/
+│   │   │   │   ├── dex/
+│   │   │   │   │   └── debug/
+│   │   │   │   │   │   ├── mergeExtDexDebug/
+│   │   │   │   │   │       ├── classes.dex (8MB)
+│   │   │   │   │   │       └── classes2.dex (6MB)
+│   │   │   │   │   │   ├── mergeLibDexDebug/
+│   │   │   │   │   │       ├── 0/
+│   │   │   │   │   │       ├── 1/
+│   │   │   │   │   │       ├── 10/
+│   │   │   │   │   │       ├── 11/
+│   │   │   │   │   │       ├── 12/
+│   │   │   │   │   │       ├── 13/
+│   │   │   │   │   │       │   └── classes.dex (49KB)
+│   │   │   │   │   │       ├── 14/
+│   │   │   │   │   │       │   └── classes.dex (15KB)
+│   │   │   │   │   │       ├── 15/
+│   │   │   │   │   │       │   └── classes.dex (44KB)
+│   │   │   │   │   │       ├── 2/
+│   │   │   │   │   │       │   └── classes.dex (24KB)
+│   │   │   │   │   │       ├── 3/
+│   │   │   │   │   │       ├── 4/
+│   │   │   │   │   │       │   └── classes.dex (11KB)
+│   │   │   │   │   │       ├── 5/
+│   │   │   │   │   │       │   └── classes.dex (148KB)
+│   │   │   │   │   │       ├── 6/
+│   │   │   │   │   │       │   └── classes.dex (16KB)
+│   │   │   │   │   │       ├── 7/
+│   │   │   │   │   │       │   └── classes.dex (8KB)
+│   │   │   │   │   │       ├── 8/
+│   │   │   │   │   │       │   └── classes.dex (53KB)
+│   │   │   │   │   │       └── 9/
+│   │   │   │   │   │       │   └── classes.dex (41KB)
+│   │   │   │   │   │   └── mergeProjectDexDebug/
+│   │   │   │   │   │       ├── 0/
+│   │   │   │   │   │           └── classes.dex (546KB)
+│   │   │   │   │   │       ├── 1/
+│   │   │   │   │   │       ├── 10/
+│   │   │   │   │   │           └── classes.dex (640B)
+│   │   │   │   │   │       ├── 11/
+│   │   │   │   │   │       ├── 12/
+│   │   │   │   │   │       ├── 13/
+│   │   │   │   │   │       ├── 14/
+│   │   │   │   │   │       ├── 15/
+│   │   │   │   │   │       ├── 2/
+│   │   │   │   │   │       ├── 3/
+│   │   │   │   │   │       ├── 4/
+│   │   │   │   │   │       ├── 5/
+│   │   │   │   │   │       ├── 6/
+│   │   │   │   │   │       ├── 7/
+│   │   │   │   │   │           └── classes.dex (640B)
+│   │   │   │   │   │       ├── 8/
+│   │   │   │   │   │       └── 9/
+│   │   │   │   ├── dex_archive_input_jar_hashes/
+│   │   │   │   │   └── debug/
+│   │   │   │   │   │   └── dexBuilderDebug/
+│   │   │   │   │   │       └── out (425B)
+│   │   │   │   ├── dex_number_of_buckets_file/
+│   │   │   │   │   └── debug/
+│   │   │   │   │   │   └── dexBuilderDebug/
+│   │   │   │   │   │       └── out (1B)
+│   │   │   │   ├── duplicate_classes_check/
+│   │   │   │   │   └── debug/
+│   │   │   │   │   │   └── checkDebugDuplicateClasses/
+│   │   │   │   ├── external_file_lib_dex_archives/
+│   │   │   │   │   └── debug/
+│   │   │   │   │   │   └── desugarDebugFileDependencies/
+│   │   │   │   ├── external_libs_dex_archive/
+│   │   │   │   │   └── debug/
+│   │   │   │   │   │   └── dexBuilderDebug/
+│   │   │   │   │   │       └── out/
+│   │   │   │   ├── external_libs_dex_archive_with_artifact_transforms/
+│   │   │   │   │   └── debug/
+│   │   │   │   │   │   └── dexBuilderDebug/
+│   │   │   │   │   │       └── out/
+│   │   │   │   ├── global_synthetics_dex/
+│   │   │   │   │   └── debug/
+│   │   │   │   │   │   └── mergeDebugGlobalSynthetics/
+│   │   │   │   ├── global_synthetics_external_lib/
+│   │   │   │   │   └── debug/
+│   │   │   │   │   │   └── dexBuilderDebug/
+│   │   │   │   │   │       └── out/
+│   │   │   │   ├── global_synthetics_external_libs_artifact_transform/
+│   │   │   │   │   └── debug/
+│   │   │   │   │   │   └── dexBuilderDebug/
+│   │   │   │   │   │       └── out/
+│   │   │   │   ├── global_synthetics_file_lib/
+│   │   │   │   │   └── debug/
+│   │   │   │   │   │   └── desugarDebugFileDependencies/
+│   │   │   │   ├── global_synthetics_mixed_scope/
+│   │   │   │   │   └── debug/
+│   │   │   │   │   │   └── dexBuilderDebug/
+│   │   │   │   │   │       └── out/
+│   │   │   │   ├── global_synthetics_project/
+│   │   │   │   │   └── debug/
+│   │   │   │   │   │   └── dexBuilderDebug/
+│   │   │   │   │   │       └── out/
+│   │   │   │   ├── global_synthetics_subproject/
+│   │   │   │   │   └── debug/
+│   │   │   │   │   │   └── dexBuilderDebug/
+│   │   │   │   │   │       └── out/
+│   │   │   │   ├── incremental/
+│   │   │   │   │   ├── debug/
+│   │   │   │   │   │   ├── mergeDebugResources/
+│   │   │   │   │   │   │   ├── merged.dir/
+│   │   │   │   │   │   │   │   ├── values/
+│   │   │   │   │   │   │   │   │   └── values.xml (953KB)
+│   │   │   │   │   │   │   │   ├── values-af/
+│   │   │   │   │   │   │   │   │   └── values-af.xml (12KB)
+│   │   │   │   │   │   │   │   ├── values-am/
+│   │   │   │   │   │   │   │   │   └── values-am.xml (13KB)
+│   │   │   │   │   │   │   │   ├── values-ar/
+│   │   │   │   │   │   │   │   │   └── values-ar.xml (13KB)
+│   │   │   │   │   │   │   │   ├── values-as/
+│   │   │   │   │   │   │   │   │   └── values-as.xml (13KB)
+│   │   │   │   │   │   │   │   ├── values-az/
+│   │   │   │   │   │   │   │   │   └── values-az.xml (12KB)
+│   │   │   │   │   │   │   │   ├── values-b+es+419/
+│   │   │   │   │   │   │   │   │   └── values-b+es+419.xml (6KB)
+│   │   │   │   │   │   │   │   ├── values-b+sr+Latn/
+│   │   │   │   │   │   │   │   │   └── values-b+sr+Latn.xml (12KB)
+│   │   │   │   │   │   │   │   ├── values-be/
+│   │   │   │   │   │   │   │   │   └── values-be.xml (14KB)
+│   │   │   │   │   │   │   │   ├── values-bg/
+│   │   │   │   │   │   │   │   │   └── values-bg.xml (14KB)
+│   │   │   │   │   │   │   │   ├── values-bn/
+│   │   │   │   │   │   │   │   │   └── values-bn.xml (15KB)
+│   │   │   │   │   │   │   │   ├── values-bs/
+│   │   │   │   │   │   │   │   │   └── values-bs.xml (12KB)
+│   │   │   │   │   │   │   │   ├── values-ca/
+│   │   │   │   │   │   │   │   │   └── values-ca.xml (12KB)
+│   │   │   │   │   │   │   │   ├── values-cs/
+│   │   │   │   │   │   │   │   │   └── values-cs.xml (12KB)
+│   │   │   │   │   │   │   │   ├── values-da/
+│   │   │   │   │   │   │   │   │   └── values-da.xml (12KB)
+│   │   │   │   │   │   │   │   ├── values-de/
+│   │   │   │   │   │   │   │   │   └── values-de.xml (12KB)
+│   │   │   │   │   │   │   │   ├── values-el/
+│   │   │   │   │   │   │   │   │   └── values-el.xml (14KB)
+│   │   │   │   │   │   │   │   ├── values-en-rAU/
+│   │   │   │   │   │   │   │   │   └── values-en-rAU.xml (3KB)
+│   │   │   │   │   │   │   │   ├── values-en-rCA/
+│   │   │   │   │   │   │   │   │   └── values-en-rCA.xml (3KB)
+│   │   │   │   │   │   │   │   ├── values-en-rGB/
+│   │   │   │   │   │   │   │   │   └── values-en-rGB.xml (11KB)
+│   │   │   │   │   │   │   │   ├── values-en-rIN/
+│   │   │   │   │   │   │   │   │   └── values-en-rIN.xml (3KB)
+│   │   │   │   │   │   │   │   ├── values-en-rXC/
+│   │   │   │   │   │   │   │   │   └── values-en-rXC.xml (14KB)
+│   │   │   │   │   │   │   │   ├── values-es/
+│   │   │   │   │   │   │   │   │   └── values-es.xml (12KB)
+│   │   │   │   │   │   │   │   ├── values-es-rUS/
+│   │   │   │   │   │   │   │   │   └── values-es-rUS.xml (12KB)
+│   │   │   │   │   │   │   │   ├── values-et/
+│   │   │   │   │   │   │   │   │   └── values-et.xml (12KB)
+│   │   │   │   │   │   │   │   ├── values-eu/
+│   │   │   │   │   │   │   │   │   └── values-eu.xml (12KB)
+│   │   │   │   │   │   │   │   ├── values-fa/
+│   │   │   │   │   │   │   │   │   └── values-fa.xml (13KB)
+│   │   │   │   │   │   │   │   ├── values-fi/
+│   │   │   │   │   │   │   │   │   └── values-fi.xml (12KB)
+│   │   │   │   │   │   │   │   ├── values-fr/
+│   │   │   │   │   │   │   │   │   └── values-fr.xml (12KB)
+│   │   │   │   │   │   │   │   ├── values-fr-rCA/
+│   │   │   │   │   │   │   │   │   └── values-fr-rCA.xml (12KB)
+│   │   │   │   │   │   │   │   ├── values-gl/
+│   │   │   │   │   │   │   │   │   └── values-gl.xml (12KB)
+│   │   │   │   │   │   │   │   ├── values-gu/
+│   │   │   │   │   │   │   │   │   └── values-gu.xml (15KB)
+│   │   │   │   │   │   │   │   ├── values-h320dp-port-v13/
+│   │   │   │   │   │   │   │   │   └── values-h320dp-port-v13.xml (127B)
+│   │   │   │   │   │   │   │   ├── values-h360dp-land-v13/
+│   │   │   │   │   │   │   │   │   └── values-h360dp-land-v13.xml (624B)
+│   │   │   │   │   │   │   │   ├── values-h480dp-land-v13/
+│   │   │   │   │   │   │   │   │   └── values-h480dp-land-v13.xml (624B)
+│   │   │   │   │   │   │   │   ├── values-h480dp-v13/
+│   │   │   │   │   │   │   │   │   └── values-h480dp-v13.xml (348B)
+│   │   │   │   │   │   │   │   ├── values-h550dp-port-v13/
+│   │   │   │   │   │   │   │   │   └── values-h550dp-port-v13.xml (128B)
+│   │   │   │   │   │   │   │   ├── values-h720dp-v13/
+│   │   │   │   │   │   │   │   │   └── values-h720dp-v13.xml (130B)
+│   │   │   │   │   │   │   │   ├── values-hdpi-v4/
+│   │   │   │   │   │   │   │   │   └── values-hdpi-v4.xml (340B)
+│   │   │   │   │   │   │   │   ├── values-hi/
+│   │   │   │   │   │   │   │   │   └── values-hi.xml (15KB)
+│   │   │   │   │   │   │   │   ├── values-hr/
+│   │   │   │   │   │   │   │   │   └── values-hr.xml (12KB)
+│   │   │   │   │   │   │   │   ├── values-hu/
+│   │   │   │   │   │   │   │   │   └── values-hu.xml (12KB)
+│   │   │   │   │   │   │   │   ├── values-hy/
+│   │   │   │   │   │   │   │   │   └── values-hy.xml (14KB)
+│   │   │   │   │   │   │   │   ├── values-in/
+│   │   │   │   │   │   │   │   │   └── values-in.xml (12KB)
+│   │   │   │   │   │   │   │   ├── values-is/
+│   │   │   │   │   │   │   │   │   └── values-is.xml (12KB)
+│   │   │   │   │   │   │   │   ├── values-it/
+│   │   │   │   │   │   │   │   │   └── values-it.xml (12KB)
+│   │   │   │   │   │   │   │   ├── values-iw/
+│   │   │   │   │   │   │   │   │   └── values-iw.xml (13KB)
+│   │   │   │   │   │   │   │   ├── values-ja/
+│   │   │   │   │   │   │   │   │   └── values-ja.xml (12KB)
+│   │   │   │   │   │   │   │   ├── values-ka/
+│   │   │   │   │   │   │   │   │   └── values-ka.xml (15KB)
+│   │   │   │   │   │   │   │   ├── values-kk/
+│   │   │   │   │   │   │   │   │   └── values-kk.xml (13KB)
+│   │   │   │   │   │   │   │   ├── values-km/
+│   │   │   │   │   │   │   │   │   └── values-km.xml (16KB)
+│   │   │   │   │   │   │   │   ├── values-kn/
+│   │   │   │   │   │   │   │   │   └── values-kn.xml (16KB)
+│   │   │   │   │   │   │   │   ├── values-ko/
+│   │   │   │   │   │   │   │   │   └── values-ko.xml (12KB)
+│   │   │   │   │   │   │   │   ├── values-ky/
+│   │   │   │   │   │   │   │   │   └── values-ky.xml (14KB)
+│   │   │   │   │   │   │   │   ├── values-land/
+│   │   │   │   │   │   │   │   │   └── values-land.xml (2KB)
+│   │   │   │   │   │   │   │   ├── values-large-v4/
+│   │   │   │   │   │   │   │   │   └── values-large-v4.xml (1KB)
+│   │   │   │   │   │   │   │   ├── values-ldltr-v21/
+│   │   │   │   │   │   │   │   │   └── values-ldltr-v21.xml (176B)
+│   │   │   │   │   │   │   │   ├── values-ldrtl-v17/
+│   │   │   │   │   │   │   │   │   └── values-ldrtl-v17.xml (340B)
+│   │   │   │   │   │   │   │   ├── values-lo/
+│   │   │   │   │   │   │   │   │   └── values-lo.xml (15KB)
+│   │   │   │   │   │   │   │   ├── values-lt/
+│   │   │   │   │   │   │   │   │   └── values-lt.xml (12KB)
+│   │   │   │   │   │   │   │   ├── values-lv/
+│   │   │   │   │   │   │   │   │   └── values-lv.xml (12KB)
+│   │   │   │   │   │   │   │   ├── values-mk/
+│   │   │   │   │   │   │   │   │   └── values-mk.xml (14KB)
+│   │   │   │   │   │   │   │   ├── values-ml/
+│   │   │   │   │   │   │   │   │   └── values-ml.xml (17KB)
+│   │   │   │   │   │   │   │   ├── values-mn/
+│   │   │   │   │   │   │   │   │   └── values-mn.xml (14KB)
+│   │   │   │   │   │   │   │   ├── values-mr/
+│   │   │   │   │   │   │   │   │   └── values-mr.xml (15KB)
+│   │   │   │   │   │   │   │   ├── values-ms/
+│   │   │   │   │   │   │   │   │   └── values-ms.xml (12KB)
+│   │   │   │   │   │   │   │   ├── values-my/
+│   │   │   │   │   │   │   │   │   └── values-my.xml (17KB)
+│   │   │   │   │   │   │   │   ├── values-nb/
+│   │   │   │   │   │   │   │   │   └── values-nb.xml (12KB)
+│   │   │   │   │   │   │   │   ├── values-ne/
+│   │   │   │   │   │   │   │   │   └── values-ne.xml (16KB)
+│   │   │   │   │   │   │   │   ├── values-night-v8/
+│   │   │   │   │   │   │   │   │   └── values-night-v8.xml (4KB)
+│   │   │   │   │   │   │   │   ├── values-nl/
+│   │   │   │   │   │   │   │   │   └── values-nl.xml (12KB)
+│   │   │   │   │   │   │   │   ├── values-or/
+│   │   │   │   │   │   │   │   │   └── values-or.xml (14KB)
+│   │   │   │   │   │   │   │   ├── values-pa/
+│   │   │   │   │   │   │   │   │   └── values-pa.xml (15KB)
+│   │   │   │   │   │   │   │   ├── values-pl/
+│   │   │   │   │   │   │   │   │   └── values-pl.xml (12KB)
+│   │   │   │   │   │   │   │   ├── values-port/
+│   │   │   │   │   │   │   │   │   └── values-port.xml (119B)
+│   │   │   │   │   │   │   │   ├── values-pt/
+│   │   │   │   │   │   │   │   │   └── values-pt.xml (3KB)
+│   │   │   │   │   │   │   │   ├── values-pt-rBR/
+│   │   │   │   │   │   │   │   │   └── values-pt-rBR.xml (12KB)
+│   │   │   │   │   │   │   │   ├── values-pt-rPT/
+│   │   │   │   │   │   │   │   │   └── values-pt-rPT.xml (12KB)
+│   │   │   │   │   │   │   │   ├── values-ro/
+│   │   │   │   │   │   │   │   │   └── values-ro.xml (12KB)
+│   │   │   │   │   │   │   │   ├── values-ru/
+│   │   │   │   │   │   │   │   │   └── values-ru.xml (14KB)
+│   │   │   │   │   │   │   │   ├── values-si/
+│   │   │   │   │   │   │   │   │   └── values-si.xml (15KB)
+│   │   │   │   │   │   │   │   ├── values-sk/
+│   │   │   │   │   │   │   │   │   └── values-sk.xml (12KB)
+│   │   │   │   │   │   │   │   ├── values-sl/
+│   │   │   │   │   │   │   │   │   └── values-sl.xml (12KB)
+│   │   │   │   │   │   │   │   ├── values-sq/
+│   │   │   │   │   │   │   │   │   └── values-sq.xml (12KB)
+│   │   │   │   │   │   │   │   ├── values-sr/
+│   │   │   │   │   │   │   │   │   └── values-sr.xml (14KB)
+│   │   │   │   │   │   │   │   ├── values-sv/
+│   │   │   │   │   │   │   │   │   └── values-sv.xml (12KB)
+│   │   │   │   │   │   │   │   ├── values-sw/
+│   │   │   │   │   │   │   │   │   └── values-sw.xml (12KB)
+│   │   │   │   │   │   │   │   ├── values-sw600dp-v13/
+│   │   │   │   │   │   │   │   │   └── values-sw600dp-v13.xml (1KB)
+│   │   │   │   │   │   │   │   ├── values-ta/
+│   │   │   │   │   │   │   │   │   └── values-ta.xml (16KB)
+│   │   │   │   │   │   │   │   ├── values-te/
+│   │   │   │   │   │   │   │   │   └── values-te.xml (16KB)
+│   │   │   │   │   │   │   │   ├── values-th/
+│   │   │   │   │   │   │   │   │   └── values-th.xml (15KB)
+│   │   │   │   │   │   │   │   ├── values-tl/
+│   │   │   │   │   │   │   │   │   └── values-tl.xml (12KB)
+│   │   │   │   │   │   │   │   ├── values-tr/
+│   │   │   │   │   │   │   │   │   └── values-tr.xml (12KB)
+│   │   │   │   │   │   │   │   ├── values-uk/
+│   │   │   │   │   │   │   │   │   └── values-uk.xml (14KB)
+│   │   │   │   │   │   │   │   ├── values-ur/
+│   │   │   │   │   │   │   │   │   └── values-ur.xml (13KB)
+│   │   │   │   │   │   │   │   ├── values-uz/
+│   │   │   │   │   │   │   │   │   └── values-uz.xml (12KB)
+│   │   │   │   │   │   │   │   ├── values-v16/
+│   │   │   │   │   │   │   │   │   └── values-v16.xml (236B)
+│   │   │   │   │   │   │   │   ├── values-v17/
+│   │   │   │   │   │   │   │   │   └── values-v17.xml (3KB)
+│   │   │   │   │   │   │   │   ├── values-v18/
+│   │   │   │   │   │   │   │   │   └── values-v18.xml (112B)
+│   │   │   │   │   │   │   │   ├── values-v21/
+│   │   │   │   │   │   │   │   │   └── values-v21.xml (19KB)
+│   │   │   │   │   │   │   │   ├── values-v22/
+│   │   │   │   │   │   │   │   │   └── values-v22.xml (777B)
+│   │   │   │   │   │   │   │   ├── values-v23/
+│   │   │   │   │   │   │   │   │   └── values-v23.xml (5KB)
+│   │   │   │   │   │   │   │   ├── values-v24/
+│   │   │   │   │   │   │   │   │   └── values-v24.xml (1KB)
+│   │   │   │   │   │   │   │   ├── values-v25/
+│   │   │   │   │   │   │   │   │   └── values-v25.xml (427B)
+│   │   │   │   │   │   │   │   ├── values-v26/
+│   │   │   │   │   │   │   │   │   └── values-v26.xml (897B)
+│   │   │   │   │   │   │   │   ├── values-v27/
+│   │   │   │   │   │   │   │   │   └── values-v27.xml (601B)
+│   │   │   │   │   │   │   │   ├── values-v28/
+│   │   │   │   │   │   │   │   │   └── values-v28.xml (1KB)
+│   │   │   │   │   │   │   │   ├── values-v29/
+│   │   │   │   │   │   │   │   │   └── values-v29.xml (477B)
+│   │   │   │   │   │   │   │   ├── values-v31/
+│   │   │   │   │   │   │   │   │   └── values-v31.xml (43KB)
+│   │   │   │   │   │   │   │   ├── values-v34/
+│   │   │   │   │   │   │   │   │   └── values-v34.xml (9KB)
+│   │   │   │   │   │   │   │   ├── values-v35/
+│   │   │   │   │   │   │   │   │   └── values-v35.xml (457B)
+│   │   │   │   │   │   │   │   ├── values-vi/
+│   │   │   │   │   │   │   │   │   └── values-vi.xml (12KB)
+│   │   │   │   │   │   │   │   ├── values-w320dp-land-v13/
+│   │   │   │   │   │   │   │   │   └── values-w320dp-land-v13.xml (180B)
+│   │   │   │   │   │   │   │   ├── values-w360dp-port-v13/
+│   │   │   │   │   │   │   │   │   └── values-w360dp-port-v13.xml (555B)
+│   │   │   │   │   │   │   │   ├── values-w400dp-port-v13/
+│   │   │   │   │   │   │   │   │   └── values-w400dp-port-v13.xml (555B)
+│   │   │   │   │   │   │   │   ├── values-w600dp-land-v13/
+│   │   │   │   │   │   │   │   │   └── values-w600dp-land-v13.xml (118B)
+│   │   │   │   │   │   │   │   ├── values-watch-v20/
+│   │   │   │   │   │   │   │   │   └── values-watch-v20.xml (1KB)
+│   │   │   │   │   │   │   │   ├── values-watch-v21/
+│   │   │   │   │   │   │   │   │   └── values-watch-v21.xml (737B)
+│   │   │   │   │   │   │   │   ├── values-xlarge-v4/
+│   │   │   │   │   │   │   │   │   └── values-xlarge-v4.xml (481B)
+│   │   │   │   │   │   │   │   ├── values-zh-rCN/
+│   │   │   │   │   │   │   │   │   └── values-zh-rCN.xml (12KB)
+│   │   │   │   │   │   │   │   ├── values-zh-rHK/
+│   │   │   │   │   │   │   │   │   └── values-zh-rHK.xml (12KB)
+│   │   │   │   │   │   │   │   ├── values-zh-rTW/
+│   │   │   │   │   │   │   │   │   └── values-zh-rTW.xml (12KB)
+│   │   │   │   │   │   │   │   └── values-zu/
+│   │   │   │   │   │   │   │   │   └── values-zu.xml (12KB)
+│   │   │   │   │   │   │   ├── stripped.dir/
+│   │   │   │   │   │   │   ├── compile-file-map.properties (7KB)
+│   │   │   │   │   │   │   └── merger.xml (2MB)
+│   │   │   │   │   │   └── packageDebugResources/
+│   │   │   │   │   │   │   ├── merged.dir/
+│   │   │   │   │   │   │       └── values/
+│   │   │   │   │   │   │       │   └── values.xml (1KB)
+│   │   │   │   │   │   │   ├── stripped.dir/
+│   │   │   │   │   │   │   ├── compile-file-map.properties (7KB)
+│   │   │   │   │   │   │   └── merger.xml (10KB)
+│   │   │   │   │   ├── debug-mergeJavaRes/
+│   │   │   │   │   │   ├── zip-cache/
+│   │   │   │   │   │   │   ├── +Flv6S2SMboIAig23J0SgO8okHw= (7KB)
+│   │   │   │   │   │   │   ├── +yMs0K59dhgz_RgMStM7uCQCiD0= (82KB)
+│   │   │   │   │   │   │   ├── 09qoF0fLIhLSWSUY9X8BpSBGJxw= (63KB)
+│   │   │   │   │   │   │   ├── 09RXw1JOM6Ex9R3EhaRiJrNPbl8= (62KB)
+│   │   │   │   │   │   │   ├── 0GDxz9JrP7xia32GPzflc8vBvAs= (184KB)
+│   │   │   │   │   │   │   ├── 1n7S22RkhMgHFNzKAOPI6OcORjo= (33KB)
+│   │   │   │   │   │   │   ├── 1Z4RME4OSnioZkqagWJ7x6HG9rI= (19KB)
+│   │   │   │   │   │   │   ├── 3+4UoVHS3NbI+CReQ6Fc7hQo1xM= (1MB)
+│   │   │   │   │   │   │   ├── 4ADZAPaeS+Cx3VR63GskRcZ9asM= (351KB)
+│   │   │   │   │   │   │   ├── 5+RxhaNIy_PdjTC571wkYqT+6N0= (130KB)
+│   │   │   │   │   │   │   ├── 6fnjUXum7HxpNIfYCDSs8vK02E8= (27KB)
+│   │   │   │   │   │   │   ├── 6ixAMFntqsAlaaWIoqWoczOpueM= (9KB)
+│   │   │   │   │   │   │   ├── 6SNquhK6B9cUpYY5PFBVoTcbW3I= (17KB)
+│   │   │   │   │   │   │   ├── 8anl2Kmi74vytJa5MFO8zzS_3SI= (757KB)
+│   │   │   │   │   │   │   ├── 9Gh7ZqFS0RDtsMX5IB4HG2YgVuc= (10KB)
+│   │   │   │   │   │   │   ├── 9yvc+H2RFGGjuUDvz20elO89MOU= (54KB)
+│   │   │   │   │   │   │   ├── AaV+4FINoMGdKR2o+EaOwEUCh6s= (2KB)
+│   │   │   │   │   │   │   ├── aBnNpPMeg_zTCh2tFIwzylyFmfc= (3KB)
+│   │   │   │   │   │   │   ├── B28Mm97LRbsLtR1tb_JjPgGxDq0= (963B)
+│   │   │   │   │   │   │   ├── bcAuFhQtzS3hnUYE57SJusnCAgM= (27KB)
+│   │   │   │   │   │   │   ├── bEZJXfh7mC7w+bx8ls+XanoItOk= (17KB)
+│   │   │   │   │   │   │   ├── bHG4u0OJaxpXFjB_8mHG84QnLbQ= (324KB)
+│   │   │   │   │   │   │   ├── bN0viXvQTOQ0F9fnp9g+_6jihjY= (39KB)
+│   │   │   │   │   │   │   ├── BnMtjtktSKjGbQV_u6y9ZA3YYxs= (21KB)
+│   │   │   │   │   │   │   ├── BpTE8OpbdJLWkaMdxoRinXz_nVI= (15KB)
+│   │   │   │   │   │   │   ├── bS6t_O5moVpCyC4WBD9RMg0M3WM= (206KB)
+│   │   │   │   │   │   │   ├── BvoXM7EfFxAo2v9x73UhhfA23dM= (66KB)
+│   │   │   │   │   │   │   ├── CltRFlRnNNjCBJjztZ8CmphLXD4= (1MB)
+│   │   │   │   │   │   │   ├── ClxCIlPRqMedsFWw3mbTDFwrZ0U= (3KB)
+│   │   │   │   │   │   │   ├── czNVsm4OSVXxTQVUwCOpTugepxI= (151KB)
+│   │   │   │   │   │   │   ├── dYIVJoUwUaaGM_laFkjV3s1ASvQ= (54KB)
+│   │   │   │   │   │   │   ├── DzCgVFFgMFROhz7dpoukXqHNQEk= (32KB)
+│   │   │   │   │   │   │   ├── EFpi0tz+bpc6cvpKAkLGEt4lJwg= (22KB)
+│   │   │   │   │   │   │   ├── ekZ+4HemC2AL7X_L_oNogSsINm4= (32KB)
+│   │   │   │   │   │   │   ├── F597BhxwDuffNcwdBbHXULErHBc= (8KB)
+│   │   │   │   │   │   │   ├── FkXqW8IaVnk5Ix3JVTVzPlN9qtE= (283KB)
+│   │   │   │   │   │   │   ├── fN+SK8XJje7K+i2GwswHkyHB1nQ= (2KB)
+│   │   │   │   │   │   │   ├── fSTQ6FXFpNqKf9CPD77Kqy8sHvM= (9KB)
+│   │   │   │   │   │   │   ├── g3z7fDEZY675c1XPXRrK5t8TPKo= (27KB)
+│   │   │   │   │   │   │   ├── gcrafP4ngb7SJ9l3Skgdpg4hCsY= (773KB)
+│   │   │   │   │   │   │   ├── GSJUAJQ5dAjDhqXKpNAg64+3sFw= (45KB)
+│   │   │   │   │   │   │   ├── GSwum6c+HmxWd3RKbj7bVu2J_4c= (20KB)
+│   │   │   │   │   │   │   ├── gXWxxZEGD16MbW7lWYpmfjr9MQk= (2KB)
+│   │   │   │   │   │   │   ├── H+zFKnSPEZnRhqsuhsUFZ_tJ+Gw= (7KB)
+│   │   │   │   │   │   │   ├── hr3yk4jZ5zli1no2172ZCQkZUy8= (456KB)
+│   │   │   │   │   │   │   ├── HtDJeasXIyax14v_7VrvsWBt3dY= (17KB)
+│   │   │   │   │   │   │   ├── HTwut7_E8Tj94nl9DxnZKjYBBKU= (31KB)
+│   │   │   │   │   │   │   ├── HXdeMa6tlsTher1RErpNov3Sxt4= (11KB)
+│   │   │   │   │   │   │   ├── I45YffE8N8Ab9TJuCxBmNrVr3Uk= (40KB)
+│   │   │   │   │   │   │   ├── iKiPbPkohudgpieUxnMPdFgJ0Uo= (31KB)
+│   │   │   │   │   │   │   ├── iT7DxZItRqZZQuHPT+NcgXAb5tA= (198B)
+│   │   │   │   │   │   │   ├── iX7Xl5uPqInxrdnJ+fCqSQotRAI= (46KB)
+│   │   │   │   │   │   │   ├── jDgNu1mq9FS3UV9bdwsWF6ckHhI= (6KB)
+│   │   │   │   │   │   │   ├── jG5ehYfD84udxoMJBXQJ06s_FvA= (138KB)
+│   │   │   │   │   │   │   ├── JncecuiUsV1Bwvjl9q1zqzwwvos= (3KB)
+│   │   │   │   │   │   │   ├── Jtapiyc4VA2yEXMg5AIYXILZeqo= (1MB)
+│   │   │   │   │   │   │   ├── JuzBI+zuw4wYkTuK3koBLnm7b4o= (29KB)
+│   │   │   │   │   │   │   ├── KbOii6bmdcP400ThnS6WCKdy1W4= (1KB)
+│   │   │   │   │   │   │   ├── kgdSvoUzEUr43zjwk_Q2GzczIgI= (85KB)
+│   │   │   │   │   │   │   ├── KVH6_Wa34zzBM+rVVVCdAmXXM54= (34KB)
+│   │   │   │   │   │   │   ├── ldo18rM_IzDiGENcZyhCi3y_BFw= (16KB)
+│   │   │   │   │   │   │   ├── LrRYG4iYZH3ZdBF9v3MB12_d7OY= (1MB)
+│   │   │   │   │   │   │   ├── LZbYm0TDJxXQpmQUrUdqCnQZNIs= (189KB)
+│   │   │   │   │   │   │   ├── mC29wHUIkk4Fraz2vnVhDqBRgDc= (1MB)
+│   │   │   │   │   │   │   ├── mhXDPRQaFTML7r+VEbabZADivx4= (19KB)
+│   │   │   │   │   │   │   ├── MlP7v6pvAylzE7pH3INKZVXymME= (28KB)
+│   │   │   │   │   │   │   ├── mqZaaNgOCHtqtqvrraYauH7+mOA= (31KB)
+│   │   │   │   │   │   │   ├── NJtLtightgLvFXhzR0vMSbAGR6Y= (3KB)
+│   │   │   │   │   │   │   ├── O0uwSzS_LpdCXMJBM2u7KF4zn8E= (48KB)
+│   │   │   │   │   │   │   ├── o__7JO80ZLd_MMibLIGGSYoxfKI= (39KB)
+│   │   │   │   │   │   │   ├── P5AK_u4xhLCwYdL22bSvXcZqG8U= (3KB)
+│   │   │   │   │   │   │   ├── p6R_XVHUtdHqCwDja4xVuwfMz_Q= (20KB)
+│   │   │   │   │   │   │   ├── peWc4tNXL+csGHIrtHPhXLFAwW4= (85KB)
+│   │   │   │   │   │   │   ├── PTM+XSWKol8DRa2vZto8_N_2Zx8= (66KB)
+│   │   │   │   │   │   │   ├── pXeC8voVbKazuOLTzgfDQf2xWmw= (1KB)
+│   │   │   │   │   │   │   ├── qADrth7qJz0u6gXfesy5Ml2q2NE= (6KB)
+│   │   │   │   │   │   │   ├── qEbpV+8jlBQ668rpIluhI7RC+qc= (580KB)
+│   │   │   │   │   │   │   ├── qm6zu3hat9lg3jujJZoh+KO_hHQ= (1KB)
+│   │   │   │   │   │   │   ├── Qr7VoW4eX_UYVkAGLYiwQMXpQE8= (173KB)
+│   │   │   │   │   │   │   ├── r+zCczJ0JI2kJQ9Wf9SksFPIvVo= (213KB)
+│   │   │   │   │   │   │   ├── r3x4ibtBLrRbZ7r1Q7+bleHCj7I= (40KB)
+│   │   │   │   │   │   │   ├── rghHVTtYE0rVj+w6Sqibeeu_lz8= (200KB)
+│   │   │   │   │   │   │   ├── rnuYYOHd8UcZ7tRwbRxBMbhNOtc= (398KB)
+│   │   │   │   │   │   │   ├── RzuFPy1gCTb45KCnUZlV1gYYHD0= (14KB)
+│   │   │   │   │   │   │   ├── S4dOKuadQ7IvERPicpeY8I3IrO0= (1MB)
+│   │   │   │   │   │   │   ├── T37s_TjuuyTGgnUDscULgIC3Pmo= (69KB)
+│   │   │   │   │   │   │   ├── tG7ipRnKGqt9G9uObJoAFAaPKNc= (25KB)
+│   │   │   │   │   │   │   ├── tqp6j3k35NB2G39tQN9uApA0g9c= (969B)
+│   │   │   │   │   │   │   ├── U+bCr648SnLwz9EZ9mKkafNRjeM= (11KB)
+│   │   │   │   │   │   │   ├── UVEvXF4tOIDwybRC8Kr1fZV+gQ0= (6KB)
+│   │   │   │   │   │   │   ├── uZZ7DyZluMtPZy_9JsjT62A6DT0= (11KB)
+│   │   │   │   │   │   │   ├── W86W8+MS3whTETVdaufLzfKZG4c= (58KB)
+│   │   │   │   │   │   │   ├── wSb9wVxprOsSCLpPhnkpDQiyFaI= (6KB)
+│   │   │   │   │   │   │   ├── WuF0bvKJ_4QBbSEdnrYRyO5pVlM= (6KB)
+│   │   │   │   │   │   │   ├── xNtbIPs0+6llGFHNZOh3Z92_yLs= (25KB)
+│   │   │   │   │   │   │   ├── XTleE5Q4Z4voEnMzuX9efdPyJNU= (3KB)
+│   │   │   │   │   │   │   ├── xUKFrU5IDJzL2e0kj_18eFmhJVI= (423KB)
+│   │   │   │   │   │   │   ├── xwqbfN9Xaerg2v0EpfdogGQLmiM= (38KB)
+│   │   │   │   │   │   │   ├── yzO7230I0kd4KBXViUEEmNnUwRQ= (85KB)
+│   │   │   │   │   │   │   ├── YZRSxeOJbyY9LhWeHh7rXAFgJSQ= (51KB)
+│   │   │   │   │   │   │   ├── ZafhAPDefGurE5_pyvnPHxvkJxE= (38KB)
+│   │   │   │   │   │   │   └── ZELBNbveuejM25p_YrkMq0YMnVI= (688KB)
+│   │   │   │   │   │   └── merge-state (22KB)
+│   │   │   │   │   ├── mergeDebugAssets/
+│   │   │   │   │   │   └── merger.xml (7KB)
+│   │   │   │   │   ├── mergeDebugJniLibFolders/
+│   │   │   │   │   │   └── merger.xml (504B)
+│   │   │   │   │   ├── mergeDebugShaders/
+│   │   │   │   │   │   └── merger.xml (504B)
+│   │   │   │   │   └── packageDebug/
+│   │   │   │   │   │   └── tmp/
+│   │   │   │   │   │       └── debug/
+│   │   │   │   │   │           ├── zip-cache/
+│   │   │   │   │   │               ├── androidResources (87KB)
+│   │   │   │   │   │               └── javaResources0 (7KB)
+│   │   │   │   │   │           └── dex-renamer-state.txt (2KB)
+│   │   │   │   ├── javac/
+│   │   │   │   │   └── debug/
+│   │   │   │   │   │   └── compileDebugJavaWithJavac/
+│   │   │   │   │   │       └── classes/
+│   │   │   │   │   │           ├── com/
+│   │   │   │   │   │               └── myapp/
+│   │   │   │   │   │               │   └── mobile/
+│   │   │   │   │   │               │       └── MainActivity.class (310B)
+│   │   │   │   │   │           └── io/
+│   │   │   │   │   │               └── ionic/
+│   │   │   │   │   │                   └── starter/
+│   │   │   │   │   │                       └── MainActivity.class (310B)
+│   │   │   │   ├── linked_resources_binary_format/
+│   │   │   │   │   └── debug/
+│   │   │   │   │   │   └── processDebugResources/
+│   │   │   │   │   │       ├── linked-resources-binary-format-debug.ap_ (1MB)
+│   │   │   │   │   │       └── output-metadata.json (420B)
+│   │   │   │   ├── local_only_symbol_list/
+│   │   │   │   │   └── debug/
+│   │   │   │   │   │   └── parseDebugLocalResources/
+│   │   │   │   │   │       └── R-def.txt (663B)
+│   │   │   │   ├── manifest_merge_blame_file/
+│   │   │   │   │   └── debug/
+│   │   │   │   │   │   └── processDebugMainManifest/
+│   │   │   │   │   │       └── manifest-merger-blame-debug-report.txt (41KB)
+│   │   │   │   ├── merged_java_res/
+│   │   │   │   │   └── debug/
+│   │   │   │   │   │   └── mergeDebugJavaResource/
+│   │   │   │   │   │       └── base.jar (32KB)
+│   │   │   │   ├── merged_jni_libs/
+│   │   │   │   │   └── debug/
+│   │   │   │   │   │   └── mergeDebugJniLibFolders/
+│   │   │   │   │   │       └── out/
+│   │   │   │   ├── merged_manifest/
+│   │   │   │   │   └── debug/
+│   │   │   │   │   │   └── processDebugMainManifest/
+│   │   │   │   │   │       └── AndroidManifest.xml (10KB)
+│   │   │   │   ├── merged_manifests/
+│   │   │   │   │   └── debug/
+│   │   │   │   │   │   └── processDebugManifest/
+│   │   │   │   │   │       ├── AndroidManifest.xml (10KB)
+│   │   │   │   │   │       └── output-metadata.json (385B)
+│   │   │   │   ├── merged_native_libs/
+│   │   │   │   │   └── debug/
+│   │   │   │   │   │   └── mergeDebugNativeLibs/
+│   │   │   │   │   │       └── out/
+│   │   │   │   │   │           └── lib/
+│   │   │   │   │   │               ├── arm64-v8a/
+│   │   │   │   │   │                   └── libdatastore_shared_counter.so (6KB)
+│   │   │   │   │   │               ├── armeabi-v7a/
+│   │   │   │   │   │                   └── libdatastore_shared_counter.so (4KB)
+│   │   │   │   │   │               ├── x86/
+│   │   │   │   │   │                   └── libdatastore_shared_counter.so (5KB)
+│   │   │   │   │   │               └── x86_64/
+│   │   │   │   │   │                   └── libdatastore_shared_counter.so (6KB)
+│   │   │   │   ├── merged_res/
+│   │   │   │   │   └── debug/
+│   │   │   │   │   │   └── mergeDebugResources/
+│   │   │   │   │   │       ├── drawable-land-hdpi_splash.png.flat (7KB)
+│   │   │   │   │   │       ├── drawable-land-mdpi_splash.png.flat (4KB)
+│   │   │   │   │   │       ├── drawable-land-xhdpi_splash.png.flat (9KB)
+│   │   │   │   │   │       ├── drawable-land-xxhdpi_splash.png.flat (13KB)
+│   │   │   │   │   │       ├── drawable-land-xxxhdpi_splash.png.flat (17KB)
+│   │   │   │   │   │       ├── drawable-port-hdpi_splash.png.flat (7KB)
+│   │   │   │   │   │       ├── drawable-port-mdpi_splash.png.flat (4KB)
+│   │   │   │   │   │       ├── drawable-port-xhdpi_splash.png.flat (9KB)
+│   │   │   │   │   │       ├── drawable-port-xxhdpi_splash.png.flat (13KB)
+│   │   │   │   │   │       ├── drawable-port-xxxhdpi_splash.png.flat (17KB)
+│   │   │   │   │   │       ├── drawable-v24_ic_launcher_foreground.xml.flat (2KB)
+│   │   │   │   │   │       ├── drawable_ic_launcher_background.xml.flat (10KB)
+│   │   │   │   │   │       ├── drawable_splash.png.flat (4KB)
+│   │   │   │   │   │       ├── layout_activity_main.xml.flat (756B)
+│   │   │   │   │   │       ├── mipmap-anydpi-v26_ic_launcher.xml.flat (456B)
+│   │   │   │   │   │       ├── mipmap-anydpi-v26_ic_launcher_round.xml.flat (468B)
+│   │   │   │   │   │       ├── mipmap-hdpi_ic_launcher.png.flat (2KB)
+│   │   │   │   │   │       ├── mipmap-hdpi_ic_launcher_foreground.png.flat (3KB)
+│   │   │   │   │   │       ├── mipmap-hdpi_ic_launcher_round.png.flat (4KB)
+│   │   │   │   │   │       ├── mipmap-mdpi_ic_launcher.png.flat (1KB)
+│   │   │   │   │   │       ├── mipmap-mdpi_ic_launcher_foreground.png.flat (2KB)
+│   │   │   │   │   │       ├── mipmap-mdpi_ic_launcher_round.png.flat (2KB)
+│   │   │   │   │   │       ├── mipmap-xhdpi_ic_launcher.png.flat (4KB)
+│   │   │   │   │   │       ├── mipmap-xhdpi_ic_launcher_foreground.png.flat (5KB)
+│   │   │   │   │   │       ├── mipmap-xhdpi_ic_launcher_round.png.flat (6KB)
+│   │   │   │   │   │       ├── mipmap-xxhdpi_ic_launcher.png.flat (6KB)
+│   │   │   │   │   │       ├── mipmap-xxhdpi_ic_launcher_foreground.png.flat (9KB)
+│   │   │   │   │   │       ├── mipmap-xxhdpi_ic_launcher_round.png.flat (10KB)
+│   │   │   │   │   │       ├── mipmap-xxxhdpi_ic_launcher.png.flat (9KB)
+│   │   │   │   │   │       ├── mipmap-xxxhdpi_ic_launcher_foreground.png.flat (15KB)
+│   │   │   │   │   │       ├── mipmap-xxxhdpi_ic_launcher_round.png.flat (15KB)
+│   │   │   │   │   │       ├── values-af_values-af.arsc.flat (10KB)
+│   │   │   │   │   │       ├── values-am_values-am.arsc.flat (12KB)
+│   │   │   │   │   │       ├── values-ar_values-ar.arsc.flat (12KB)
+│   │   │   │   │   │       ├── values-as_values-as.arsc.flat (12KB)
+│   │   │   │   │   │       ├── values-az_values-az.arsc.flat (10KB)
+│   │   │   │   │   │       ├── values-b+es+419_values-b+es+419.arsc.flat (6KB)
+│   │   │   │   │   │       ├── values-b+sr+Latn_values-b+sr+Latn.arsc.flat (11KB)
+│   │   │   │   │   │       ├── values-be_values-be.arsc.flat (12KB)
+│   │   │   │   │   │       ├── values-bg_values-bg.arsc.flat (13KB)
+│   │   │   │   │   │       ├── values-bn_values-bn.arsc.flat (14KB)
+│   │   │   │   │   │       ├── values-bs_values-bs.arsc.flat (10KB)
+│   │   │   │   │   │       ├── values-ca_values-ca.arsc.flat (11KB)
+│   │   │   │   │   │       ├── values-cs_values-cs.arsc.flat (10KB)
+│   │   │   │   │   │       ├── values-da_values-da.arsc.flat (10KB)
+│   │   │   │   │   │       ├── values-de_values-de.arsc.flat (10KB)
+│   │   │   │   │   │       ├── values-el_values-el.arsc.flat (13KB)
+│   │   │   │   │   │       ├── values-en-rAU_values-en-rAU.arsc.flat (2KB)
+│   │   │   │   │   │       ├── values-en-rCA_values-en-rCA.arsc.flat (2KB)
+│   │   │   │   │   │       ├── values-en-rGB_values-en-rGB.arsc.flat (10KB)
+│   │   │   │   │   │       ├── values-en-rIN_values-en-rIN.arsc.flat (2KB)
+│   │   │   │   │   │       ├── values-en-rXC_values-en-rXC.arsc.flat (13KB)
+│   │   │   │   │   │       ├── values-es-rUS_values-es-rUS.arsc.flat (11KB)
+│   │   │   │   │   │       ├── values-es_values-es.arsc.flat (11KB)
+│   │   │   │   │   │       ├── values-et_values-et.arsc.flat (10KB)
+│   │   │   │   │   │       ├── values-eu_values-eu.arsc.flat (10KB)
+│   │   │   │   │   │       ├── values-fa_values-fa.arsc.flat (12KB)
+│   │   │   │   │   │       ├── values-fi_values-fi.arsc.flat (10KB)
+│   │   │   │   │   │       ├── values-fr-rCA_values-fr-rCA.arsc.flat (11KB)
+│   │   │   │   │   │       ├── values-fr_values-fr.arsc.flat (11KB)
+│   │   │   │   │   │       ├── values-gl_values-gl.arsc.flat (11KB)
+│   │   │   │   │   │       ├── values-gu_values-gu.arsc.flat (13KB)
+│   │   │   │   │   │       ├── values-h320dp-port-v13_values-h320dp-port-v13.arsc.flat (288B)
+│   │   │   │   │   │       ├── values-h360dp-land-v13_values-h360dp-land-v13.arsc.flat (796B)
+│   │   │   │   │   │       ├── values-h480dp-land-v13_values-h480dp-land-v13.arsc.flat (796B)
+│   │   │   │   │   │       ├── values-h480dp-v13_values-h480dp-v13.arsc.flat (492B)
+│   │   │   │   │   │       ├── values-h550dp-port-v13_values-h550dp-port-v13.arsc.flat (288B)
+│   │   │   │   │   │       ├── values-h720dp-v13_values-h720dp-v13.arsc.flat (272B)
+│   │   │   │   │   │       ├── values-hdpi-v4_values-hdpi-v4.arsc.flat (480B)
+│   │   │   │   │   │       ├── values-hi_values-hi.arsc.flat (14KB)
+│   │   │   │   │   │       ├── values-hr_values-hr.arsc.flat (10KB)
+│   │   │   │   │   │       ├── values-hu_values-hu.arsc.flat (11KB)
+│   │   │   │   │   │       ├── values-hy_values-hy.arsc.flat (12KB)
+│   │   │   │   │   │       ├── values-in_values-in.arsc.flat (10KB)
+│   │   │   │   │   │       ├── values-is_values-is.arsc.flat (10KB)
+│   │   │   │   │   │       ├── values-it_values-it.arsc.flat (10KB)
+│   │   │   │   │   │       ├── values-iw_values-iw.arsc.flat (11KB)
+│   │   │   │   │   │       ├── values-ja_values-ja.arsc.flat (11KB)
+│   │   │   │   │   │       ├── values-ka_values-ka.arsc.flat (14KB)
+│   │   │   │   │   │       ├── values-kk_values-kk.arsc.flat (12KB)
+│   │   │   │   │   │       ├── values-km_values-km.arsc.flat (14KB)
+│   │   │   │   │   │       ├── values-kn_values-kn.arsc.flat (14KB)
+│   │   │   │   │   │       ├── values-ko_values-ko.arsc.flat (10KB)
+│   │   │   │   │   │       ├── values-ky_values-ky.arsc.flat (12KB)
+│   │   │   │   │   │       ├── values-land_values-land.arsc.flat (2KB)
+│   │   │   │   │   │       ├── values-large-v4_values-large-v4.arsc.flat (1KB)
+│   │   │   │   │   │       ├── values-ldltr-v21_values-ldltr-v21.arsc.flat (336B)
+│   │   │   │   │   │       ├── values-ldrtl-v17_values-ldrtl-v17.arsc.flat (476B)
+│   │   │   │   │   │       ├── values-lo_values-lo.arsc.flat (14KB)
+│   │   │   │   │   │       ├── values-lt_values-lt.arsc.flat (11KB)
+│   │   │   │   │   │       ├── values-lv_values-lv.arsc.flat (11KB)
+│   │   │   │   │   │       ├── values-mk_values-mk.arsc.flat (12KB)
+│   │   │   │   │   │       ├── values-ml_values-ml.arsc.flat (15KB)
+│   │   │   │   │   │       ├── values-mn_values-mn.arsc.flat (12KB)
+│   │   │   │   │   │       ├── values-mr_values-mr.arsc.flat (13KB)
+│   │   │   │   │   │       ├── values-ms_values-ms.arsc.flat (10KB)
+│   │   │   │   │   │       ├── values-my_values-my.arsc.flat (15KB)
+│   │   │   │   │   │       ├── values-nb_values-nb.arsc.flat (10KB)
+│   │   │   │   │   │       ├── values-ne_values-ne.arsc.flat (14KB)
+│   │   │   │   │   │       ├── values-night-v8_values-night-v8.arsc.flat (5KB)
+│   │   │   │   │   │       ├── values-nl_values-nl.arsc.flat (10KB)
+│   │   │   │   │   │       ├── values-or_values-or.arsc.flat (12KB)
+│   │   │   │   │   │       ├── values-pa_values-pa.arsc.flat (13KB)
+│   │   │   │   │   │       ├── values-pl_values-pl.arsc.flat (10KB)
+│   │   │   │   │   │       ├── values-port_values-port.arsc.flat (244B)
+│   │   │   │   │   │       ├── values-pt-rBR_values-pt-rBR.arsc.flat (11KB)
+│   │   │   │   │   │       ├── values-pt-rPT_values-pt-rPT.arsc.flat (11KB)
+│   │   │   │   │   │       ├── values-pt_values-pt.arsc.flat (2KB)
+│   │   │   │   │   │       ├── values-ro_values-ro.arsc.flat (11KB)
+│   │   │   │   │   │       ├── values-ru_values-ru.arsc.flat (12KB)
+│   │   │   │   │   │       ├── values-si_values-si.arsc.flat (13KB)
+│   │   │   │   │   │       ├── values-sk_values-sk.arsc.flat (11KB)
+│   │   │   │   │   │       ├── values-sl_values-sl.arsc.flat (10KB)
+│   │   │   │   │   │       ├── values-sq_values-sq.arsc.flat (10KB)
+│   │   │   │   │   │       ├── values-sr_values-sr.arsc.flat (12KB)
+│   │   │   │   │   │       ├── values-sv_values-sv.arsc.flat (10KB)
+│   │   │   │   │   │       ├── values-sw600dp-v13_values-sw600dp-v13.arsc.flat (1KB)
+│   │   │   │   │   │       ├── values-sw_values-sw.arsc.flat (10KB)
+│   │   │   │   │   │       ├── values-ta_values-ta.arsc.flat (15KB)
+│   │   │   │   │   │       ├── values-te_values-te.arsc.flat (14KB)
+│   │   │   │   │   │       ├── values-th_values-th.arsc.flat (13KB)
+│   │   │   │   │   │       ├── values-tl_values-tl.arsc.flat (11KB)
+│   │   │   │   │   │       ├── values-tr_values-tr.arsc.flat (10KB)
+│   │   │   │   │   │       ├── values-uk_values-uk.arsc.flat (12KB)
+│   │   │   │   │   │       ├── values-ur_values-ur.arsc.flat (12KB)
+│   │   │   │   │   │       ├── values-uz_values-uz.arsc.flat (10KB)
+│   │   │   │   │   │       ├── values-v16_values-v16.arsc.flat (404B)
+│   │   │   │   │   │       ├── values-v17_values-v17.arsc.flat (3KB)
+│   │   │   │   │   │       ├── values-v18_values-v18.arsc.flat (240B)
+│   │   │   │   │   │       ├── values-v21_values-v21.arsc.flat (20KB)
+│   │   │   │   │   │       ├── values-v22_values-v22.arsc.flat (928B)
+│   │   │   │   │   │       ├── values-v23_values-v23.arsc.flat (5KB)
+│   │   │   │   │   │       ├── values-v24_values-v24.arsc.flat (1KB)
+│   │   │   │   │   │       ├── values-v25_values-v25.arsc.flat (576B)
+│   │   │   │   │   │       ├── values-v26_values-v26.arsc.flat (1KB)
+│   │   │   │   │   │       ├── values-v27_values-v27.arsc.flat (756B)
+│   │   │   │   │   │       ├── values-v28_values-v28.arsc.flat (1KB)
+│   │   │   │   │   │       ├── values-v29_values-v29.arsc.flat (608B)
+│   │   │   │   │   │       ├── values-v31_values-v31.arsc.flat (45KB)
+│   │   │   │   │   │       ├── values-v34_values-v34.arsc.flat (9KB)
+│   │   │   │   │   │       ├── values-v35_values-v35.arsc.flat (600B)
+│   │   │   │   │   │       ├── values-vi_values-vi.arsc.flat (11KB)
+│   │   │   │   │   │       ├── values-w320dp-land-v13_values-w320dp-land-v13.arsc.flat (340B)
+│   │   │   │   │   │       ├── values-w360dp-port-v13_values-w360dp-port-v13.arsc.flat (728B)
+│   │   │   │   │   │       ├── values-w400dp-port-v13_values-w400dp-port-v13.arsc.flat (724B)
+│   │   │   │   │   │       ├── values-w600dp-land-v13_values-w600dp-land-v13.arsc.flat (280B)
+│   │   │   │   │   │       ├── values-watch-v20_values-watch-v20.arsc.flat (1KB)
+│   │   │   │   │   │       ├── values-watch-v21_values-watch-v21.arsc.flat (896B)
+│   │   │   │   │   │       ├── values-xlarge-v4_values-xlarge-v4.arsc.flat (572B)
+│   │   │   │   │   │       ├── values-zh-rCN_values-zh-rCN.arsc.flat (10KB)
+│   │   │   │   │   │       ├── values-zh-rHK_values-zh-rHK.arsc.flat (10KB)
+│   │   │   │   │   │       ├── values-zh-rTW_values-zh-rTW.arsc.flat (10KB)
+│   │   │   │   │   │       ├── values-zu_values-zu.arsc.flat (10KB)
+│   │   │   │   │   │       ├── values_values.arsc.flat (1018KB)
+│   │   │   │   │   │       ├── xml_config.xml.flat (324B)
+│   │   │   │   │   │       └── xml_file_paths.xml.flat (324B)
+│   │   │   │   ├── merged_res_blame_folder/
+│   │   │   │   │   └── debug/
+│   │   │   │   │   │   └── mergeDebugResources/
+│   │   │   │   │   │       └── out/
+│   │   │   │   │   │           ├── multi-v2/
+│   │   │   │   │   │               ├── mergeDebugResources.json (1MB)
+│   │   │   │   │   │               ├── values-af.json (9KB)
+│   │   │   │   │   │               ├── values-am.json (9KB)
+│   │   │   │   │   │               ├── values-ar.json (9KB)
+│   │   │   │   │   │               ├── values-as.json (9KB)
+│   │   │   │   │   │               ├── values-az.json (9KB)
+│   │   │   │   │   │               ├── values-b+es+419.json (2KB)
+│   │   │   │   │   │               ├── values-b+sr+Latn.json (9KB)
+│   │   │   │   │   │               ├── values-be.json (9KB)
+│   │   │   │   │   │               ├── values-bg.json (9KB)
+│   │   │   │   │   │               ├── values-bn.json (9KB)
+│   │   │   │   │   │               ├── values-bs.json (9KB)
+│   │   │   │   │   │               ├── values-ca.json (9KB)
+│   │   │   │   │   │               ├── values-cs.json (9KB)
+│   │   │   │   │   │               ├── values-da.json (9KB)
+│   │   │   │   │   │               ├── values-de.json (9KB)
+│   │   │   │   │   │               ├── values-el.json (9KB)
+│   │   │   │   │   │               ├── values-en-rAU.json (2KB)
+│   │   │   │   │   │               ├── values-en-rCA.json (2KB)
+│   │   │   │   │   │               ├── values-en-rGB.json (9KB)
+│   │   │   │   │   │               ├── values-en-rIN.json (2KB)
+│   │   │   │   │   │               ├── values-en-rXC.json (2KB)
+│   │   │   │   │   │               ├── values-es-rUS.json (9KB)
+│   │   │   │   │   │               ├── values-es.json (9KB)
+│   │   │   │   │   │               ├── values-et.json (9KB)
+│   │   │   │   │   │               ├── values-eu.json (9KB)
+│   │   │   │   │   │               ├── values-fa.json (9KB)
+│   │   │   │   │   │               ├── values-fi.json (9KB)
+│   │   │   │   │   │               ├── values-fr-rCA.json (9KB)
+│   │   │   │   │   │               ├── values-fr.json (9KB)
+│   │   │   │   │   │               ├── values-gl.json (9KB)
+│   │   │   │   │   │               ├── values-gu.json (9KB)
+│   │   │   │   │   │               ├── values-h320dp-port-v13.json (717B)
+│   │   │   │   │   │               ├── values-h360dp-land-v13.json (838B)
+│   │   │   │   │   │               ├── values-h480dp-land-v13.json (838B)
+│   │   │   │   │   │               ├── values-h480dp-v13.json (742B)
+│   │   │   │   │   │               ├── values-h550dp-port-v13.json (717B)
+│   │   │   │   │   │               ├── values-h720dp-v13.json (697B)
+│   │   │   │   │   │               ├── values-hdpi-v4.json (726B)
+│   │   │   │   │   │               ├── values-hi.json (9KB)
+│   │   │   │   │   │               ├── values-hr.json (9KB)
+│   │   │   │   │   │               ├── values-hu.json (9KB)
+│   │   │   │   │   │               ├── values-hy.json (9KB)
+│   │   │   │   │   │               ├── values-in.json (9KB)
+│   │   │   │   │   │               ├── values-is.json (9KB)
+│   │   │   │   │   │               ├── values-it.json (9KB)
+│   │   │   │   │   │               ├── values-iw.json (9KB)
+│   │   │   │   │   │               ├── values-ja.json (9KB)
+│   │   │   │   │   │               ├── values-ka.json (9KB)
+│   │   │   │   │   │               ├── values-kk.json (9KB)
+│   │   │   │   │   │               ├── values-km.json (9KB)
+│   │   │   │   │   │               ├── values-kn.json (9KB)
+│   │   │   │   │   │               ├── values-ko.json (9KB)
+│   │   │   │   │   │               ├── values-ky.json (9KB)
+│   │   │   │   │   │               ├── values-land.json (2KB)
+│   │   │   │   │   │               ├── values-large-v4.json (1KB)
+│   │   │   │   │   │               ├── values-ldltr-v21.json (694B)
+│   │   │   │   │   │               ├── values-ldrtl-v17.json (710B)
+│   │   │   │   │   │               ├── values-lo.json (9KB)
+│   │   │   │   │   │               ├── values-lt.json (9KB)
+│   │   │   │   │   │               ├── values-lv.json (9KB)
+│   │   │   │   │   │               ├── values-mk.json (9KB)
+│   │   │   │   │   │               ├── values-ml.json (9KB)
+│   │   │   │   │   │               ├── values-mn.json (9KB)
+│   │   │   │   │   │               ├── values-mr.json (9KB)
+│   │   │   │   │   │               ├── values-ms.json (9KB)
+│   │   │   │   │   │               ├── values-my.json (9KB)
+│   │   │   │   │   │               ├── values-nb.json (9KB)
+│   │   │   │   │   │               ├── values-ne.json (9KB)
+│   │   │   │   │   │               ├── values-night-v8.json (3KB)
+│   │   │   │   │   │               ├── values-nl.json (9KB)
+│   │   │   │   │   │               ├── values-or.json (9KB)
+│   │   │   │   │   │               ├── values-pa.json (9KB)
+│   │   │   │   │   │               ├── values-pl.json (9KB)
+│   │   │   │   │   │               ├── values-port.json (673B)
+│   │   │   │   │   │               ├── values-pt-rBR.json (9KB)
+│   │   │   │   │   │               ├── values-pt-rPT.json (9KB)
+│   │   │   │   │   │               ├── values-pt.json (2KB)
+│   │   │   │   │   │               ├── values-ro.json (9KB)
+│   │   │   │   │   │               ├── values-ru.json (9KB)
+│   │   │   │   │   │               ├── values-si.json (9KB)
+│   │   │   │   │   │               ├── values-sk.json (9KB)
+│   │   │   │   │   │               ├── values-sl.json (9KB)
+│   │   │   │   │   │               ├── values-sq.json (9KB)
+│   │   │   │   │   │               ├── values-sr.json (9KB)
+│   │   │   │   │   │               ├── values-sv.json (9KB)
+│   │   │   │   │   │               ├── values-sw.json (9KB)
+│   │   │   │   │   │               ├── values-sw600dp-v13.json (2KB)
+│   │   │   │   │   │               ├── values-ta.json (9KB)
+│   │   │   │   │   │               ├── values-te.json (9KB)
+│   │   │   │   │   │               ├── values-th.json (9KB)
+│   │   │   │   │   │               ├── values-tl.json (9KB)
+│   │   │   │   │   │               ├── values-tr.json (9KB)
+│   │   │   │   │   │               ├── values-uk.json (9KB)
+│   │   │   │   │   │               ├── values-ur.json (9KB)
+│   │   │   │   │   │               ├── values-uz.json (9KB)
+│   │   │   │   │   │               ├── values-v16.json (710B)
+│   │   │   │   │   │               ├── values-v17.json (1KB)
+│   │   │   │   │   │               ├── values-v18.json (668B)
+│   │   │   │   │   │               ├── values-v21.json (7KB)
+│   │   │   │   │   │               ├── values-v22.json (762B)
+│   │   │   │   │   │               ├── values-v23.json (2KB)
+│   │   │   │   │   │               ├── values-v24.json (1KB)
+│   │   │   │   │   │               ├── values-v25.json (761B)
+│   │   │   │   │   │               ├── values-v26.json (800B)
+│   │   │   │   │   │               ├── values-v27.json (769B)
+│   │   │   │   │   │               ├── values-v28.json (2KB)
+│   │   │   │   │   │               ├── values-v29.json (735B)
+│   │   │   │   │   │               ├── values-v31.json (11KB)
+│   │   │   │   │   │               ├── values-v34.json (2KB)
+│   │   │   │   │   │               ├── values-v35.json (715B)
+│   │   │   │   │   │               ├── values-vi.json (9KB)
+│   │   │   │   │   │               ├── values-w320dp-land-v13.json (732B)
+│   │   │   │   │   │               ├── values-w360dp-port-v13.json (822B)
+│   │   │   │   │   │               ├── values-w400dp-port-v13.json (822B)
+│   │   │   │   │   │               ├── values-w600dp-land-v13.json (717B)
+│   │   │   │   │   │               ├── values-watch-v20.json (1KB)
+│   │   │   │   │   │               ├── values-watch-v21.json (770B)
+│   │   │   │   │   │               ├── values-xlarge-v4.json (768B)
+│   │   │   │   │   │               ├── values-zh-rCN.json (9KB)
+│   │   │   │   │   │               ├── values-zh-rHK.json (9KB)
+│   │   │   │   │   │               ├── values-zh-rTW.json (9KB)
+│   │   │   │   │   │               ├── values-zu.json (9KB)
+│   │   │   │   │   │               └── values.json (253KB)
+│   │   │   │   │   │           └── single/
+│   │   │   │   │   │               └── mergeDebugResources.json (5KB)
+│   │   │   │   ├── merged_shaders/
+│   │   │   │   │   └── debug/
+│   │   │   │   │   │   └── mergeDebugShaders/
+│   │   │   │   │   │       └── out/
+│   │   │   │   ├── merged_test_only_native_libs/
+│   │   │   │   │   └── debug/
+│   │   │   │   │   │   └── mergeDebugNativeLibs/
+│   │   │   │   │   │       └── out/
+│   │   │   │   ├── mixed_scope_dex_archive/
+│   │   │   │   │   └── debug/
+│   │   │   │   │   │   └── dexBuilderDebug/
+│   │   │   │   │   │       └── out/
+│   │   │   │   ├── navigation_json/
+│   │   │   │   │   └── debug/
+│   │   │   │   │   │   └── extractDeepLinksDebug/
+│   │   │   │   │   │       └── navigation.json (2B)
+│   │   │   │   ├── nested_resources_validation_report/
+│   │   │   │   │   └── debug/
+│   │   │   │   │   │   └── generateDebugResources/
+│   │   │   │   │   │       └── nestedResourcesValidationReport.txt (15B)
+│   │   │   │   ├── packaged_manifests/
+│   │   │   │   │   └── debug/
+│   │   │   │   │   │   └── processDebugManifestForPackage/
+│   │   │   │   │   │       ├── AndroidManifest.xml (10KB)
+│   │   │   │   │   │       └── output-metadata.json (387B)
+│   │   │   │   ├── packaged_res/
+│   │   │   │   │   └── debug/
+│   │   │   │   │   │   └── packageDebugResources/
+│   │   │   │   │   │       ├── drawable/
+│   │   │   │   │   │           ├── ic_launcher_background.xml (5KB)
+│   │   │   │   │   │           └── splash.png (3KB)
+│   │   │   │   │   │       ├── drawable-land-hdpi-v4/
+│   │   │   │   │   │           └── splash.png (7KB)
+│   │   │   │   │   │       ├── drawable-land-mdpi-v4/
+│   │   │   │   │   │           └── splash.png (3KB)
+│   │   │   │   │   │       ├── drawable-land-xhdpi-v4/
+│   │   │   │   │   │           └── splash.png (9KB)
+│   │   │   │   │   │       ├── drawable-land-xxhdpi-v4/
+│   │   │   │   │   │           └── splash.png (13KB)
+│   │   │   │   │   │       ├── drawable-land-xxxhdpi-v4/
+│   │   │   │   │   │           └── splash.png (17KB)
+│   │   │   │   │   │       ├── drawable-port-hdpi-v4/
+│   │   │   │   │   │           └── splash.png (7KB)
+│   │   │   │   │   │       ├── drawable-port-mdpi-v4/
+│   │   │   │   │   │           └── splash.png (4KB)
+│   │   │   │   │   │       ├── drawable-port-xhdpi-v4/
+│   │   │   │   │   │           └── splash.png (9KB)
+│   │   │   │   │   │       ├── drawable-port-xxhdpi-v4/
+│   │   │   │   │   │           └── splash.png (13KB)
+│   │   │   │   │   │       ├── drawable-port-xxxhdpi-v4/
+│   │   │   │   │   │           └── splash.png (17KB)
+│   │   │   │   │   │       ├── drawable-v24/
+│   │   │   │   │   │           └── ic_launcher_foreground.xml (1KB)
+│   │   │   │   │   │       ├── layout/
+│   │   │   │   │   │           └── activity_main.xml (547B)
+│   │   │   │   │   │       ├── mipmap-anydpi-v26/
+│   │   │   │   │   │           ├── ic_launcher.xml (272B)
+│   │   │   │   │   │           └── ic_launcher_round.xml (272B)
+│   │   │   │   │   │       ├── mipmap-hdpi-v4/
+│   │   │   │   │   │           ├── ic_launcher.png (2KB)
+│   │   │   │   │   │           ├── ic_launcher_foreground.png (3KB)
+│   │   │   │   │   │           └── ic_launcher_round.png (4KB)
+│   │   │   │   │   │       ├── mipmap-mdpi-v4/
+│   │   │   │   │   │           ├── ic_launcher.png (1KB)
+│   │   │   │   │   │           ├── ic_launcher_foreground.png (2KB)
+│   │   │   │   │   │           └── ic_launcher_round.png (2KB)
+│   │   │   │   │   │       ├── mipmap-xhdpi-v4/
+│   │   │   │   │   │           ├── ic_launcher.png (3KB)
+│   │   │   │   │   │           ├── ic_launcher_foreground.png (4KB)
+│   │   │   │   │   │           └── ic_launcher_round.png (6KB)
+│   │   │   │   │   │       ├── mipmap-xxhdpi-v4/
+│   │   │   │   │   │           ├── ic_launcher.png (6KB)
+│   │   │   │   │   │           ├── ic_launcher_foreground.png (9KB)
+│   │   │   │   │   │           └── ic_launcher_round.png (10KB)
+│   │   │   │   │   │       ├── mipmap-xxxhdpi-v4/
+│   │   │   │   │   │           ├── ic_launcher.png (9KB)
+│   │   │   │   │   │           ├── ic_launcher_foreground.png (15KB)
+│   │   │   │   │   │           └── ic_launcher_round.png (15KB)
+│   │   │   │   │   │       ├── values/
+│   │   │   │   │   │           └── values.xml (1KB)
+│   │   │   │   │   │       └── xml/
+│   │   │   │   │   │           ├── config.xml (185B)
+│   │   │   │   │   │           └── file_paths.xml (217B)
+│   │   │   │   ├── project_dex_archive/
+│   │   │   │   │   └── debug/
+│   │   │   │   │   │   └── dexBuilderDebug/
+│   │   │   │   │   │       └── out/
+│   │   │   │   │   │           ├── com/
+│   │   │   │   │   │               └── myapp/
+│   │   │   │   │   │               │   └── mobile/
+│   │   │   │   │   │               │       └── MainActivity.dex (640B)
+│   │   │   │   │   │           ├── io/
+│   │   │   │   │   │               └── ionic/
+│   │   │   │   │   │               │   └── starter/
+│   │   │   │   │   │               │       └── MainActivity.dex (640B)
+│   │   │   │   │   │           ├── 55f741734bbf57432b6dc5a773c740678bd93faf4572aa8cf6490e8e70c4c77c_0.jar (52KB)
+│   │   │   │   │   │           └── 55f741734bbf57432b6dc5a773c740678bd93faf4572aa8cf6490e8e70c4c77c_1.jar (93KB)
+│   │   │   │   ├── runtime_symbol_list/
+│   │   │   │   │   └── debug/
+│   │   │   │   │   │   └── processDebugResources/
+│   │   │   │   │   │       └── R.txt (430KB)
+│   │   │   │   ├── signing_config_versions/
+│   │   │   │   │   └── debug/
+│   │   │   │   │   │   └── writeDebugSigningConfigVersions/
+│   │   │   │   │   │       └── signing-config-versions.json (96B)
+│   │   │   │   ├── source_set_path_map/
+│   │   │   │   │   └── debug/
+│   │   │   │   │   │   └── mapDebugSourceSetPaths/
+│   │   │   │   │   │       └── file-map.txt (9KB)
+│   │   │   │   ├── stable_resource_ids_file/
+│   │   │   │   │   └── debug/
+│   │   │   │   │   │   └── processDebugResources/
+│   │   │   │   │   │       └── stableIds.txt (440KB)
+│   │   │   │   ├── stripped_native_libs/
+│   │   │   │   │   └── debug/
+│   │   │   │   │   │   └── stripDebugDebugSymbols/
+│   │   │   │   │   │       └── out/
+│   │   │   │   │   │           └── lib/
+│   │   │   │   │   │               ├── arm64-v8a/
+│   │   │   │   │   │                   └── libdatastore_shared_counter.so (6KB)
+│   │   │   │   │   │               ├── armeabi-v7a/
+│   │   │   │   │   │                   └── libdatastore_shared_counter.so (4KB)
+│   │   │   │   │   │               ├── x86/
+│   │   │   │   │   │                   └── libdatastore_shared_counter.so (5KB)
+│   │   │   │   │   │               └── x86_64/
+│   │   │   │   │   │                   └── libdatastore_shared_counter.so (6KB)
+│   │   │   │   ├── sub_project_dex_archive/
+│   │   │   │   │   └── debug/
+│   │   │   │   │   │   └── dexBuilderDebug/
+│   │   │   │   │   │       └── out/
+│   │   │   │   ├── symbol_list_with_package_name/
+│   │   │   │   │   └── debug/
+│   │   │   │   │   │   └── processDebugResources/
+│   │   │   │   │   │       └── package-aware-r.txt (256KB)
+│   │   │   │   └── validate_signing_config/
+│   │   │   │   │   └── debug/
+│   │   │   │   │       └── validateSigningDebug/
+│   │   │   ├── outputs/
+│   │   │   │   ├── apk/
+│   │   │   │   │   └── debug/
+│   │   │   │   │   │   ├── app-debug.apk (8MB)
+│   │   │   │   │   │   └── output-metadata.json (398B)
+│   │   │   │   └── logs/
+│   │   │   │   │   └── manifest-merger-debug-report.txt (109KB)
+│   │   │   └── tmp/
+│   │   │   │   └── compileDebugJavaWithJavac/
+│   │   │   │       └── previous-compilation-data.bin (58KB)
+│   │   ├── src/
+│   │   │   ├── androidTest/
+│   │   │   │   └── java/
+│   │   │   │   │   └── com/
+│   │   │   │   │       └── getcapacitor/
+│   │   │   │   │           └── myapp/
+│   │   │   │   │               └── ExampleInstrumentedTest.java (800B)
+│   │   │   ├── main/
+│   │   │   │   ├── assets/
+│   │   │   │   │   ├── public/
+│   │   │   │   │   │   ├── assets/
+│   │   │   │   │   │   │   ├── firebaseSyncService-CXbTTkZ_.js (505KB)
+│   │   │   │   │   │   │   ├── focus-visible-supuXXMI.js (994B)
+│   │   │   │   │   │   │   ├── index-CjNSd_ES.css (48KB)
+│   │   │   │   │   │   │   ├── index-RHE3KZzL.js (704KB)
+│   │   │   │   │   │   │   ├── index7-Y9nyvrSN.js (1KB)
+│   │   │   │   │   │   │   ├── input-shims-DCl5Q5y0.js (5KB)
+│   │   │   │   │   │   │   ├── ios.transition-DkVCDW-9.js (10KB)
+│   │   │   │   │   │   │   ├── md.transition-DmNsQ8fU.js (1KB)
+│   │   │   │   │   │   │   ├── status-tap-D1uzz_M-.js (485B)
+│   │   │   │   │   │   │   ├── swipe-back-C_6E7aA4.js (685B)
+│   │   │   │   │   │   │   ├── Tab1Page-Bx4vH5Rj.css (6KB)
+│   │   │   │   │   │   │   ├── Tab1Page-VHO95ekC.js (15KB)
+│   │   │   │   │   │   │   ├── Tab2Page-3nyv5Alf.js (179KB)
+│   │   │   │   │   │   │   ├── Tab2Page-CyF6Phdo.css (19KB)
+│   │   │   │   │   │   │   ├── Tab3Page-DeD2IdeJ.js (9KB)
+│   │   │   │   │   │   │   ├── Tab3Page-Dq0iBbMi.css (5KB)
+│   │   │   │   │   │   │   ├── web-B1D8S_xe.js (903B)
+│   │   │   │   │   │   │   └── web-CBdKLayp.js (3KB)
+│   │   │   │   │   │   ├── cordova.js [VIDE]
+│   │   │   │   │   │   ├── cordova_plugins.js [VIDE]
+│   │   │   │   │   │   ├── favicon.png (930B)
+│   │   │   │   │   │   └── index.html (1KB)
+│   │   │   │   │   ├── capacitor.config.json (452B)
+│   │   │   │   │   └── capacitor.plugins.json (969B)
+│   │   │   │   ├── java/
+│   │   │   │   │   ├── com/
+│   │   │   │   │   │   └── myapp/
+│   │   │   │   │   │   │   └── mobile/
+│   │   │   │   │   │   │       └── MainActivity.java (125B)
+│   │   │   │   │   └── io/
+│   │   │   │   │   │   └── ionic/
+│   │   │   │   │   │       └── starter/
+│   │   │   │   │   │           └── MainActivity.java (125B)
+│   │   │   │   ├── res/
+│   │   │   │   │   ├── drawable/
+│   │   │   │   │   │   ├── ic_launcher_background.xml (5KB)
+│   │   │   │   │   │   └── splash.png (3KB)
+│   │   │   │   │   ├── drawable-land-hdpi/
+│   │   │   │   │   │   └── splash.png (7KB)
+│   │   │   │   │   ├── drawable-land-mdpi/
+│   │   │   │   │   │   └── splash.png (3KB)
+│   │   │   │   │   ├── drawable-land-xhdpi/
+│   │   │   │   │   │   └── splash.png (9KB)
+│   │   │   │   │   ├── drawable-land-xxhdpi/
+│   │   │   │   │   │   └── splash.png (13KB)
+│   │   │   │   │   ├── drawable-land-xxxhdpi/
+│   │   │   │   │   │   └── splash.png (17KB)
+│   │   │   │   │   ├── drawable-port-hdpi/
+│   │   │   │   │   │   └── splash.png (7KB)
+│   │   │   │   │   ├── drawable-port-mdpi/
+│   │   │   │   │   │   └── splash.png (4KB)
+│   │   │   │   │   ├── drawable-port-xhdpi/
+│   │   │   │   │   │   └── splash.png (9KB)
+│   │   │   │   │   ├── drawable-port-xxhdpi/
+│   │   │   │   │   │   └── splash.png (13KB)
+│   │   │   │   │   ├── drawable-port-xxxhdpi/
+│   │   │   │   │   │   └── splash.png (17KB)
+│   │   │   │   │   ├── drawable-v24/
+│   │   │   │   │   │   └── ic_launcher_foreground.xml (1KB)
+│   │   │   │   │   ├── layout/
+│   │   │   │   │   │   └── activity_main.xml (547B)
+│   │   │   │   │   ├── mipmap-anydpi-v26/
+│   │   │   │   │   │   ├── ic_launcher.xml (272B)
+│   │   │   │   │   │   └── ic_launcher_round.xml (272B)
+│   │   │   │   │   ├── mipmap-hdpi/
+│   │   │   │   │   │   ├── ic_launcher.png (2KB)
+│   │   │   │   │   │   ├── ic_launcher_foreground.png (3KB)
+│   │   │   │   │   │   └── ic_launcher_round.png (4KB)
+│   │   │   │   │   ├── mipmap-mdpi/
+│   │   │   │   │   │   ├── ic_launcher.png (1KB)
+│   │   │   │   │   │   ├── ic_launcher_foreground.png (2KB)
+│   │   │   │   │   │   └── ic_launcher_round.png (2KB)
+│   │   │   │   │   ├── mipmap-xhdpi/
+│   │   │   │   │   │   ├── ic_launcher.png (3KB)
+│   │   │   │   │   │   ├── ic_launcher_foreground.png (4KB)
+│   │   │   │   │   │   └── ic_launcher_round.png (6KB)
+│   │   │   │   │   ├── mipmap-xxhdpi/
+│   │   │   │   │   │   ├── ic_launcher.png (6KB)
+│   │   │   │   │   │   ├── ic_launcher_foreground.png (9KB)
+│   │   │   │   │   │   └── ic_launcher_round.png (10KB)
+│   │   │   │   │   ├── mipmap-xxxhdpi/
+│   │   │   │   │   │   ├── ic_launcher.png (9KB)
+│   │   │   │   │   │   ├── ic_launcher_foreground.png (15KB)
+│   │   │   │   │   │   └── ic_launcher_round.png (15KB)
+│   │   │   │   │   ├── values/
+│   │   │   │   │   │   ├── colors.xml (214B)
+│   │   │   │   │   │   ├── ic_launcher_background.xml (123B)
+│   │   │   │   │   │   ├── strings.xml (291B)
+│   │   │   │   │   │   └── styles.xml (844B)
+│   │   │   │   │   └── xml/
+│   │   │   │   │   │   ├── config.xml (185B)
+│   │   │   │   │   │   └── file_paths.xml (217B)
+│   │   │   │   └── AndroidManifest.xml (2KB)
+│   │   │   └── test/
+│   │   │   │   └── java/
+│   │   │   │       └── com/
+│   │   │   │           └── getcapacitor/
+│   │   │   │               └── myapp/
+│   │   │   │                   └── ExampleUnitTest.java (420B)
+│   │   ├── build.gradle (2KB)
+│   │   ├── capacitor.build.gradle (833B)
+│   │   ├── google-services.json (702B)
+│   │   └── proguard-rules.pro (772B)
+│   ├── capacitor-cordova-android-plugins/
+│   │   ├── src/
+│   │   │   └── main/
+│   │   │   │   ├── java/
+│   │   │   │   ├── res/
+│   │   │   │   └── AndroidManifest.xml (210B)
+│   │   ├── build.gradle (1KB)
+│   │   └── cordova.variables.gradle (312B)
+│   ├── gradle/
+│   │   └── wrapper/
+│   │   │   ├── gradle-wrapper.jar (42KB)
+│   │   │   └── gradle-wrapper.properties (256B)
+│   ├── build.gradle (665B)
+│   ├── capacitor.settings.gradle (1KB)
+│   ├── google-services.json (674B)
+│   ├── gradle.properties (1KB)
+│   ├── gradlew (8KB)
+│   ├── gradlew.bat (2KB)
+│   ├── hs_err_pid16364.log (96KB)
+│   ├── local.properties (56B)
+│   ├── replay_pid16364.log (1MB)
+│   ├── settings.gradle (212B)
+│   └── variables.gradle (509B)
+├── dist/
+│   ├── assets/
+│   │   ├── firebaseSyncService-CXbTTkZ_.js (505KB)
+│   │   ├── focus-visible-supuXXMI.js (994B)
+│   │   ├── index-CjNSd_ES.css (48KB)
+│   │   ├── index-RHE3KZzL.js (704KB)
+│   │   ├── index7-Y9nyvrSN.js (1KB)
+│   │   ├── input-shims-DCl5Q5y0.js (5KB)
+│   │   ├── ios.transition-DkVCDW-9.js (10KB)
+│   │   ├── md.transition-DmNsQ8fU.js (1KB)
+│   │   ├── status-tap-D1uzz_M-.js (485B)
+│   │   ├── swipe-back-C_6E7aA4.js (685B)
+│   │   ├── Tab1Page-Bx4vH5Rj.css (6KB)
+│   │   ├── Tab1Page-VHO95ekC.js (15KB)
+│   │   ├── Tab2Page-3nyv5Alf.js (179KB)
+│   │   ├── Tab2Page-CyF6Phdo.css (19KB)
+│   │   ├── Tab3Page-DeD2IdeJ.js (9KB)
+│   │   ├── Tab3Page-Dq0iBbMi.css (5KB)
+│   │   ├── web-B1D8S_xe.js (903B)
+│   │   └── web-CBdKLayp.js (3KB)
+│   ├── favicon.png (930B)
+│   └── index.html (1KB)
+├── patches/
+│   └── @capacitor+http+0.0.2.patch (8KB)
+├── public/
+│   └── favicon.png (930B)
+├── src/
+│   ├── components/
+│   │   ├── BackendStatus.vue (4KB)
+│   │   ├── ExploreContainer.vue (673B)
+│   │   ├── SyncStatus.vue (7KB)
+│   │   └── SyncStatusFirebase.vue (7KB)
+│   ├── config/
+│   │   ├── api.ts (13KB)
+│   │   └── BACKEND_DISCOVERY_README.md (5KB)
+│   ├── router/
+│   │   └── index.ts (1KB)
+│   ├── services/
+│   │   ├── api.ts (2KB)
+│   │   ├── firebaseNotificationService.ts (3KB)
+│   │   ├── firebaseSyncService.ts (15KB)
+│   │   ├── notifications.ts (3KB)
+│   │   └── SYNC_README.md (7KB)
+│   ├── theme/
+│   │   └── variables.css (2KB)
+│   ├── views/
+│   │   ├── Tab1Page.vue (23KB)
+│   │   ├── Tab2Page.vue (44KB)
+│   │   ├── Tab3Page.vue (21KB)
+│   │   └── TabsPage.vue (9KB)
+│   ├── App.vue (488B)
+│   ├── firebase.ts (2KB)
+│   ├── main.ts (1KB)
+│   └── vite-env.d.ts (39B)
+├── tests/
+│   ├── e2e/
+│   │   ├── fixtures/
+│   │   │   └── example.json (160B)
+│   │   ├── specs/
+│   │   │   └── test.cy.ts (151B)
+│   │   └── support/
+│   │   │   ├── commands.ts (1KB)
+│   │   │   └── e2e.ts (686B)
+│   └── unit/
+│   │   └── example.spec.ts (310B)
+├── .browserslistrc (79B)
+├── .dockerignore (105B)
+├── .env (472B)
+├── .env.example (345B)
+├── .eslintignore (283B)
+├── .eslintrc.cjs (503B)
+├── capacitor.config.ts (588B)
+├── creationdossier.py (8KB)
+├── cypress.config.ts (530B)
+├── Dockerfile (1KB)
+├── index.html (1KB)
+├── ionic.config.json (90B)
+├── nginx.conf (3KB)
+├── package-lock.json (321KB)
+├── package.json (1KB)
+├── project_structure.txt (93KB)
+├── tsconfig.json (559B)
+├── tsconfig.node.json (193B)
+└── vite.config.ts (379B)
+resources/
+├── firebase/
+│   ├── firebase-service-account.json (2KB)
+│   ├── projet-route-1-firebase-adminsdk-fbsvc-136006eba0.json (2KB)
+│   └── README.md (1KB)
+└── README.md (961B)
+.dockerignore (373B)
+.env (506B)
+.env.example (1KB)
+creationdossier.py (8KB)
+docker-compose.yml (2KB)
+Dockerfile (119B)
+Mr-Rojo-S5.sln (782B)
+package-lock.json (497KB)
+package.json (1KB)
+project_structure.txt (111KB)
+projet-route-1-firebase-adminsdk-fbsvc-136006eba0.json (2KB)
+README.md (70KB)

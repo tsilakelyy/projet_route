@@ -1,0 +1,118 @@
+services:
+
+  # CONFIGURATION: Force BuildKit pour optimiser les caches et éviter les erreurs EOF
+  # BuildKit active les mount=type=cache dans les Dockerfiles
+
+  postgres:
+    image: postgres:15-alpine
+    container_name: postgres_route
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: projet_route
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "${POSTGRES_HOST_PORT:-5433}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./fournisseurIdentite/src/main/resources/script.sql:/docker-entrypoint-initdb.d/script.sql:ro
+    networks:
+      - app-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d projet_route"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: ./fournisseurIdentite
+      dockerfile: Dockerfile
+    image: projet_route-backend:latest
+    container_name: spring_route
+    ports:
+      - "${BACKEND_HOST_PORT:-8082}:8082"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      SERVER_PORT: 8082
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/projet_route
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: postgres
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+      APP_CORS_ALLOWED_ORIGINS: http://localhost:*,http://127.0.0.1:*,http://192.168.*:*,http://10.*:*,capacitor://localhost,ionic://localhost
+      FIREBASE_SERVICE_ACCOUNT_PATH: /app/firebase/firebase-service-account.json
+      FIREBASE_WEB_API_KEY: ${FIREBASE_WEB_API_KEY:-}
+      BOOTSTRAP_PRIMARY_MANAGER_USERNAME: ${BOOTSTRAP_PRIMARY_MANAGER_USERNAME:-rojo.rabenanahary}
+      BOOTSTRAP_PRIMARY_MANAGER_EMAIL: ${BOOTSTRAP_PRIMARY_MANAGER_EMAIL:-rojo.rabenanahary@gmail.com}
+      BOOTSTRAP_PRIMARY_MANAGER_PASSWORD: ${BOOTSTRAP_PRIMARY_MANAGER_PASSWORD:-admin1234}
+      BOOTSTRAP_LEGACY_MANAGER_ENABLED: ${BOOTSTRAP_LEGACY_MANAGER_ENABLED:-true}
+    volumes:
+      - ${FIREBASE_SERVICE_ACCOUNT_DIR:-./fournisseurIdentite/src/main/resources/firebase}:/app/firebase:ro
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q -O - http://localhost:8082/api/auth/test >/dev/null 2>&1 || exit 1"]
+      interval: 15s
+      timeout: 10s
+      retries: 20
+      start_period: 120s
+    networks:
+      - app-network
+    restart: unless-stopped
+
+  carte:
+    build:
+      context: ./crypto
+      dockerfile: Dockerfile
+    image: projet_route-carte:latest
+    container_name: carte_service
+    ports:
+      - "${CARTE_HOST_PORT:-3000}:3000"
+    networks:
+      - app-network
+    depends_on:
+      backend:
+        condition: service_healthy
+    restart: unless-stopped
+
+  web:
+    build:
+      context: ./front-crypto
+      dockerfile: Dockerfile
+    image: projet_route-web:latest
+    container_name: web_service
+    ports:
+      - "${WEB_HOST_PORT:-5173}:80"
+    networks:
+      - app-network
+    depends_on:
+      backend:
+        condition: service_healthy
+      carte:
+        condition: service_started
+    restart: unless-stopped
+
+  mobile:
+    build:
+      context: ./mobile
+      dockerfile: Dockerfile
+    image: projet_route-mobile:latest
+    container_name: mobile_service
+    ports:
+      - "${MOBILE_HOST_PORT:-8100}:80"
+    networks:
+      - app-network
+    depends_on:
+      backend:
+        condition: service_healthy
+      carte:
+        condition: service_started
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+
+networks:
+  app-network:
+    driver: bridge

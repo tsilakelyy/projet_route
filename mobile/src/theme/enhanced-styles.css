@@ -1,0 +1,608 @@
+/* ==========================================
+   ENHANCED MOBILE (IONIC) - ULTRA MODERN
+   Premium visual design for mobile app
+   ========================================== */
+
+@import './modern-effects.css';
+
+:root {
+  /* Mobile color palette - enhanced */
+  --ion-primary: #7a45dd;
+  --ion-secondary: #b182ff;
+  --ion-tertiary: #5b28b8;
+  --ion-success: #4f2ca3;
+  --ion-warning: #f59e0b;
+  --ion-danger: #ef4444;
+  
+  --ion-background: #140728;
+  --ion-surface: rgba(42, 18, 80, 0.6);
+  --ion-text: #f8f3ff;
+  --ion-text-secondary: #d8c5fb;
+  --ion-text-tertiary: #b4a0d9;
+  
+  --ion-border: rgba(205, 173, 255, 0.2);
+  --ion-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+  --ion-shadow-elevated: 0 20px 50px rgba(122, 69, 221, 0.25);
+  
+  /* Animation variables */
+  --ease-mobile: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ==========================================
+   GLOBAL MOBILE STYLES
+   ========================================== */
+
+ion-app,
+ion-content {
+  --background: linear-gradient(130deg, #140728 0%, #2a1360 50%, #5b28b8 100%);
+  --ion-background-color: transparent;
+}
+
+ion-page {
+  background: linear-gradient(130deg, #140728 0%, #2a1360 50%, #5b28b8 100%);
+}
+
+/* ==========================================
+   TAB BAR - ENHANCED
+   ========================================== */
+
+ion-tab-bar {
+  --background: rgba(20, 7, 40, 0.9);
+  --ion-toolbar-background: rgba(20, 7, 40, 0.9);
+  --border-color: rgba(255, 255, 255, 0.1);
+  --min-height: 62px;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 
+    0 -8px 24px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+ion-tab-button {
+  --color: #b4a0d9;
+  --color-selected: #b182ff;
+  transition: all 300ms var(--ease-mobile);
+  will-change: transform, opacity;
+  position: relative;
+}
+
+ion-tab-button.tab-selected {
+  --color-selected: #fff;
+  --background-focused: transparent;
+}
+
+ion-tab-button ion-icon {
+  transition: all 300ms var(--ease-mobile);
+  will-change: transform;
+}
+
+ion-tab-button:active ion-icon {
+  transform: scale(1.15);
+}
+
+ion-tab-button.tab-selected ion-icon {
+  animation: icon-pulse 0.6s ease-out;
+}
+
+@keyframes icon-pulse {
+  0% { transform: scale(0.9); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+ion-tab-button::after {
+  content: '';
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #7a45dd, #b182ff);
+  border-radius: 999px;
+  transform: translateX(-50%);
+  transition: width 300ms var(--ease-mobile);
+}
+
+ion-tab-button.tab-selected::after {
+  width: 24px;
+}
+
+/* ==========================================
+   HEADERS & TOOLBARS - ENHANCED
+   ========================================== */
+
+ion-header {
+  --background: linear-gradient(180deg, rgba(20, 7, 40, 0.95) 0%, rgba(20, 7, 40, 0.7) 100%);
+  --border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    0 4px 20px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+ion-toolbar {
+  --background: transparent;
+  --border-color: transparent;
+  --padding-start: 0;
+  --padding-end: 0;
+  padding: 0.75rem 1rem;
+}
+
+ion-title {
+  color: #fff;
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* ==========================================
+   BUTTONS - ENHANCED
+   ========================================== */
+
+ion-button {
+  --background: linear-gradient(118deg, #7a45dd, #b182ff, #6a30d6);
+  --background-activated: linear-gradient(118deg, #6a35cd, #a172ef, #5a20c6);
+  --color: #fff;
+  --box-shadow: 0 8px 20px rgba(122, 69, 221, 0.35);
+  -webkit-box-shadow: 0 8px 20px rgba(122, 69, 221, 0.35);
+  --border-radius: 14px;
+  --padding-start: 20px;
+  --padding-end: 20px;
+  --padding-top: 12px;
+  --padding-bottom: 12px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  transition: all 300ms var(--ease-mobile);
+  will-change: transform, box-shadow;
+  animation: gradientShift 5s ease infinite;
+  background-size: 220% 220%;
+}
+
+ion-button:active {
+  transform: scale(0.98) translateY(2px);
+  --box-shadow: 0 4px 10px rgba(122, 69, 221, 0.25);
+}
+
+ion-button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    110deg,
+    transparent,
+    rgba(255, 255, 255, 0.25),
+    transparent
+  );
+  transform: translateX(-100%);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+ion-button:active::before {
+  animation: shine-mobile 600ms ease;
+}
+
+@keyframes shine-mobile {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Button variants */
+ion-button.btn-secondary {
+  --background: linear-gradient(118deg, #6032bf, #7f4ee5);
+}
+
+ion-button.btn-tertiary {
+  --background: linear-gradient(118deg, #5b28b8, #8c52e6);
+}
+
+ion-button.btn-outline {
+  --color: #b182ff;
+  --border-color: rgba(177, 130, 255, 0.5);
+  --background: transparent;
+  border: 1px solid;
+}
+
+/* ==========================================
+   CARDS - ENHANCED
+   ========================================== */
+
+ion-card {
+  --background: linear-gradient(
+    145deg,
+    rgba(42, 18, 80, 0.6),
+    rgba(60, 25, 105, 0.4)
+  );
+  --border-radius: 18px;
+  --box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  margin: 0.75rem;
+  transition: all 400ms var(--ease-mobile);
+  will-change: transform, box-shadow;
+}
+
+ion-card.glass-card {
+  background: linear-gradient(
+    130deg,
+    rgba(42, 18, 80, 0.35),
+    rgba(60, 25, 105, 0.25)
+  );
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+ion-card:active {
+  transform: scale(0.98);
+}
+
+ion-card.interactive:active {
+  transform: translateY(-4px) scale(0.98);
+  box-shadow: 0 20px 50px rgba(122, 69, 221, 0.3);
+}
+
+/* ==========================================
+   INPUTS - ENHANCED
+   ========================================== */
+
+ion-input {
+  --padding-start: 12px;
+  --padding-end: 12px;
+  --padding-top: 12px;
+  --padding-bottom: 12px;
+}
+
+ion-input::part(native) {
+  background: rgba(10, 4, 27, 0.4);
+  border: 1px solid rgba(205, 173, 255, 0.2);
+  border-radius: 12px;
+  color: #fff;
+  font-size: 1rem;
+  transition: all 300ms var(--ease-mobile);
+  will-change: border-color, box-shadow, background;
+}
+
+ion-input::part(native):focus {
+  border-color: rgba(177, 130, 255, 0.8);
+  background: rgba(30, 10, 60, 0.6);
+  box-shadow: 
+    0 0 0 3px rgba(122, 69, 221, 0.15),
+    0 0 20px rgba(122, 69, 221, 0.2);
+}
+
+ion-input::part(native)::placeholder {
+  color: rgba(216, 197, 251, 0.5);
+}
+
+/* ==========================================
+   LISTS - ENHANCED
+   ========================================== */
+
+ion-list {
+  padding: 0.75rem;
+  background: transparent;
+}
+
+ion-item {
+  --background: transparent;
+  --background-activated: rgba(177, 130, 255, 0.1);
+  --border-color: rgba(205, 173, 255, 0.15);
+  --color: #f8f3ff;
+  --padding-start: 12px;
+  --padding-end: 12px;
+  border-radius: 12px;
+  margin-bottom: 0.5rem;
+  transition: all 300ms var(--ease-mobile);
+  will-change: transform, background;
+}
+
+ion-item:active {
+  transform: translateX(4px);
+  background: rgba(122, 69, 221, 0.15);
+}
+
+ion-item-divider {
+  --background: transparent;
+  --color: #8c8fa3;
+  --padding-start: 12px;
+}
+
+/* ==========================================
+   MODALS & POPUPS - ENHANCED
+   ========================================== */
+
+ion-modal::part(backdrop) {
+  opacity: 0.1;
+  backdrop-filter: blur(4px);
+}
+
+ion-modal {
+  --background: linear-gradient(180deg, #2a1360 0%, #3a1783 100%);
+  --box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+ion-modal ion-header {
+  --background: linear-gradient(180deg, #3a1783 0%, #2a1360 100%);
+}
+
+ion-popover {
+  --background: rgba(42, 18, 80, 0.95);
+  --box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  backdrop-filter: blur(12px);
+}
+
+ion-alert {
+  --background: linear-gradient(145deg, #3a1783, #2a1360);
+  --border-radius: 16px;
+}
+
+/* ==========================================
+   SPINNERS & LOADERS - ENHANCED
+   ========================================== */
+
+ion-spinner {
+  color: #b182ff;
+  filter: drop-shadow(0 0 8px #7a45dd);
+}
+
+/* Custom loading animation */
+@keyframes custom-spin {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(1.1); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+.loading-spinner {
+  animation: custom-spin 2s linear infinite;
+  will-change: transform;
+}
+
+/* ==========================================
+   MAPS & INTERACTIVE ELEMENTS
+   ========================================== */
+
+#map,
+.leaflet-map {
+  background: #d7e4cc;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Assurer que la carte s'affiche correctement sur mobile */
+@media (max-width: 768px) {
+  #map,
+  .leaflet-map {
+    min-height: 100vh;
+    width: 100%;
+  }
+}
+
+/* Custom map markers for mobile */
+.map-marker-modern {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #7a45dd, #b182ff);
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 4px 12px rgba(122, 69, 221, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  transition: all 300ms var(--ease-mobile);
+  will-change: transform;
+}
+
+.map-marker-modern:active {
+  transform: scale(1.2);
+  box-shadow: 0 8px 24px rgba(122, 69, 221, 0.5);
+}
+
+/* ==========================================
+   FLOATING ACTION BUTTON
+   ========================================== */
+
+ion-fab {
+  --background: linear-gradient(135deg, #7a45dd, #b182ff);
+  --color: #fff;
+  --box-shadow: 0 8px 24px rgba(122, 69, 221, 0.4);
+  border-radius: 50%;
+}
+
+ion-fab-button {
+  --background: linear-gradient(135deg, #7a45dd, #b182ff);
+  --background-hover: linear-gradient(135deg, #8c52e6, #c397ff);
+  --color: #fff;
+  --box-shadow: 0 8px 24px rgba(122, 69, 221, 0.4);
+  transition: all 300ms var(--ease-mobile);
+  will-change: transform, box-shadow;
+}
+
+ion-fab-button:active {
+  transform: scale(0.92);
+  --box-shadow: 0 4px 12px rgba(122, 69, 221, 0.25);
+}
+
+ion-fab-button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3), transparent);
+  opacity: 0;
+  transition: opacity 300ms ease;
+  pointer-events: none;
+}
+
+ion-fab-button:active::before {
+  opacity: 1;
+}
+
+/* ==========================================
+   AVATAR - ENHANCED
+   ========================================== */
+
+ion-avatar {
+  border-radius: 12px;
+  border: 2px solid rgba(177, 130, 255, 0.5);
+  box-shadow: 0 4px 12px rgba(122, 69, 221, 0.2);
+  transition: all 300ms var(--ease-mobile);
+  will-change: transform;
+}
+
+ion-avatar:active {
+  transform: scale(0.95);
+}
+
+/* ==========================================
+   BADGES - ENHANCED
+   ========================================== */
+
+ion-badge {
+  --background: linear-gradient(135deg, #7a45dd, #b182ff);
+  --color: #fff;
+  border-radius: 12px;
+  font-weight: 700;
+  padding: 6px 12px;
+  animation: badge-pop 500ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes badge-pop {
+  0% {
+    transform: scale(0) rotate(-45deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2) rotate(0deg);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+/* ==========================================
+   TEXT & TYPOGRAPHY - ENHANCED
+   ========================================== */
+
+ion-title {
+  background: linear-gradient(135deg, #fff, #ecd9ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+ion-text {
+  --color: #f8f3ff;
+}
+
+ion-text.color-secondary {
+  --color: #d8c5fb;
+}
+
+ion-text.color-tertiary {
+  --color: #b4a0d9;
+}
+
+/* ==========================================
+   ACCESSIBILITY & RESPONSIVE
+   ========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+@media (max-width: 480px) {
+  ion-header {
+    --border-color: transparent;
+  }
+
+  ion-tab-bar {
+    --min-height: 56px;
+  }
+
+  ion-button {
+    --padding-start: 16px;
+    --padding-end: 16px;
+  }
+
+  ion-card {
+    margin: 0.5rem;
+  }
+
+  ion-title {
+    font-size: 1.1rem;
+  }
+}
+
+/* ==========================================
+   STATUS BAR SAFE AREAS
+   ========================================== */
+
+ion-header {
+  padding-top: max(10px, env(safe-area-inset-top));
+}
+
+ion-tab-bar {
+  padding-bottom: max(8px, env(safe-area-inset-bottom));
+}
+
+ion-content {
+  --padding-top: 0;
+  --padding-bottom: 0;
+  --padding-start: 0;
+  --padding-end: 0;
+}
+
+/* ==========================================
+   DARK MODE (DEFAULT - Already Dark)
+   ========================================== */
+
+@media (prefers-color-scheme: dark) {
+  /* Already optimized for dark mode */
+  :root {
+    color-scheme: dark;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  /* Fallback for light mode (if needed) */
+  :root {
+    --ion-background: #f8fafc;
+    --ion-text: #0f172a;
+    --ion-text-secondary: #475569;
+  }
+}
+
+/* ==========================================
+   SCROLLBAR STYLING
+   ========================================== */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(177, 130, 255, 0.4);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(177, 130, 255, 0.6);
+}

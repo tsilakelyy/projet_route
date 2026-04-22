@@ -1,0 +1,312 @@
+/* ============================================================
+   modern-effects.css — GPU-optimized visual effects
+   Place in: mobile/src/theme/modern-effects.css
+   ============================================================ */
+
+/* ── CSS Variables ─────────────────────────────────────────── */
+:root {
+  --route-violet-900: #190a3d;
+  --route-violet-800: #2a1360;
+  --route-violet-500: #7a45dd;
+  --route-violet-400: #b182ff;
+  --route-muted: #d9c8ff;
+  --glow-color: rgba(122, 69, 221, 0.4);
+  --text: #f8f3ff;
+  --text-soft: #d8c5fb;
+
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* ── Keyframes ─────────────────────────────────────────────── */
+@keyframes float-subtle {
+  0%, 100% { transform: translateY(0px) translateZ(0); }
+  50%       { transform: translateY(-6px) translateZ(0); }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 8px 2px var(--glow-color); }
+  50%       { box-shadow: 0 0 20px 6px var(--glow-color); }
+}
+
+@keyframes gradient-shift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
+@keyframes stagger-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px) translateZ(0);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) translateZ(0);
+  }
+}
+
+@keyframes scroll-reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(32px) translateZ(0);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) translateZ(0);
+  }
+}
+
+@keyframes scroll-reveal-left {
+  from {
+    opacity: 0;
+    transform: translateX(-32px) translateZ(0);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) translateZ(0);
+  }
+}
+
+@keyframes scroll-reveal-right {
+  from {
+    opacity: 0;
+    transform: translateX(32px) translateZ(0);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) translateZ(0);
+  }
+}
+
+/* ── Floating ──────────────────────────────────────────────── */
+.float-element {
+  animation: float-subtle 3.5s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* ── Glow ──────────────────────────────────────────────────── */
+.glow-element {
+  box-shadow: 0 0 10px 3px var(--glow-color);
+  transition: box-shadow 0.3s var(--ease-smooth);
+}
+
+.glow-pulse {
+  animation: glow-pulse 2.4s ease-in-out infinite;
+  will-change: box-shadow;
+}
+
+.morph-shadow {
+  transition: box-shadow 0.35s var(--ease-smooth);
+}
+.morph-shadow:hover {
+  box-shadow: 0 12px 36px rgba(122, 69, 221, 0.45);
+}
+
+/* ── Glass Morphism ────────────────────────────────────────── */
+.glass-card {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+}
+
+/* ── Hover Lift ────────────────────────────────────────────── */
+.hover-lift {
+  transition: transform 0.3s var(--ease-out-back),
+              box-shadow 0.3s var(--ease-smooth);
+  will-change: transform;
+}
+.hover-lift:hover {
+  transform: translateY(-6px) translateZ(0);
+  box-shadow: 0 16px 40px rgba(122, 69, 221, 0.3);
+}
+
+/* ── Hover Scale Bounce ────────────────────────────────────── */
+.hover-scale-bounce {
+  transition: transform 0.3s var(--ease-bounce);
+  will-change: transform;
+}
+.hover-scale-bounce:hover {
+  transform: scale(1.06) translateZ(0);
+}
+
+/* ── Hover Rotate 3D ───────────────────────────────────────── */
+.hover-rotate-3d {
+  transition: transform 0.4s var(--ease-smooth);
+  will-change: transform;
+}
+.hover-rotate-3d:hover {
+  transform: perspective(600px) rotateY(8deg) rotateX(4deg) translateZ(0);
+}
+
+/* ── 3D Card ───────────────────────────────────────────────── */
+.card-3d-container {
+  perspective: 800px;
+}
+
+.card-3d-tilt {
+  transition: transform 0.4s var(--ease-smooth);
+  will-change: transform;
+  transform-style: preserve-3d;
+}
+.card-3d-tilt:hover {
+  transform: rotateY(6deg) rotateX(3deg) translateZ(8px);
+}
+
+/* ── Gradient Text ─────────────────────────────────────────── */
+.gradient-text {
+  background: linear-gradient(
+    135deg,
+    var(--route-violet-400),
+    #c084fc,
+    var(--route-violet-500)
+  );
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-shift 4s ease infinite;
+}
+
+/* ── Animated Premium Gradient ─────────────────────────────── */
+.gradient-animated-premium {
+  background: linear-gradient(
+    135deg,
+    var(--route-violet-500),
+    #9333ea,
+    #6366f1,
+    var(--route-violet-400)
+  );
+  background-size: 300% 300%;
+  animation: gradient-shift 5s ease infinite;
+  border: none;
+  color: #fff;
+}
+
+/* ── Text Shimmer ──────────────────────────────────────────── */
+.text-shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--text-soft) 0%,
+    #ffffff 40%,
+    var(--text-soft) 60%,
+    var(--text-soft) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 2.5s linear infinite;
+}
+
+/* ── Modern Button ─────────────────────────────────────────── */
+.btn-modern {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--route-violet-500), #9333ea);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 0.65rem 1.4rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.25s var(--ease-out-back),
+              box-shadow 0.25s var(--ease-smooth);
+  will-change: transform;
+}
+.btn-modern::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.2) 50%,
+    transparent 60%
+  );
+  background-size: 200% 100%;
+  background-position: -100% 0;
+  transition: background-position 0.5s var(--ease-smooth);
+}
+.btn-modern:hover::before {
+  background-position: 200% 0;
+}
+.btn-modern:hover {
+  transform: translateY(-3px) translateZ(0);
+  box-shadow: 0 10px 28px rgba(122, 69, 221, 0.45);
+}
+.btn-modern:active {
+  transform: translateY(0) scale(0.97) translateZ(0);
+}
+
+/* ── Modern Input ──────────────────────────────────────────── */
+.input-modern {
+  background: rgba(255, 255, 255, 0.05);
+  border: none;
+  border-bottom: 2px solid rgba(177, 130, 255, 0.35);
+  border-radius: 8px 8px 0 0;
+  padding: 0.6rem 0.8rem;
+  color: var(--text);
+  transition: border-color 0.3s var(--ease-smooth),
+              background 0.3s var(--ease-smooth);
+}
+.input-modern:focus {
+  outline: none;
+  border-bottom-color: var(--route-violet-400);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* ── Stagger Items ─────────────────────────────────────────── */
+.stagger-item {
+  opacity: 0;
+  animation: stagger-in 0.5s var(--ease-out-back) forwards;
+  animation-delay: var(--delay, 0ms);
+}
+
+/* ── Scroll Reveal ─────────────────────────────────────────── */
+.scroll-reveal {
+  opacity: 0;
+  animation: scroll-reveal-up 0.6s var(--ease-smooth) forwards;
+}
+
+.scroll-reveal-left {
+  opacity: 0;
+  animation: scroll-reveal-left 0.6s var(--ease-smooth) forwards;
+}
+
+.scroll-reveal-right {
+  opacity: 0;
+  animation: scroll-reveal-right 0.6s var(--ease-smooth) forwards;
+}
+
+/* ── Reduced Motion Override ───────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ── Mobile Optimizations ──────────────────────────────────── */
+@media (max-width: 768px) {
+  .float-element {
+    animation: none;
+  }
+  .card-3d-tilt:hover {
+    transform: scale(1.01) translateZ(0);
+  }
+  .hover-lift:hover {
+    transform: translateY(-3px) translateZ(0);
+  }
+}

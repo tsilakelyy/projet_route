@@ -1,0 +1,12 @@
+node_modules
+dist
+android
+ios
+coverage
+.vscode
+.git
+*.log
+npm-debug.log*
+yarn-error.log*
+yarn-debug.log*
+yarn-error.log*

@@ -1,0 +1,787 @@
+/* ==========================================
+   ULTRA-MODERN CSS EFFECTS - LUSION INSPIRED
+   High-Performance with GPU Acceleration
+   ========================================== */
+
+:root {
+  /* Advanced Animation Timings */
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --ease-elastic: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  
+  /* GPU Optimization */
+  --will-animate: transform, opacity, filter;
+  --gpu-layer: translateZ(0);
+}
+
+/* ==========================================
+   1. FLOATING & LEVITATION EFFECTS
+   Used for: Cards, buttons, sidebar elements
+   ========================================== */
+
+@keyframes float-subtle {
+  0%, 100% {
+    transform: translateZ(0) translateY(0px);
+  }
+  50% {
+    transform: translateZ(0) translateY(-8px);
+  }
+}
+
+@keyframes float-medium {
+  0%, 100% {
+    transform: translateZ(0) translateY(0px);
+  }
+  50% {
+    transform: translateZ(0) translateY(-12px);
+  }
+}
+
+@keyframes float-delayed {
+  0%, 100% {
+    transform: translateZ(0) translateY(0px);
+  }
+  50% {
+    transform: translateZ(0) translateY(-6px);
+  }
+}
+
+.float-element {
+  animation: float-subtle 3.5s ease-in-out infinite;
+  will-change: transform;
+}
+
+.float-element:nth-child(2) {
+  animation-delay: 0.4s;
+  animation: float-subtle 4s ease-in-out infinite;
+}
+
+.float-element:nth-child(3) {
+  animation-delay: 0.8s;
+  animation: float-subtle 4.5s ease-in-out infinite;
+}
+
+/* ==========================================
+   2. ADVANCED GLOW & LIGHT EFFECTS
+   Used for: Cards, buttons, key elements
+   ========================================== */
+
+@keyframes glow-pulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 0px rgba(255, 255, 255, 0));
+  }
+  50% {
+    filter: drop-shadow(0 0 20px rgba(122, 69, 221, 0.4));
+  }
+}
+
+@keyframes radial-glow {
+  0%, 100% {
+    box-shadow: 
+      0 0 0px rgba(122, 69, 221, 0),
+      inset 0 0 0px rgba(255, 255, 255, 0);
+  }
+  50% {
+    box-shadow: 
+      0 0 40px rgba(122, 69, 221, 0.3),
+      inset 0 0 20px rgba(255, 255, 255, 0.08);
+  }
+}
+
+.glow-element {
+  animation: radial-glow 3s ease-in-out infinite;
+  will-change: box-shadow;
+}
+
+.glow-pulse {
+  animation: glow-pulse 2.5s ease-in-out infinite;
+  will-change: filter;
+}
+
+/* ==========================================
+   3. 3D PERSPECTIVE & TILT EFFECTS
+   High-performance 3D without heavy computation
+   ========================================== */
+
+.card-3d-container {
+  perspective: 1200px;
+  transform-style: preserve-3d;
+}
+
+.card-3d-tilt {
+  transition: transform 400ms var(--ease-smooth);
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.card-3d-tilt:hover {
+  transform: 
+    rotateX(4deg) 
+    rotateY(-4deg) 
+    translateZ(20px)
+    scale(1.02);
+}
+
+.card-3d-inner {
+  transform-style: preserve-3d;
+  transition: transform 600ms var(--ease-smooth);
+}
+
+.card-3d-tilt:hover .card-3d-inner {
+  transform: translateZ(30px) rotateX(-2deg) rotateY(2deg);
+}
+
+/* ==========================================
+   4. MORPHING GRADIENT ANIMATIONS
+   Creates fluid color transitions
+   ========================================== */
+
+@keyframes gradient-shift-advanced {
+  0% {
+    background-position: 0% 50%;
+  }
+  25% {
+    background-position: 50% 0%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  75% {
+    background-position: 50% 100%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes gradient-flow {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+.gradient-animated-premium {
+  background-size: 300% 300%;
+  animation: gradient-shift-advanced 8s ease infinite;
+  will-change: background-position;
+}
+
+.gradient-flow-element {
+  background-size: 200% 200%;
+  animation: gradient-flow 6s ease-in-out infinite;
+}
+
+/* ==========================================
+   5. ENHANCED GLASS MORPHISM
+   Modern frosted glass with depth
+   ========================================== */
+
+@keyframes glass-shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.glass-card {
+  background: linear-gradient(
+    130deg,
+    rgba(255, 255, 255, 0.12) 0%,
+    rgba(255, 255, 255, 0.05) 50%,
+    rgba(255, 255, 255, 0.08) 100%
+  );
+  backdrop-filter: blur(12px) saturate(1.5);
+  -webkit-backdrop-filter: blur(12px) saturate(1.5);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  box-shadow: 
+    0 12px 40px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+  will-change: transform, backdrop-filter;
+}
+
+.glass-card:hover {
+  backdrop-filter: blur(16px) saturate(1.8);
+  -webkit-backdrop-filter: blur(16px) saturate(1.8);
+  box-shadow: 
+    0 20px 50px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+}
+
+/* ==========================================
+   6. ADVANCED HOVER ANIMATIONS
+   Sophisticated interaction states
+   ========================================== */
+
+@keyframes scale-pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes slider-reveal {
+  from {
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  to {
+    transform: scaleX(1);
+    transform-origin: right;
+  }
+}
+
+.hover-lift {
+  transition: all 300ms var(--ease-smooth);
+  will-change: transform, box-shadow, filter;
+}
+
+.hover-lift:hover {
+  transform: translateY(-6px) translateZ(0);
+  box-shadow: 
+    0 24px 48px rgba(0, 0, 0, 0.2),
+    0 0 40px rgba(122, 69, 221, 0.2);
+  filter: brightness(1.08);
+}
+
+.hover-scale-bounce {
+  transition: transform 300ms var(--ease-out-back);
+  will-change: transform;
+}
+
+.hover-scale-bounce:hover {
+  transform: scale(1.08) translateZ(0);
+}
+
+.hover-rotate-3d {
+  transition: all 400ms var(--ease-smooth);
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.hover-rotate-3d:hover {
+  transform: rotateX(2deg) rotateY(2deg) scale(1.04) translateZ(10px);
+}
+
+/* ==========================================
+   7. MAGNETIC CURSOR EFFECT
+   Avatar or element follows cursor smoothly
+   ========================================== */
+
+.magnetic-element {
+  position: relative;
+  transition: transform 200ms cubic-bezier(0.23, 1, 0.320, 1);
+  will-change: transform;
+}
+
+/* Applied via JavaScript for mouse tracking */
+.magnetic-element[data-magnetic="active"] {
+  cursor: pointer;
+}
+
+/* ==========================================
+   8. ADVANCED TEXT EFFECTS
+   Gradient text, glitch, reveal animations
+   ========================================== */
+
+@keyframes gradient-text-flow {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.gradient-text {
+  background: linear-gradient(
+    90deg,
+    #7a45dd 0%,
+    #b182ff 25%,
+    #7a45dd 50%,
+    #b182ff 75%,
+    #7a45dd 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-text-flow 4s linear infinite;
+  will-change: background-position;
+}
+
+.text-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.text-shimmer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  animation: shine-text 3s infinite;
+  pointer-events: none;
+}
+
+@keyframes shine-text {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* ==========================================
+   9. STAGGERED & CASCADING ANIMATIONS
+   For list items, cards, elements
+   ========================================== */
+
+.stagger-item {
+  opacity: 0;
+  transform: translateY(20px) translateZ(0);
+  animation: stagger-reveal 600ms var(--ease-smooth) forwards;
+}
+
+@keyframes stagger-reveal {
+  to {
+    opacity: 1;
+    transform: translateY(0) translateZ(0);
+  }
+}
+
+.stagger-item:nth-child(1) { animation-delay: 0.1s; }
+.stagger-item:nth-child(2) { animation-delay: 0.2s; }
+.stagger-item:nth-child(3) { animation-delay: 0.3s; }
+.stagger-item:nth-child(4) { animation-delay: 0.4s; }
+.stagger-item:nth-child(5) { animation-delay: 0.5s; }
+.stagger-item:nth-child(n+6) { animation-delay: 0.6s; }
+
+/* ==========================================
+   10. DYNAMIC SHADOW MORPHING
+   Shadows change based on interaction
+   ========================================== */
+
+.morph-shadow {
+  transition: box-shadow 400ms var(--ease-smooth);
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.1),
+    0 1px 3px rgba(0, 0, 0, 0.08);
+  will-change: box-shadow;
+}
+
+.morph-shadow:hover {
+  box-shadow: 
+    0 40px 80px rgba(122, 69, 221, 0.25),
+    0 8px 16px rgba(0, 0, 0, 0.15),
+    0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.morph-shadow.active {
+  box-shadow: 
+    0 20px 60px rgba(122, 69, 221, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* ==========================================
+   11. ADVANCED BUTTON EFFECTS
+   Premium interactive buttons
+   ========================================== */
+
+.btn-modern {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  border: 0;
+  cursor: pointer;
+  transition: all 300ms var(--ease-smooth);
+  will-change: transform, box-shadow, filter;
+}
+
+.btn-modern::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.3) 60%,
+    transparent 90%
+  );
+  transform: translateX(-100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.btn-modern:hover::before {
+  animation: shine-btn 600ms ease-in-out;
+}
+
+@keyframes shine-btn {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.btn-modern:hover {
+  transform: translateY(-3px) translateZ(0);
+  filter: saturate(1.1) brightness(1.05);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.2),
+    0 0 30px rgba(122, 69, 221, 0.3);
+}
+
+.btn-modern:active {
+  transform: translateY(1px) translateZ(0);
+  filter: saturate(0.9);
+}
+
+/* ==========================================
+   12. PATTERN & TEXTURE OVERLAYS
+   Subtle grain and pattern effects
+   ========================================== */
+
+.texture-noise {
+  position: relative;
+  overflow: hidden;
+}
+
+.texture-noise::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' result='noise'/%3E%3C/filter%3E%3Crect width='100' height='100' fill='%23ffffff' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+  background-size: 100px 100px;
+  pointer-events: none;
+  opacity: 0.6;
+  mix-blend-mode: overlay;
+}
+
+/* ==========================================
+   13. SCROLL REVEAL ANIMATIONS
+   Elements reveal as they come into view
+   ========================================== */
+
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(30px) translateZ(0);
+  transition: opacity 700ms var(--ease-smooth), transform 700ms var(--ease-smooth);
+}
+
+.scroll-reveal.visible {
+  opacity: 1;
+  transform: translateY(0) translateZ(0);
+}
+
+.scroll-reveal-left {
+  opacity: 0;
+  transform: translateX(-40px) translateZ(0);
+}
+
+.scroll-reveal-left.visible {
+  opacity: 1;
+  transform: translateX(0) translateZ(0);
+}
+
+.scroll-reveal-right {
+  opacity: 0;
+  transform: translateX(40px) translateZ(0);
+}
+
+.scroll-reveal-right.visible {
+  opacity: 1;
+  transform: translateX(0) translateZ(0);
+}
+
+/* ==========================================
+   14. INTERACTIVE FORM ELEMENTS
+   Enhanced inputs & interactions
+   ========================================== */
+
+.input-modern {
+  position: relative;
+  transition: all 300ms var(--ease-smooth);
+  will-change: border-color, box-shadow, background;
+}
+
+.input-modern::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #7a45dd, #b182ff);
+  transform: translateX(-50%);
+  transition: width 400ms var(--ease-smooth);
+}
+
+.input-modern:focus::after {
+  width: 100%;
+}
+
+.input-modern:focus {
+  border-color: #7a45dd;
+  box-shadow: 
+    0 0 0 4px rgba(122, 69, 221, 0.1),
+    0 0 20px rgba(122, 69, 221, 0.2);
+  background: rgba(122, 69, 221, 0.03);
+}
+
+/* ==========================================
+   15. RESPONSIVE & PERFORMANCE OPTIMIZATIONS
+   ========================================== */
+
+/* Reduce animations on lower-end devices */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Optimize for mobile devices */
+@media (max-width: 768px) {
+  .card-3d-tilt:hover {
+    transform: scale(1.01) translateZ(0);
+  }
+
+  .float-element {
+    animation: float-subtle 4.5s ease-in-out infinite;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-3px) translateZ(0);
+  }
+
+  .btn-modern:hover {
+    transform: translateY(-2px) translateZ(0);
+  }
+}
+
+/* ==========================================
+   16. ADVANCED BACKDROP EFFECTS
+   For premium glass-like surfaces
+   ========================================== */
+
+.backdrop-premium {
+  background: rgba(20, 7, 40, 0.35);
+  backdrop-filter: blur(20px) brightness(1.1) saturate(1.2);
+  -webkit-backdrop-filter: blur(20px) brightness(1.1) saturate(1.2);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.backdrop-premium::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at 20% 50%,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0) 50%
+  );
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+/* ==========================================
+   17. LIGHT LEAK & LENS EFFECTS
+   Cinematic light effects
+   ========================================== */
+
+@keyframes light-leak {
+  0% {
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateX(100%) translateY(100%) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+.light-leak {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(255, 200, 100, 0.4) 0%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(40px);
+  animation: light-leak 6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* ==========================================
+   18. SKELETON LOADING ANIMATIONS
+   Premium loading states
+   ========================================== */
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: calc(200% + 100px) 0;
+  }
+}
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.1) 25%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.1) 75%
+  );
+  background-size: 200px 100%;
+  animation: skeleton-loading 1.5s infinite;
+  border-radius: 8px;
+}
+
+/* ==========================================
+   19. PARTICLE & BACKGROUND EFFECTS
+   ========================================== */
+
+.particle-bg {
+  position: relative;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  animation: float-subtle 8s ease-in-out infinite linear;
+  will-change: transform;
+}
+
+.particle:nth-child(odd) {
+  animation: float-subtle 10s ease-in-out infinite;
+}
+
+/* ==========================================
+   20. ATTENTION GRABBERS & PULSE EFFECTS
+   ========================================== */
+
+@keyframes attention-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(122, 69, 221, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 0 15px rgba(122, 69, 221, 0);
+  }
+}
+
+.pulse-urgent {
+  animation: attention-pulse 2s infinite;
+  will-change: box-shadow;
+}
+
+@keyframes badge-pop {
+  0% {
+    transform: scale(0) rotate(-45deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2) rotate(0deg);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+.badge-pop {
+  animation: badge-pop 500ms var(--ease-out-back);
+  will-change: transform, opacity;
+}
+
+/* ==========================================
+   DEMO: Apply to existing elements
+   ========================================== */
+
+.route-login__panel {
+  background: linear-gradient(
+    130deg,
+    rgba(255, 255, 255, 0.12) 0%,
+    rgba(255, 255, 255, 0.05) 50%,
+    rgba(255, 255, 255, 0.08) 100%
+  );
+  backdrop-filter: blur(12px) saturate(1.5);
+  -webkit-backdrop-filter: blur(12px) saturate(1.5);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+}
+
+.route-login__submit {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  border: 0;
+  cursor: pointer;
+  transition: all 300ms var(--ease-smooth);
+  will-change: transform, box-shadow, filter;
+}
+
+.dashboard-container .nav-item:hover {
+  transform: translateY(-6px) translateZ(0);
+  box-shadow:
+    0 24px 48px rgba(0, 0, 0, 0.2),
+    0 0 40px rgba(122, 69, 221, 0.2);
+  filter: brightness(1.08);
+}
+
+.dashboard-container .map-container {
+  background: linear-gradient(
+    130deg,
+    rgba(255, 255, 255, 0.12) 0%,
+    rgba(255, 255, 255, 0.05) 50%,
+    rgba(255, 255, 255, 0.08) 100%
+  );
+  backdrop-filter: blur(12px) saturate(1.5);
+  -webkit-backdrop-filter: blur(12px) saturate(1.5);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+}

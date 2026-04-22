@@ -1,0 +1,54 @@
+diff --git a/node_modules/@capacitor/http/android/build.gradle b/node_modules/@capacitor/http/android/build.gradle
+index 35ab45d..1faae01 100644
+--- a/node_modules/@capacitor/http/android/build.gradle
++++ b/node_modules/@capacitor/http/android/build.gradle
+@@ -17,6 +17,7 @@ buildscript {
+ apply plugin: 'com.android.library'
+ 
+ android {
++    namespace 'com.capacitorjs.http'
+     compileSdkVersion project.hasProperty('compileSdkVersion') ? rootProject.ext.compileSdkVersion : 29
+     defaultConfig {
+         minSdkVersion project.hasProperty('minSdkVersion') ? rootProject.ext.minSdkVersion : 21
+@@ -42,7 +43,6 @@ repositories {
+     mavenCentral()
+ }
+ 
+-
+ dependencies {
+     implementation fileTree(dir: 'libs', include: ['*.jar'])
+     implementation project(':capacitor-android')
+diff --git a/node_modules/@capacitor/http/android/src/main/AndroidManifest.xml b/node_modules/@capacitor/http/android/src/main/AndroidManifest.xml
+index 5b7a8ba..a2f47b6 100644
+--- a/node_modules/@capacitor/http/android/src/main/AndroidManifest.xml
++++ b/node_modules/@capacitor/http/android/src/main/AndroidManifest.xml
+@@ -1,5 +1,2 @@
+-
+-  <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+-      package="com.getcapacitor.http.http">
+-  </manifest>
+-  
+\ No newline at end of file
++<manifest xmlns:android="http://schemas.android.com/apk/res/android">
++</manifest>
+diff --git a/node_modules/@capacitor/http/android/src/main/java/com/getcapacitor/plugin/http/Http.java b/node_modules/@capacitor/http/android/src/main/java/com/getcapacitor/plugin/http/Http.java
+index 4d11970..e385f0c 100644
+--- a/node_modules/@capacitor/http/android/src/main/java/com/getcapacitor/plugin/http/Http.java
++++ b/node_modules/@capacitor/http/android/src/main/java/com/getcapacitor/plugin/http/Http.java
+@@ -10,7 +10,6 @@ import com.getcapacitor.NativePlugin;
+ import com.getcapacitor.Plugin;
+ import com.getcapacitor.PluginCall;
+ import com.getcapacitor.PluginMethod;
+-import com.getcapacitor.PluginRequestCodes;
+ 
+ import org.json.JSONException;
+ 
+@@ -214,7 +213,7 @@ public class Http extends Plugin {
+       String perm = permissions[i];
+       if(result == PackageManager.PERMISSION_DENIED) {
+         Log.d(getLogTag(), "User denied storage permission: " + perm);
+-        savedCall.error("User denied write permission needed to save files");
++        savedCall.reject("User denied write permission needed to save files");
+         this.freeSavedCall();
+         return;
+       }

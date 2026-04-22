@@ -1,0 +1,98 @@
+# Specifies intentionally untracked files to ignore when using Git
+# http://git-scm.com/docs/gitignore
+
+# Node modules and lock files
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Build outputs
+dist/
+dist-ssr/
+www/
+/www/
+
+# Environment
+.env
+.env.local
+.env.*.local
+.env.production
+
+# IDE
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+hs_err_pid*.log
+replay_pid*.log
+
+# Editor artifacts
+.tmp
+*.tmp
+*.tmp.*
+$RECYCLE.BIN/
+
+# Ionic
+/.ionic
+/.sass-cache
+/.sourcemaps
+/.versions
+/coverage
+/plugins
+
+# Platforms
+/platforms
+
+# Testing
+/coverage
+/.jest
+.nyc_output/
+
+# OS
+.DS_Store
+Thumbs.db
+UserInterfaceState.xcuserstate
+ehthumbs.db
+
+# Misc
+.cache/
+.temp/
+tmp/
+temp/
+*.swp
+*.swo
+*~
+
+# Firebase
+google-services.json
+GoogleService-Info.plist
+firebase-service-account*.json
+
+# Gradle
+.gradle/
+*.gradle.bak
+
+# Java
+*.class
+*.jar
+*.war
+*.nar
+*.zip
+*.tar.gz
+*.rar
+
+# Misc build files
+.pmk
+.npm/
+.npmrc

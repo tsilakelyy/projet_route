@@ -1,0 +1,116 @@
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Build outputs
+dist/
+build/
+target/
+*.apk
+*.aab
+*.ipa
+*.d.ts/
+dist-ssr/
+
+# Android build artifacts
+android/app/build/
+android/.gradle/
+android/local.properties
+android/**/*.iml
+mobile/android/app/build/
+mobile/android/.gradle/
+mobile/android/local.properties
+
+# iOS build artifacts
+ios/Pods/
+ios/Podfile.lock
+ios/.xcode.env.local
+mobile/ios/Pods/
+mobile/ios/Podfile.lock
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+.env.production
+.env.development
+
+# IDE
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+*.sublime-project
+*.sublime-workspace
+*.iml
+*.iws
+*.ipr
+*.suo
+*.ntvs*
+*.njsproj
+*.sln.user
+
+# Firebase
+firebase-service-account.json
+firebase-service-account*.json
+google-services.json
+GoogleService-Info.plist
+projet-route-1-firebase-adminsdk-fbsvc-136006eba0.json
+
+# Logs
+logs/
+*.log
+log.txt
+hs_err_pid*.log
+replay_pid*.log
+
+# OS
+Thumbs.db
+.DS_Store
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+$RECYCLE.BIN/
+
+# Testing
+coverage/
+.nyc_output/
+.jest/
+
+# Misc
+.cache/
+.temp/
+tmp/
+temp/
+.pmk
+.npmrc
+
+# Large data files
+*.mbtiles
+*.pbf
+*.osm
+*.osm.pbf
+
+# Docker
+docker-compose.override.yml
+.docker/
+
+# Misc generated files
+.gradle/
+.mvn/wrapper/maven-wrapper.jar
+.m2/
+.npm/
+
+# Screenshots (IDE artifacts)
+Capture d'écran*.png
+Screenshot*.png

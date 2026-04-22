@@ -1,0 +1,5 @@
+// Sauvegarde du fichier WebActiveController.java
+// Ce fichier a été supprimé car ses fonctionnalités sont déjà dans PresenceSyncController
+// Les endpoints suivants sont maintenant gérés par PresenceSyncController :
+// - GET /api/presence/web-active
+// - GET /api/presence/mobile-active
